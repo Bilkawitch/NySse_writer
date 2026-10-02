@@ -1,0 +1,28 @@
+{
+  "name": "nysse-writer",
+  "version": "1.0.0",
+  "description": "Автономный тактический редактор и офлайн-аудитор академических текстов по порогам рецензентов",
+  "main": "bin/cli.js",
+  "bin": {
+    "nysse": "bin/cli.js",
+    "nysse-writer": "bin/cli.js"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "web": "node bin/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bilkawitch/NySse_writer.git"
+  },
+  "keywords": [
+    "academic-writing",
+    "text-analysis",
+    "offline-first",
+    "git-history",
+    "reviewer-metrics",
+    "nysse"
+  ],
+  "author": "Bilkawitch",
+  "license": "MIT"
+}
