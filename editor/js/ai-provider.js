@@ -4,7 +4,7 @@
  * API-ключ сохраняется строго локально в настройках пользователя.
  */
 
-import { getSettings } from './settings.js?v=2.2.1';
+import { getSettings } from './settings.js?v=2.2.2';
 
 // Пресеты провайдеров
 export const AI_PRESETS = {
@@ -173,13 +173,26 @@ export async function runAiSemanticAudit(rawText, metricsSummary, parsedDoc) {
   ]
 }`;
 
+  const wordsCount = parsedDoc?.totalWordsCount || 0;
+  const charsCount = parsedDoc?.charsWithSpaces || 0;
+  const avgLen = metricsSummary?.metrics?.avgSentenceLength?.value ?? '—';
+  const avgHuman = metricsSummary?.metrics?.avgSentenceLength?.human ?? 23.2;
+  const avgAi = metricsSummary?.metrics?.avgSentenceLength?.aiRed ?? 29.2;
+  const longRatio = metricsSummary?.metrics?.longSentenceRatio?.value ?? '—';
+  const longAi = metricsSummary?.metrics?.longSentenceRatio?.aiRed ?? 17.0;
+  const stopRatio = metricsSummary?.metrics?.stopwordRatio?.value ?? '—';
+  const stopAi = metricsSummary?.metrics?.stopwordRatio?.aiRed ?? 33.0;
+  const starterPercent = metricsSummary?.extras?.starterUniformity?.maxRatio ? metricsSummary.extras.starterUniformity.maxRatio.toFixed(1) : '0.0';
+  const topWord = metricsSummary?.extras?.starterUniformity?.topStarter || '—';
+  const stdDev = metricsSummary?.extras?.stdDev?.value ? metricsSummary.extras.stdDev.value.toFixed(1) : '0.0';
+
   const metricsContext = `ДАННЫЕ ОБЪЕКТИВНЫХ СКРИПТОВЫХ ИЗМЕРЕНИЙ ДАННОГО ТЕКСТА:
-- Слов: ${parsedDoc.totalWordsCount}, Знаков: ${parsedDoc.charsWithSpaces}
-- Средняя длина предложения: ${metricsSummary.metrics.avgSentenceLength.value} (Норма: ${metricsSummary.metrics.avgSentenceLength.human}, ИИ: ${metricsSummary.metrics.avgSentenceLength.aiRed})
-- Доля длинных 41+: ${metricsSummary.metrics.longSentenceRatio.value}% (ИИ: >=${metricsSummary.metrics.longSentenceRatio.aiRed}%)
-- Доля служебных слов: ${metricsSummary.metrics.stopwordRatio.value}% (У ИИ дефицит: <=${metricsSummary.metrics.stopwordRatio.aiRed}%)
-- Повтор зачинов: ${metricsSummary.extras.starters.maxPercent}% (слово «${metricsSummary.extras.starters.topWord}»)
-- Вариативность ритма (SD): ${metricsSummary.extras.stdDev.value} сл.`;
+- Слов: ${wordsCount}, Знаков: ${charsCount}
+- Средняя длина предложения: ${avgLen} (Норма: ${avgHuman}, ИИ: ${avgAi})
+- Доля длинных 41+: ${longRatio}% (ИИ: >=${longAi}%)
+- Доля служебных слов: ${stopRatio}% (У ИИ дефицит: <=${stopAi}%)
+- Повтор зачинов: ${starterPercent}% (слово «${topWord}»)
+- Вариативность ритма (SD): ${stdDev} сл.`;
 
   const userContent = `${metricsContext}\n\nТЕКСТ СТАТЬИ ДЛЯ АНАЛИЗА:\n"""\n${rawText}\n"""`;
 

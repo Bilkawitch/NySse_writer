@@ -8,10 +8,10 @@
  * 4. Управление и проверка подключения к кастомному ИИ-провайдеру
  */
 
-import { getSettings } from './settings.js?v=2.2.1';
-import { runAiSemanticAudit, AI_PRESETS } from './ai-provider.js?v=2.2.1';
-import { openSettings } from './settings-modal.js?v=2.2.1';
-import { showToast } from './editor.js?v=2.2.1';
+import { getSettings } from './settings.js?v=2.2.2';
+import { runAiSemanticAudit, AI_PRESETS } from './ai-provider.js?v=2.2.2';
+import { openSettings } from './settings-modal.js?v=2.2.2';
+import { showToast } from './editor.js?v=2.2.2';
 
 let panelEl = null;
 let currentAuditResult = null;

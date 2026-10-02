@@ -10,5 +10,6 @@
   "8": "package.json",
   "9": "cli.js",
   "10": "README.md",
-  "11": "ai-panel.js"
+  "11": "ai-panel.js",
+  "12": "ai-provider.js"
 }

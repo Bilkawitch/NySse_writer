@@ -17,6 +17,30 @@
       "source_location": "L27"
     },
     {
+      "id": "editor_js_pages_estimatea4pages",
+      "label": "estimateA4Pages()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "settings.js",
+      "file_type": "code",
+      "norm_label": "estimatea4pages()",
+      "source_file": "editor/js/pages.js",
+      "source_location": "L60"
+    },
+    {
+      "id": "editor_js_pages_getsandbox",
+      "label": "getSandbox()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "settings.js",
+      "file_type": "code",
+      "norm_label": "getsandbox()",
+      "source_file": "editor/js/pages.js",
+      "source_location": "L22"
+    },
+    {
       "id": "editor_js_parse_analyzesentenceissues",
       "label": "analyzeSentenceIssues()",
       "_callable": true,
@@ -125,24 +149,12 @@
       "source_location": "L155"
     },
     {
-      "id": "editor_js_ai_provider_testaiconnection",
-      "label": "testAiConnection()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
-      "file_type": "code",
-      "norm_label": "testaiconnection()",
-      "source_file": "editor/js/ai-provider.js",
-      "source_location": "L63"
-    },
-    {
       "id": "editor_js_settings_deepclone",
       "label": "deepClone()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
+      "community": 0,
+      "community_name": "settings.js",
       "file_type": "code",
       "norm_label": "deepclone()",
       "source_file": "editor/js/settings.js",
@@ -153,8 +165,8 @@
       "label": "deepMerge()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
+      "community": 0,
+      "community_name": "settings.js",
       "file_type": "code",
       "norm_label": "deepmerge()",
       "source_file": "editor/js/settings.js",
@@ -165,8 +177,8 @@
       "label": "exportSettingsJSON()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
+      "community": 0,
+      "community_name": "settings.js",
       "file_type": "code",
       "norm_label": "exportsettingsjson()",
       "source_file": "editor/js/settings.js",
@@ -177,8 +189,8 @@
       "label": "getSettings()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
+      "community": 0,
+      "community_name": "settings.js",
       "file_type": "code",
       "norm_label": "getsettings()",
       "source_file": "editor/js/settings.js",
@@ -189,12 +201,60 @@
       "label": "importSettingsJSON()",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
+      "community": 0,
+      "community_name": "settings.js",
       "file_type": "code",
       "norm_label": "importsettingsjson()",
       "source_file": "editor/js/settings.js",
       "source_location": "L212"
+    },
+    {
+      "id": "editor_js_settings_notifysettingschanged",
+      "label": "notifySettingsChanged()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "settings.js",
+      "file_type": "code",
+      "norm_label": "notifysettingschanged()",
+      "source_file": "editor/js/settings.js",
+      "source_location": "L232"
+    },
+    {
+      "id": "editor_js_settings_onsettingschange",
+      "label": "onSettingsChange()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "settings.js",
+      "file_type": "code",
+      "norm_label": "onsettingschange()",
+      "source_file": "editor/js/settings.js",
+      "source_location": "L227"
+    },
+    {
+      "id": "editor_js_settings_resettoreviewdefaults",
+      "label": "resetToReviewDefaults()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "settings.js",
+      "file_type": "code",
+      "norm_label": "resettoreviewdefaults()",
+      "source_file": "editor/js/settings.js",
+      "source_location": "L191"
+    },
+    {
+      "id": "editor_js_settings_savesettings",
+      "label": "saveSettings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "settings.js",
+      "file_type": "code",
+      "norm_label": "savesettings()",
+      "source_file": "editor/js/settings.js",
+      "source_location": "L177"
     },
     {
       "id": "editor_js_settings_modal_closesettings",
@@ -206,7 +266,7 @@
       "file_type": "code",
       "norm_label": "closesettings()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L202"
+      "source_location": "L225"
     },
     {
       "id": "editor_js_settings_modal_escapehtml",
@@ -218,7 +278,7 @@
       "file_type": "code",
       "norm_label": "escapehtml()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L436"
+      "source_location": "L459"
     },
     {
       "id": "editor_js_settings_modal_gatherandsavesettings",
@@ -230,7 +290,7 @@
       "file_type": "code",
       "norm_label": "gatherandsavesettings()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L350"
+      "source_location": "L373"
     },
     {
       "id": "editor_js_settings_modal_getcheck",
@@ -242,7 +302,7 @@
       "file_type": "code",
       "norm_label": "getcheck()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L426"
+      "source_location": "L449"
     },
     {
       "id": "editor_js_settings_modal_getval",
@@ -254,7 +314,7 @@
       "file_type": "code",
       "norm_label": "getval()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L416"
+      "source_location": "L439"
     },
     {
       "id": "editor_js_settings_modal_initsettingsmodal",
@@ -278,7 +338,19 @@
       "file_type": "code",
       "norm_label": "loadsettingsintoform()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L209"
+      "source_location": "L232"
+    },
+    {
+      "id": "editor_js_settings_modal_opensettings",
+      "label": "openSettings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "settings-modal.js",
+      "file_type": "code",
+      "norm_label": "opensettings()",
+      "source_file": "editor/js/settings-modal.js",
+      "source_location": "L220"
     },
     {
       "id": "editor_js_settings_modal_renderaimodelchips",
@@ -290,7 +362,7 @@
       "file_type": "code",
       "norm_label": "renderaimodelchips()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L285"
+      "source_location": "L308"
     },
     {
       "id": "editor_js_settings_modal_rendersignalphraseslist",
@@ -302,7 +374,7 @@
       "file_type": "code",
       "norm_label": "rendersignalphraseslist()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L308"
+      "source_location": "L331"
     },
     {
       "id": "editor_js_settings_modal_setcheck",
@@ -314,7 +386,7 @@
       "file_type": "code",
       "norm_label": "setcheck()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L431"
+      "source_location": "L454"
     },
     {
       "id": "editor_js_settings_modal_setval",
@@ -326,7 +398,7 @@
       "file_type": "code",
       "norm_label": "setval()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L421"
+      "source_location": "L444"
     },
     {
       "id": "editor_js_settings_modal_updateaiproviderhint",
@@ -338,43 +410,7 @@
       "file_type": "code",
       "norm_label": "updateaiproviderhint()",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L278"
-    },
-    {
-      "id": "editor_js_settings_notifysettingschanged",
-      "label": "notifySettingsChanged()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
-      "file_type": "code",
-      "norm_label": "notifysettingschanged()",
-      "source_file": "editor/js/settings.js",
-      "source_location": "L232"
-    },
-    {
-      "id": "editor_js_settings_resettoreviewdefaults",
-      "label": "resetToReviewDefaults()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
-      "file_type": "code",
-      "norm_label": "resettoreviewdefaults()",
-      "source_file": "editor/js/settings.js",
-      "source_location": "L191"
-    },
-    {
-      "id": "editor_js_settings_savesettings",
-      "label": "saveSettings()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
-      "file_type": "code",
-      "norm_label": "savesettings()",
-      "source_file": "editor/js/settings.js",
-      "source_location": "L177"
+      "source_location": "L301"
     },
     {
       "id": "editor_js_ai_panel_attachresultinteractions",
@@ -473,6 +509,18 @@
       "source_location": "L85"
     },
     {
+      "id": "editor_js_ai_panel_setaudittriggerhandler",
+      "label": "setAuditTriggerHandler()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "ai-panel.js",
+      "file_type": "code",
+      "norm_label": "setaudittriggerhandler()",
+      "source_file": "editor/js/ai-panel.js",
+      "source_location": "L345"
+    },
+    {
       "id": "editor_js_ai_panel_triggeraiaudit",
       "label": "triggerAiAudit()",
       "_callable": true,
@@ -489,60 +537,36 @@
       "label": "parseAiJsonResponse()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "ai-panel.js",
+      "community": 12,
+      "community_name": "ai-provider.js",
       "file_type": "code",
       "norm_label": "parseaijsonresponse()",
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L208"
+      "source_location": "L226"
     },
     {
       "id": "editor_js_ai_provider_runaisemanticaudit",
       "label": "runAiSemanticAudit()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "ai-panel.js",
+      "community": 12,
+      "community_name": "ai-provider.js",
       "file_type": "code",
       "norm_label": "runaisemanticaudit()",
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L102"
+      "source_location": "L120"
     },
     {
-      "id": "editor_js_editor_showtoast",
-      "label": "showToast()",
+      "id": "editor_js_ai_provider_testaiconnection",
+      "label": "testAiConnection()",
       "_callable": true,
       "_origin": "ast",
-      "community": 11,
-      "community_name": "ai-panel.js",
+      "community": 12,
+      "community_name": "ai-provider.js",
       "file_type": "code",
-      "norm_label": "showtoast()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L1033"
-    },
-    {
-      "id": "editor_js_settings_modal_opensettings",
-      "label": "openSettings()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "ai-panel.js",
-      "file_type": "code",
-      "norm_label": "opensettings()",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L197"
-    },
-    {
-      "id": "editor_js_ai_panel_setaudittriggerhandler",
-      "label": "setAuditTriggerHandler()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "editor.js",
-      "file_type": "code",
-      "norm_label": "setaudittriggerhandler()",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L345"
+      "norm_label": "testaiconnection()",
+      "source_file": "editor/js/ai-provider.js",
+      "source_location": "L63"
     },
     {
       "id": "editor_js_editor_checksentenceatoffset",
@@ -554,7 +578,7 @@
       "file_type": "code",
       "norm_label": "checksentenceatoffset()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1011"
+      "source_location": "L1013"
     },
     {
       "id": "editor_js_editor_closepopup",
@@ -566,7 +590,7 @@
       "file_type": "code",
       "norm_label": "closepopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L983"
+      "source_location": "L985"
     },
     {
       "id": "editor_js_editor_escapehtml",
@@ -590,7 +614,7 @@
       "file_type": "code",
       "norm_label": "exportplaintextfile()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L523"
+      "source_location": "L525"
     },
     {
       "id": "editor_js_editor_fillpopupcontent",
@@ -602,7 +626,7 @@
       "file_type": "code",
       "norm_label": "fillpopupcontent()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L931"
+      "source_location": "L933"
     },
     {
       "id": "editor_js_editor_getdemoreviewtext",
@@ -614,7 +638,7 @@
       "file_type": "code",
       "norm_label": "getdemoreviewtext()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1055"
+      "source_location": "L1057"
     },
     {
       "id": "editor_js_editor_handleeditorclick",
@@ -626,7 +650,7 @@
       "file_type": "code",
       "norm_label": "handleeditorclick()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1001"
+      "source_location": "L1003"
     },
     {
       "id": "editor_js_editor_handleeditorcursormove",
@@ -638,7 +662,7 @@
       "file_type": "code",
       "norm_label": "handleeditorcursormove()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1006"
+      "source_location": "L1008"
     },
     {
       "id": "editor_js_editor_hidepopupifscrolledout",
@@ -650,7 +674,7 @@
       "file_type": "code",
       "norm_label": "hidepopupifscrolledout()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L990"
+      "source_location": "L992"
     },
     {
       "id": "editor_js_editor_initeditor",
@@ -674,7 +698,7 @@
       "file_type": "code",
       "norm_label": "positionandshowpopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L906"
+      "source_location": "L908"
     },
     {
       "id": "editor_js_editor_recalculateall",
@@ -686,7 +710,7 @@
       "file_type": "code",
       "norm_label": "recalculateall()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L540"
+      "source_location": "L542"
     },
     {
       "id": "editor_js_editor_renderglobaldeficits",
@@ -698,7 +722,7 @@
       "file_type": "code",
       "norm_label": "renderglobaldeficits()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L758"
+      "source_location": "L760"
     },
     {
       "id": "editor_js_editor_renderissuelist",
@@ -710,7 +734,7 @@
       "file_type": "code",
       "norm_label": "renderissuelist()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L803"
+      "source_location": "L805"
     },
     {
       "id": "editor_js_editor_rendermetriccard",
@@ -722,7 +746,7 @@
       "file_type": "code",
       "norm_label": "rendermetriccard()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L708"
+      "source_location": "L710"
     },
     {
       "id": "editor_js_editor_rendermirrorhighlights",
@@ -734,7 +758,7 @@
       "file_type": "code",
       "norm_label": "rendermirrorhighlights()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L566"
+      "source_location": "L568"
     },
     {
       "id": "editor_js_editor_rendersidebarstats",
@@ -746,7 +770,7 @@
       "file_type": "code",
       "norm_label": "rendersidebarstats()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L646"
+      "source_location": "L648"
     },
     {
       "id": "editor_js_editor_schedulegitautosave",
@@ -758,7 +782,7 @@
       "file_type": "code",
       "norm_label": "schedulegitautosave()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L496"
+      "source_location": "L498"
     },
     {
       "id": "editor_js_editor_scrolltosentenceandopenpopup",
@@ -770,7 +794,7 @@
       "file_type": "code",
       "norm_label": "scrolltosentenceandopenpopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L872"
+      "source_location": "L874"
     },
     {
       "id": "editor_js_editor_setsavestatus",
@@ -782,7 +806,7 @@
       "file_type": "code",
       "norm_label": "setsavestatus()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L514"
+      "source_location": "L516"
     },
     {
       "id": "editor_js_editor_settext",
@@ -794,7 +818,7 @@
       "file_type": "code",
       "norm_label": "settext()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1025"
+      "source_location": "L1027"
     },
     {
       "id": "editor_js_editor_setupeventlisteners",
@@ -809,40 +833,16 @@
       "source_location": "L159"
     },
     {
-      "id": "editor_js_pages_estimatea4pages",
-      "label": "estimateA4Pages()",
+      "id": "editor_js_editor_showtoast",
+      "label": "showToast()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
       "community_name": "editor.js",
       "file_type": "code",
-      "norm_label": "estimatea4pages()",
-      "source_file": "editor/js/pages.js",
-      "source_location": "L60"
-    },
-    {
-      "id": "editor_js_pages_getsandbox",
-      "label": "getSandbox()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "editor.js",
-      "file_type": "code",
-      "norm_label": "getsandbox()",
-      "source_file": "editor/js/pages.js",
-      "source_location": "L22"
-    },
-    {
-      "id": "editor_js_settings_onsettingschange",
-      "label": "onSettingsChange()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "editor.js",
-      "file_type": "code",
-      "norm_label": "onsettingschange()",
-      "source_file": "editor/js/settings.js",
-      "source_location": "L227"
+      "norm_label": "showtoast()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L1035"
     },
     {
       "id": "editor_js_metrics_calculatesentencestddev",
@@ -1367,6 +1367,17 @@
       "source_location": "L23"
     },
     {
+      "id": "editor_js_pages",
+      "label": "pages.js",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "settings.js",
+      "file_type": "code",
+      "norm_label": "pages.js",
+      "source_file": "editor/js/pages.js",
+      "source_location": "L1"
+    },
+    {
       "id": "editor_js_parse",
       "label": "parse.js",
       "_origin": "ast",
@@ -1459,8 +1470,8 @@
       "id": "editor_js_ai_provider",
       "label": "ai-provider.js",
       "_origin": "ast",
-      "community": 11,
-      "community_name": "ai-panel.js",
+      "community": 12,
+      "community_name": "ai-provider.js",
       "file_type": "code",
       "norm_label": "ai-provider.js",
       "source_file": "editor/js/ai-provider.js",
@@ -1470,8 +1481,8 @@
       "id": "editor_js_ai_provider_ai_presets",
       "label": "AI_PRESETS",
       "_origin": "ast",
-      "community": 11,
-      "community_name": "ai-panel.js",
+      "community": 12,
+      "community_name": "ai-provider.js",
       "file_type": "code",
       "norm_label": "ai_presets",
       "source_file": "editor/js/ai-provider.js",
@@ -1992,17 +2003,6 @@
       "source_location": "L1"
     },
     {
-      "id": "editor_js_pages",
-      "label": "pages.js",
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "editor.js",
-      "file_type": "code",
-      "norm_label": "pages.js",
-      "source_file": "editor/js/pages.js",
-      "source_location": "L1"
-    },
-    {
       "id": "editor_js_metrics",
       "label": "metrics.js",
       "_origin": "ast",
@@ -2368,6 +2368,116 @@
       "norm_label": "ref_path",
       "source_file": "",
       "type": "external"
+    },
+    {
+      "id": "ref_ai_provider_js_v_2_2_1",
+      "label": "ref_ai_provider_js_v_2_2_1",
+      "community": 11,
+      "community_name": "ai-panel.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_ai_provider_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_editor_js_v_2_2_1",
+      "label": "ref_editor_js_v_2_2_1",
+      "community": 11,
+      "community_name": "ai-panel.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_editor_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_settings_modal_js_v_2_2_1",
+      "label": "ref_settings_modal_js_v_2_2_1",
+      "community": 11,
+      "community_name": "ai-panel.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_settings_modal_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_settings_js_v_2_2_1",
+      "label": "ref_settings_js_v_2_2_1",
+      "community": 12,
+      "community_name": "ai-provider.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_settings_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_ai_panel_js_v_2_2_1",
+      "label": "ref_ai_panel_js_v_2_2_1",
+      "community": 4,
+      "community_name": "editor.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_ai_panel_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_history_panel_js_v_2_2_1",
+      "label": "ref_history_panel_js_v_2_2_1",
+      "community": 4,
+      "community_name": "editor.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_history_panel_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_metrics_js_v_2_2_1",
+      "label": "ref_metrics_js_v_2_2_1",
+      "community": 4,
+      "community_name": "editor.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_metrics_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_pages_js_v_2_2_1",
+      "label": "ref_pages_js_v_2_2_1",
+      "community": 4,
+      "community_name": "editor.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_pages_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_parse_js_v_2_2_1",
+      "label": "ref_parse_js_v_2_2_1",
+      "community": 4,
+      "community_name": "editor.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_parse_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_repo_js_v_2_2_1",
+      "label": "ref_repo_js_v_2_2_1",
+      "community": 4,
+      "community_name": "editor.js",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_repo_js_v_2_2_1",
+      "source_file": "",
+      "type": "external"
     }
   ],
   "links": [
@@ -2396,30 +2506,6 @@
       "weight": 1.0
     },
     {
-      "source": "editor_js_ai_panel_attachresultinteractions",
-      "target": "editor_js_settings_modal_opensettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L276",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel_attachresultinteractions",
-      "target": "editor_js_editor_showtoast",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L310",
-      "weight": 1.0
-    },
-    {
       "source": "editor_js_ai_panel_initaipanel",
       "target": "editor_js_ai_panel_renderaipanel",
       "relation": "calls",
@@ -2429,18 +2515,6 @@
       "context": "call",
       "source_file": "editor/js/ai-panel.js",
       "source_location": "L27",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel_renderaipanel",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -2465,18 +2539,6 @@
       "context": "call",
       "source_file": "editor/js/ai-panel.js",
       "source_location": "L62",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel_renderaipanel",
-      "target": "editor_js_settings_modal_opensettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -2529,18 +2591,6 @@
     },
     {
       "source": "editor_js_ai_panel_triggeraiaudit",
-      "target": "editor_js_editor_showtoast",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L325",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel_triggeraiaudit",
       "target": "editor_js_ai_panel_renderaipanel",
       "relation": "calls",
       "_origin": "ast",
@@ -2552,30 +2602,6 @@
       "weight": 1.0
     },
     {
-      "source": "editor_js_ai_panel_triggeraiaudit",
-      "target": "editor_js_ai_provider_runaisemanticaudit",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L333",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_provider_runaisemanticaudit",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-provider.js",
-      "source_location": "L103",
-      "weight": 1.0
-    },
-    {
       "source": "editor_js_ai_provider_runaisemanticaudit",
       "target": "editor_js_ai_provider_parseaijsonresponse",
       "relation": "calls",
@@ -2584,19 +2610,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L202",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_provider_testaiconnection",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/ai-provider.js",
-      "source_location": "L64",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -2608,7 +2622,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1018",
+      "source_location": "L1020",
       "weight": 1.0
     },
     {
@@ -2620,7 +2634,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1021",
+      "source_location": "L1023",
       "weight": 1.0
     },
     {
@@ -2632,19 +2646,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L534",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_fillpopupcontent",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L944",
+      "source_location": "L536",
       "weight": 1.0
     },
     {
@@ -2656,7 +2658,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L958",
+      "source_location": "L960",
       "weight": 1.0
     },
     {
@@ -2668,7 +2670,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L977",
+      "source_location": "L979",
       "weight": 1.0
     },
     {
@@ -2680,7 +2682,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1003",
+      "source_location": "L1005",
       "weight": 1.0
     },
     {
@@ -2692,7 +2694,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L1008",
+      "source_location": "L1010",
       "weight": 1.0
     },
     {
@@ -2704,7 +2706,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L994",
+      "source_location": "L996",
       "weight": 1.0
     },
     {
@@ -2745,42 +2747,6 @@
     },
     {
       "source": "editor_js_editor_initeditor",
-      "target": "editor_js_ai_panel_initaipanel",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L111",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_initeditor",
-      "target": "editor_js_ai_panel_setaudittriggerhandler",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L135",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_initeditor",
-      "target": "editor_js_ai_panel_triggeraiaudit",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L136",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_initeditor",
       "target": "editor_js_editor_setupeventlisteners",
       "relation": "calls",
       "_origin": "ast",
@@ -2789,18 +2755,6 @@
       "context": "call",
       "source_file": "editor/js/editor.js",
       "source_location": "L141",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_initeditor",
-      "target": "editor_js_settings_onsettingschange",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L144",
       "weight": 1.0
     },
     {
@@ -2816,18 +2770,6 @@
       "weight": 1.0
     },
     {
-      "source": "editor_js_editor_initeditor",
-      "target": "editor_js_history_panel_inithistorypanel",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L98",
-      "weight": 1.0
-    },
-    {
       "source": "editor_js_editor_positionandshowpopup",
       "target": "editor_js_editor_fillpopupcontent",
       "relation": "calls",
@@ -2836,55 +2778,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L913",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_recalculateall",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L542",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_recalculateall",
-      "target": "editor_js_parse_parsedocument",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L545",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_recalculateall",
-      "target": "editor_js_metrics_computeallmetrics",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L548",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_recalculateall",
-      "target": "editor_js_pages_estimatea4pages",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L551",
+      "source_location": "L915",
       "weight": 1.0
     },
     {
@@ -2896,7 +2790,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L554",
+      "source_location": "L556",
       "weight": 1.0
     },
     {
@@ -2908,7 +2802,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L557",
+      "source_location": "L559",
       "weight": 1.0
     },
     {
@@ -2920,7 +2814,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L558",
+      "source_location": "L560",
       "weight": 1.0
     },
     {
@@ -2932,7 +2826,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L790",
+      "source_location": "L792",
       "weight": 1.0
     },
     {
@@ -2944,7 +2838,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L851",
+      "source_location": "L853",
       "weight": 1.0
     },
     {
@@ -2956,7 +2850,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L864",
+      "source_location": "L866",
       "weight": 1.0
     },
     {
@@ -2968,7 +2862,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L609",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -2980,7 +2874,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L648",
+      "source_location": "L650",
       "weight": 1.0
     },
     {
@@ -2992,7 +2886,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L662",
+      "source_location": "L664",
       "weight": 1.0
     },
     {
@@ -3004,7 +2898,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L702",
+      "source_location": "L704",
       "weight": 1.0
     },
     {
@@ -3016,7 +2910,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L503",
+      "source_location": "L505",
       "weight": 1.0
     },
     {
@@ -3028,7 +2922,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L894",
+      "source_location": "L896",
       "weight": 1.0
     },
     {
@@ -3129,30 +3023,6 @@
     },
     {
       "source": "editor_js_editor_setupeventlisteners",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L302",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_setupeventlisteners",
-      "target": "editor_js_settings_savesettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L361",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_setupeventlisteners",
       "target": "editor_js_editor_getdemoreviewtext",
       "relation": "calls",
       "_origin": "ast",
@@ -3165,30 +3035,6 @@
     },
     {
       "source": "editor_js_editor_setupeventlisteners",
-      "target": "editor_js_history_panel_togglehistorypanel",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L437",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_setupeventlisteners",
-      "target": "editor_js_ai_panel_renderaipanel",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L463",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor_setupeventlisteners",
       "target": "editor_js_editor_scrolltosentenceandopenpopup",
       "relation": "calls",
       "_origin": "ast",
@@ -3196,7 +3042,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L484",
+      "source_location": "L486",
       "weight": 1.0
     },
     {
@@ -4041,18 +3887,6 @@
     },
     {
       "source": "editor_js_settings_modal_gatherandsavesettings",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L351",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_gatherandsavesettings",
       "target": "editor_js_settings_modal_getval",
       "relation": "calls",
       "_origin": "ast",
@@ -4060,7 +3894,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L353",
+      "source_location": "L376",
       "weight": 1.0
     },
     {
@@ -4072,31 +3906,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L385",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_gatherandsavesettings",
-      "target": "editor_js_settings_savesettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L413",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_initsettingsmodal",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L130",
+      "source_location": "L408",
       "weight": 1.0
     },
     {
@@ -4161,30 +3971,6 @@
     },
     {
       "source": "editor_js_settings_modal_initsettingsmodal",
-      "target": "editor_js_ai_provider_testaiconnection",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L186",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_initsettingsmodal",
-      "target": "editor_js_settings_resettoreviewdefaults",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L53",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_initsettingsmodal",
       "target": "editor_js_settings_modal_loadsettingsintoform",
       "relation": "calls",
       "_origin": "ast",
@@ -4193,18 +3979,6 @@
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
       "source_location": "L54",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_initsettingsmodal",
-      "target": "editor_js_editor_showtoast",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -4220,42 +3994,6 @@
       "weight": 1.0
     },
     {
-      "source": "editor_js_settings_modal_initsettingsmodal",
-      "target": "editor_js_settings_exportsettingsjson",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L70",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_initsettingsmodal",
-      "target": "editor_js_settings_importsettingsjson",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L90",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_loadsettingsintoform",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L210",
-      "weight": 1.0
-    },
-    {
       "source": "editor_js_settings_modal_loadsettingsintoform",
       "target": "editor_js_settings_modal_setval",
       "relation": "calls",
@@ -4264,7 +4002,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L213",
+      "source_location": "L236",
       "weight": 1.0
     },
     {
@@ -4276,7 +4014,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L241",
+      "source_location": "L264",
       "weight": 1.0
     },
     {
@@ -4288,7 +4026,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L247",
+      "source_location": "L270",
       "weight": 1.0
     },
     {
@@ -4300,7 +4038,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L268",
+      "source_location": "L291",
       "weight": 1.0
     },
     {
@@ -4312,7 +4050,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L269",
+      "source_location": "L292",
       "weight": 1.0
     },
     {
@@ -4324,7 +4062,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L198",
+      "source_location": "L221",
       "weight": 1.0
     },
     {
@@ -4336,7 +4074,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L300",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -4348,19 +4086,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L326",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal_rendersignalphraseslist",
-      "target": "editor_js_settings_getsettings",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L340",
+      "source_location": "L349",
       "weight": 1.0
     },
     {
@@ -4372,7 +4098,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L342",
+      "source_location": "L365",
       "weight": 1.0
     },
     {
@@ -4433,270 +4159,6 @@
       "context": "call",
       "source_file": "editor/js/settings.js",
       "source_location": "L184",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel",
-      "target": "editor_js_settings_getsettings",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel",
-      "target": "editor_js_ai_provider_ai_presets",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel",
-      "target": "editor_js_ai_provider_runaisemanticaudit",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel",
-      "target": "editor_js_settings_modal_opensettings",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_panel",
-      "target": "editor_js_editor_showtoast",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/ai-panel.js",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_ai_provider",
-      "target": "editor_js_settings_getsettings",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/ai-provider.js",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_repo_gitrepo",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_history_panel_inithistorypanel",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_history_panel_togglehistorypanel",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_ai_panel_initaipanel",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_ai_panel_renderaipanel",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_ai_panel_setaudittriggerhandler",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_ai_panel_triggeraiaudit",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_settings_exportsettingsjson",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_settings_getsettings",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_settings_importsettingsjson",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_settings_onsettingschange",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_settings_resettoreviewdefaults",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_settings_savesettings",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_parse_parsedocument",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_metrics_computeallmetrics",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_pages_estimatea4pages",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -4808,102 +4270,6 @@
       "weight": 1.0
     },
     {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_settings_exportsettingsjson",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_settings_getsettings",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_settings_importsettingsjson",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_settings_resettoreviewdefaults",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_settings_savesettings",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_editor_showtoast",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_ai_provider_ai_presets",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_settings_modal",
-      "target": "editor_js_ai_provider_testaiconnection",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
       "source": "bin_cli",
       "target": "ref_path",
       "relation": "imports_from",
@@ -4953,7 +4319,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "editor_js_settings",
+      "target": "ref_settings_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4965,7 +4331,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "editor_js_ai_provider",
+      "target": "ref_ai_provider_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4977,7 +4343,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "editor_js_settings_modal",
+      "target": "ref_settings_modal_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4989,7 +4355,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "editor_js_editor",
+      "target": "ref_editor_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5001,7 +4367,7 @@
     },
     {
       "source": "editor_js_ai_provider",
-      "target": "editor_js_settings",
+      "target": "ref_settings_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5013,7 +4379,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "editor_js_repo",
+      "target": "ref_repo_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5025,7 +4391,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "editor_js_history_panel",
+      "target": "ref_history_panel_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5037,7 +4403,19 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "editor_js_settings",
+      "target": "ref_ai_panel_js_v_2_2_1",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
+      "target": "ref_settings_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5049,7 +4427,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "editor_js_parse",
+      "target": "ref_parse_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5061,7 +4439,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "editor_js_metrics",
+      "target": "ref_metrics_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5073,7 +4451,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "editor_js_pages",
+      "target": "ref_pages_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5157,7 +4535,7 @@
     },
     {
       "source": "editor_js_settings_modal",
-      "target": "editor_js_settings",
+      "target": "ref_settings_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5169,7 +4547,7 @@
     },
     {
       "source": "editor_js_settings_modal",
-      "target": "editor_js_editor",
+      "target": "ref_editor_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5181,7 +4559,7 @@
     },
     {
       "source": "editor_js_settings_modal",
-      "target": "editor_js_ai_provider",
+      "target": "ref_ai_provider_js_v_2_2_1",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5672,7 +5050,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L102",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -5683,7 +5061,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L208",
+      "source_location": "L226",
       "weight": 1.0
     },
     {
@@ -5760,7 +5138,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L1001",
+      "source_location": "L1003",
       "weight": 1.0
     },
     {
@@ -5771,7 +5149,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L1006",
+      "source_location": "L1008",
       "weight": 1.0
     },
     {
@@ -5782,7 +5160,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L1011",
+      "source_location": "L1013",
       "weight": 1.0
     },
     {
@@ -5793,7 +5171,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L1025",
+      "source_location": "L1027",
       "weight": 1.0
     },
     {
@@ -5804,7 +5182,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L1033",
+      "source_location": "L1035",
       "weight": 1.0
     },
     {
@@ -5815,7 +5193,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L1055",
+      "source_location": "L1057",
       "weight": 1.0
     },
     {
@@ -5848,7 +5226,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L496",
+      "source_location": "L498",
       "weight": 1.0
     },
     {
@@ -5870,7 +5248,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L514",
+      "source_location": "L516",
       "weight": 1.0
     },
     {
@@ -5881,7 +5259,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L523",
+      "source_location": "L525",
       "weight": 1.0
     },
     {
@@ -5892,7 +5270,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L540",
+      "source_location": "L542",
       "weight": 1.0
     },
     {
@@ -5903,7 +5281,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L566",
+      "source_location": "L568",
       "weight": 1.0
     },
     {
@@ -5914,7 +5292,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L646",
+      "source_location": "L648",
       "weight": 1.0
     },
     {
@@ -5925,7 +5303,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L708",
+      "source_location": "L710",
       "weight": 1.0
     },
     {
@@ -5936,7 +5314,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L758",
+      "source_location": "L760",
       "weight": 1.0
     },
     {
@@ -5947,7 +5325,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L803",
+      "source_location": "L805",
       "weight": 1.0
     },
     {
@@ -5958,7 +5336,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L872",
+      "source_location": "L874",
       "weight": 1.0
     },
     {
@@ -5969,7 +5347,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L906",
+      "source_location": "L908",
       "weight": 1.0
     },
     {
@@ -5980,7 +5358,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L931",
+      "source_location": "L933",
       "weight": 1.0
     },
     {
@@ -5991,7 +5369,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L983",
+      "source_location": "L985",
       "weight": 1.0
     },
     {
@@ -6002,7 +5380,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L990",
+      "source_location": "L992",
       "weight": 1.0
     },
     {
@@ -6464,7 +5842,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L197",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -6475,7 +5853,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L202",
+      "source_location": "L225",
       "weight": 1.0
     },
     {
@@ -6486,7 +5864,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L209",
+      "source_location": "L232",
       "weight": 1.0
     },
     {
@@ -6497,7 +5875,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L278",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -6508,7 +5886,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L285",
+      "source_location": "L308",
       "weight": 1.0
     },
     {
@@ -6519,7 +5897,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L308",
+      "source_location": "L331",
       "weight": 1.0
     },
     {
@@ -6530,7 +5908,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L350",
+      "source_location": "L373",
       "weight": 1.0
     },
     {
@@ -6541,7 +5919,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L416",
+      "source_location": "L439",
       "weight": 1.0
     },
     {
@@ -6552,7 +5930,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L421",
+      "source_location": "L444",
       "weight": 1.0
     },
     {
@@ -6563,7 +5941,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L426",
+      "source_location": "L449",
       "weight": 1.0
     },
     {
@@ -6574,7 +5952,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L431",
+      "source_location": "L454",
       "weight": 1.0
     },
     {
@@ -6585,7 +5963,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/settings-modal.js",
-      "source_location": "L436",
+      "source_location": "L459",
       "weight": 1.0
     },
     {
@@ -7156,5 +6534,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "66ef9688d4416a45382774bddad72b56cacde4ec"
+  "built_at_commit": "e21dd98eeb5cc5b84dead331a93b37aa4f6a7417"
 }

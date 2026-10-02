@@ -3,13 +3,13 @@
  * синхронизация скролла, попапы предложений, выезжающая панель, сохранение.
  */
 
-import { getSettings, saveSettings, resetToReviewDefaults, onSettingsChange, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.1';
-import { parseDocument } from './parse.js?v=2.2.1';
-import { computeAllMetrics } from './metrics.js?v=2.2.1';
-import { estimateA4Pages } from './pages.js?v=2.2.1';
-import { gitRepo } from './repo.js?v=2.2.1';
-import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js?v=2.2.1';
-import { initAiPanel, renderAiPanel, triggerAiAudit, setAuditTriggerHandler } from './ai-panel.js?v=2.2.1';
+import { getSettings, saveSettings, resetToReviewDefaults, onSettingsChange, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.2';
+import { parseDocument } from './parse.js?v=2.2.2';
+import { computeAllMetrics } from './metrics.js?v=2.2.2';
+import { estimateA4Pages } from './pages.js?v=2.2.2';
+import { gitRepo } from './repo.js?v=2.2.2';
+import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js?v=2.2.2';
+import { initAiPanel, renderAiPanel, triggerAiAudit, setAuditTriggerHandler } from './ai-panel.js?v=2.2.2';
 
 // Селекторы элементов DOM
 let textareaEl = null;
