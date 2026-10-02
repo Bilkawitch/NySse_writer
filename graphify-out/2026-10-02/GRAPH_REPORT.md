@@ -1,34 +1,29 @@
 # Graph Report - NySse_writer  (2026-10-02)
 
 ## Corpus Check
-- 7 files · ~11,018 words
+- 7 files · ~10,455 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .css 1)
+- Unclassified: 1 file(s) not represented in the graph (top: .css 1)
 
 ## Summary
-- 73 nodes · 190 edges · 9 communities (8 shown, 1 thin omitted)
+- 73 nodes · 189 edges · 9 communities (8 shown, 1 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
-
-## Graph Freshness
-- Built from commit: `8ac192a0`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - parse.js
 - settings-modal.js
 - settings.js
-- initEditor
+- setupEventListeners
 - editor.js
 - metrics.js
-- setupEventListeners
+- checkSentenceAtOffset
 - showToast
 - pages.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `getSettings()` - 15 edges
-2. `setupEventListeners()` - 14 edges
+2. `setupEventListeners()` - 13 edges
 3. `initSettingsModal()` - 11 edges
 4. `recalculateAll()` - 10 edges
 5. `computeAllMetrics()` - 7 edges
@@ -67,21 +62,21 @@ Nodes (13): exportSettingsJSON(), getSettings(), closeSettings(), escapeHtml(), 
 Cohesion: 0.44
 Nodes (8): deepClone(), deepMerge(), importSettingsJSON(), listeners, notifySettingsChanged(), resetToReviewDefaults(), REVIEW_DEFAULTS, saveSettings()
 
-### Community 3 - "initEditor"
-Cohesion: 0.67
-Nodes (3): getDemoReviewText(), initEditor(), onSettingsChange()
+### Community 3 - "setupEventListeners"
+Cohesion: 0.39
+Nodes (8): getDemoReviewText(), initEditor(), recalculateAll(), renderIssueList(), scheduleAutoSave(), setSaveStatus(), setupEventListeners(), onSettingsChange()
 
 ### Community 4 - "editor.js"
-Cohesion: 0.47
-Nodes (8): escapeHtml(), recalculateAll(), renderGlobalDeficits(), renderIssueList(), renderMetricCard(), renderMirrorHighlights(), renderSidebarStats(), setText()
+Cohesion: 0.52
+Nodes (6): escapeHtml(), renderGlobalDeficits(), renderMetricCard(), renderMirrorHighlights(), renderSidebarStats(), setText()
 
 ### Community 5 - "metrics.js"
 Cohesion: 0.60
 Nodes (5): calculateSentenceStdDev(), calculateStarterUniformity(), calculateThreeGramRepetition(), computeAllMetrics(), evaluateStatus()
 
-### Community 6 - "setupEventListeners"
-Cohesion: 0.39
-Nodes (8): checkSentenceAtOffset(), closePopup(), handleEditorClick(), handleEditorCursorMove(), hidePopupIfScrolledOut(), scheduleAutoSave(), setSaveStatus(), setupEventListeners()
+### Community 6 - "checkSentenceAtOffset"
+Cohesion: 0.40
+Nodes (5): checkSentenceAtOffset(), closePopup(), handleEditorClick(), handleEditorCursorMove(), hidePopupIfScrolledOut()
 
 ### Community 7 - "showToast"
 Cohesion: 0.40
@@ -95,11 +90,11 @@ Nodes (5): exportPlainTextFile(), fillPopupContent(), positionAndShowPopup(), sc
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getSettings()` connect `settings-modal.js` to `parse.js`, `settings.js`, `editor.js`, `metrics.js`, `showToast`, `pages.js`?**
+- **Why does `getSettings()` connect `settings-modal.js` to `parse.js`, `settings.js`, `setupEventListeners`, `editor.js`, `metrics.js`, `showToast`, `pages.js`?**
   _High betweenness centrality (0.121) - this node is a cross-community bridge._
-- **Why does `computeAllMetrics()` connect `metrics.js` to `editor.js`?**
+- **Why does `computeAllMetrics()` connect `metrics.js` to `setupEventListeners`, `editor.js`?**
   _High betweenness centrality (0.035) - this node is a cross-community bridge._
-- **Why does `parseDocument()` connect `parse.js` to `editor.js`?**
+- **Why does `parseDocument()` connect `parse.js` to `setupEventListeners`, `editor.js`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `setupEventListeners()` (e.g. with `exportPlainTextFile()` and `handleEditorClick()`) actually correct?**
   _`setupEventListeners()` has 2 INFERRED edges - model-reasoned connections that need verification._

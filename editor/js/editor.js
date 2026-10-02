@@ -224,6 +224,43 @@ function setupEventListeners() {
     });
   }
 
+  // Тактические вкладки DOCUMENT / ANALYSIS / HISTORY
+  const tacticalTabs = document.querySelectorAll('.tactical-tabs .tab-item');
+  tacticalTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tacticalTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const view = tab.getAttribute('data-view');
+      if (view === 'analysis') {
+        document.body.classList.remove('sidebar-collapsed');
+        try { localStorage.setItem(SIDEBAR_STATE_KEY, 'false'); } catch (e) {}
+        const sec = document.querySelector('.section-metrics');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+      } else if (view === 'history') {
+        showToast('История: автосохранение активно в локальной памяти браузера');
+      } else {
+        textareaEl.focus();
+      }
+    });
+  });
+
+  // Горячие клавиши в стиле NieR: W/S для скролла, Enter для деталей
+  window.addEventListener('keydown', (e) => {
+    if (document.activeElement === textareaEl || document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA') {
+      return;
+    }
+    if (e.key === 'w' || e.key === 'W') {
+      textareaEl.scrollBy({ top: -120, behavior: 'smooth' });
+    } else if (e.key === 's' || e.key === 'S') {
+      textareaEl.scrollBy({ top: 120, behavior: 'smooth' });
+    } else if (e.key === 'Enter') {
+      const firstIssue = currentMetrics?.issueSentences?.[0];
+      if (firstIssue) {
+        scrollToSentenceAndOpenPopup(firstIssue.index);
+      }
+    }
+  });
+
   // Синхронизация при изменении размера окна
   window.addEventListener('resize', syncScroll);
 }
@@ -459,6 +496,27 @@ function renderMetricCard(cardId, data) {
   // Класс подсветки самой карточки
   cardEl.classList.remove('card-green', 'card-yellow', 'card-red', 'card-low-data');
   cardEl.classList.add(`card-${data.status}`);
+
+  // Отрисовка тактического сегментированного индикатора
+  const segmentsContainer = cardEl.querySelector('.metric-segments');
+  if (segmentsContainer) {
+    const segs = segmentsContainer.querySelectorAll('.seg');
+    segs.forEach(s => {
+      s.className = 'seg';
+    });
+
+    if (data.status !== 'low_data') {
+      let activeCount = 4;
+      if (data.status === 'green') activeCount = 3;
+      else if (data.status === 'yellow') activeCount = 6;
+      else if (data.status === 'red') activeCount = 9;
+
+      const activeColorClass = `active-${data.status}`;
+      for (let i = 0; i < Math.min(segs.length, activeCount); i++) {
+        segs[i].classList.add(activeColorClass);
+      }
+    }
+  }
 }
 
 /**

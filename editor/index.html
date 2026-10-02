@@ -9,7 +9,7 @@
 </head>
 <body class="theme-dark">
 
-  <!-- Главная шапка приложения -->
+  <!-- Главная шапка приложения в стиле тактического терминала -->
   <header class="app-header">
     <div class="header-left">
       <div class="brand-logo">
@@ -34,27 +34,27 @@
     </div>
 
     <div class="header-right">
-      <button id="btn-load-demo" class="btn btn-secondary btn-sm" title="Загрузить пример текста из рецензии">
-        <span class="btn-icon">📄</span> Демо
+      <button id="btn-load-demo" class="btn btn-tactical btn-sm" title="Загрузить пример текста из рецензии">
+        <span class="btn-icon">■</span> Демо
       </button>
-      <button id="btn-new-doc" class="btn btn-secondary btn-sm" title="Очистить и создать новый документ">
-        <span class="btn-icon">✦</span> Новый
+      <button id="btn-new-doc" class="btn btn-tactical btn-sm" title="Очистить и создать новый документ">
+        <span class="btn-icon">+</span> Новый
       </button>
-      <button id="btn-open-file" class="btn btn-secondary btn-sm" title="Открыть текстовый файл .txt">
+      <button id="btn-open-file" class="btn btn-tactical btn-sm" title="Открыть текстовый файл .txt">
         <span class="btn-icon">📂</span> Открыть
       </button>
       <input type="file" id="file-upload-input" accept=".txt,.text,.md" style="display:none;">
 
-      <button id="btn-save-txt" class="btn btn-primary btn-sm" title="Сохранить как чистый .txt файл без подсветки">
+      <button id="btn-save-txt" class="btn btn-tactical-accent btn-sm" title="Сохранить как чистый .txt файл без подсветки">
         <span class="btn-icon">💾</span> Сохранить .txt
       </button>
-      <button id="btn-copy-text" class="btn btn-secondary btn-sm" title="Копировать чистый текст в буфер">
+      <button id="btn-copy-text" class="btn btn-tactical btn-sm" title="Копировать чистый текст в буфер">
         <span class="btn-icon">📋</span>
       </button>
 
       <div class="header-divider"></div>
 
-      <button id="btn-theme-toggle" class="btn btn-icon" title="Сменить тему оформления (Тёмная / Светлая)">
+      <button id="btn-theme-toggle" class="btn btn-icon" title="Сменить тему оформления">
         <span id="theme-icon">🌙</span>
       </button>
 
@@ -68,19 +68,64 @@
     </div>
   </header>
 
+  <!-- Вторая полоса: тактические вкладки и линейка с треугольниками -->
+  <div class="sub-header-bar">
+    <div class="tactical-tabs">
+      <button class="tab-item active" data-view="document">
+        <span class="tab-indicator">■</span> DOCUMENT
+      </button>
+      <button class="tab-item" data-view="analysis">
+        <span class="tab-indicator">■</span> ANALYSIS
+      </button>
+      <button class="tab-item" data-view="history">
+        <span class="tab-indicator">■</span> HISTORY
+      </button>
+    </div>
+    <div class="tactical-ruler-line">
+      <div class="ruler-ticks"></div>
+    </div>
+  </div>
+
   <!-- Основная рабочая область -->
   <div class="app-layout">
     
     <!-- Центральная область редактирования -->
     <main class="editor-viewport" id="editor-viewport">
+      
+      <!-- Фоновая тактическая графика: водяной знак и технические дуги -->
+      <div class="tactical-bg-layer" aria-hidden="true">
+        <div class="tactical-watermark">NYSSS-W.</div>
+        <svg class="tactical-svg-arcs" viewBox="0 0 1600 900" preserveAspectRatio="none">
+          <!-- Левая система кругов и прицелов -->
+          <circle cx="280" cy="450" r="320" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 8" />
+          <circle cx="280" cy="450" r="220" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="280" cy="450" r="140" fill="none" stroke="currentColor" stroke-width="0.8" />
+          <line x1="60" y1="450" x2="500" y2="450" stroke="currentColor" stroke-width="1" />
+          <line x1="280" y1="230" x2="280" y2="670" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6" />
+          <circle cx="280" cy="450" r="4" fill="currentColor" />
+          
+          <!-- Правая система дуг -->
+          <circle cx="1200" cy="400" r="280" fill="none" stroke="currentColor" stroke-width="1.2" />
+          <circle cx="1200" cy="400" r="380" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="8 6" />
+          <line x1="920" y1="280" x2="1380" y2="540" stroke="currentColor" stroke-width="1" />
+          <line x1="1060" y1="240" x2="1100" y2="240" stroke="currentColor" stroke-width="3" />
+        </svg>
+      </div>
+
       <div class="editor-page-container">
         
-        <!-- Верхняя подсказка по таблицам -->
-        <div class="editor-format-hint">
-          <span>Подсказка: таблицы выделяются блоками <code>:::table</code> ... <code>:::</code> и оцениваются в 11 pt.</span>
-        </div>
-
         <div class="editor-wrapper font-serif" id="editor-wrapper">
+          <!-- Левая декоративная планка переплета/закладки -->
+          <div class="sheet-bookmark-ribbon" aria-hidden="true"></div>
+          
+          <!-- Декоративные уголки листа -->
+          <div class="sheet-frame-corners" aria-hidden="true">
+            <span class="corner-tl"></span>
+            <span class="corner-tr"></span>
+            <span class="corner-bl"></span>
+            <span class="corner-br"></span>
+          </div>
+
           <!-- Зеркальный слой подсветки: идентичный шрифт, переносы, отступы. Текст transparent, виден только mark -->
           <div class="editor-mirror" id="editor-mirror" aria-hidden="true"></div>
 
@@ -105,7 +150,7 @@
               <!-- Факты заполняются из js/editor.js -->
             </ul>
             <div class="popup-footer">
-              <button id="popup-copy-btn" class="btn btn-xs btn-secondary">Копировать</button>
+              <button id="popup-copy-btn" class="btn btn-xs btn-tactical">Копировать</button>
               <span class="popup-hint">Только факты • без оценок «тона»</span>
             </div>
           </div>
@@ -114,13 +159,13 @@
       </div>
     </main>
 
-    <!-- Выезжающая правая панель аудита -->
+    <!-- Выезжающая правая панель аудита в тактическом стиле NieR -->
     <aside class="sidebar-panel" id="sidebar-panel">
       
       <!-- Секция 1: Верхние счетчики объема и страницы A4 -->
       <section class="sidebar-section section-volume">
         <div class="section-title-row">
-          <span class="section-title">Объем документа</span>
+          <span class="section-title">◇ —— ОБЪЕМ ДОКУМЕНТА —— ◇</span>
         </div>
         
         <div class="stats-pills-grid">
@@ -129,7 +174,7 @@
             <span id="stat-words-count" class="pill-value">0</span>
           </div>
           <div class="stat-pill">
-            <span class="pill-label">Знаков (с проб.)</span>
+            <span class="pill-label">Знаков (с проб)</span>
             <span id="stat-chars-spaces" class="pill-value">0</span>
           </div>
           <div class="stat-pill">
@@ -141,7 +186,7 @@
         <!-- Оценка страниц A4 -->
         <div class="a4-pages-card">
           <div class="a4-pages-header">
-            <span class="a4-label">Страниц A4 (оценка вёрсткой):</span>
+            <span class="a4-label">Страниц A4:</span>
             <span id="a4-total-pages" class="a4-hero-number">0.0</span>
           </div>
           <div class="a4-details-row">
@@ -159,7 +204,7 @@
       <!-- Секция 2: Семь ключевых метрик из рецензии -->
       <section class="sidebar-section section-metrics">
         <div class="section-title-row">
-          <span class="section-title">Пороги рецензии</span>
+          <span class="section-title">◇ —— ПОРОГИ РЕЦЕНЗИИ —— ◇</span>
           <span class="section-legend" title="Зеленый: человек, Желтый: граница, Красный: ИИ">светофор</span>
         </div>
 
@@ -179,6 +224,10 @@
               <span class="bm-human" title="Человеческий ориентир">Чел: <span class="metric-target-human">23.2</span></span>
               <span class="bm-ai" title="Красная граница стороны ИИ">ИИ: ≥ <span class="metric-target-ai">29.2</span></span>
             </div>
+            <div class="metric-segments" data-metric="avgSentenceLength">
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+            </div>
           </div>
 
           <!-- 2. Доля очень длинных (41+) -->
@@ -193,6 +242,10 @@
             <div class="metric-benchmarks">
               <span class="bm-human">Чел: <span class="metric-target-human">6.2%</span></span>
               <span class="bm-ai">ИИ: <span class="metric-target-ai">≥ 17.0%</span></span>
+            </div>
+            <div class="metric-segments" data-metric="longSentenceRatio">
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
             </div>
           </div>
 
@@ -210,6 +263,10 @@
               <span class="bm-human" title="Люди чаще используют краткие фразы">Чел: <span class="metric-target-human">5.8%</span></span>
               <span class="bm-ai" title="У ИИ дефицит коротких фраз">ИИ: <span class="metric-target-ai">≤ 2.4%</span></span>
             </div>
+            <div class="metric-segments" data-metric="shortSentenceRatio">
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+            </div>
           </div>
 
           <!-- 4. Доля служебных слов -->
@@ -224,6 +281,10 @@
             <div class="metric-benchmarks">
               <span class="bm-human" title="Естественная плотность служебной лексики">Чел: <span class="metric-target-human">40.2%</span></span>
               <span class="bm-ai" title="Текст ИИ излишне перегружен терминами">ИИ: <span class="metric-target-ai">≤ 33.0%</span></span>
+            </div>
+            <div class="metric-segments" data-metric="stopwordRatio">
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
             </div>
           </div>
 
@@ -241,6 +302,10 @@
               <span class="bm-human">Чел: <span class="metric-target-human">5.24</span></span>
               <span class="bm-ai">ИИ: ≥ <span class="metric-target-ai">5.86</span></span>
             </div>
+            <div class="metric-segments" data-metric="avgWordLength">
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+            </div>
           </div>
 
           <!-- 6. Доля длинных слов (8+) -->
@@ -255,6 +320,10 @@
             <div class="metric-benchmarks">
               <span class="bm-human">Чел: <span class="metric-target-human">23.1%</span></span>
               <span class="bm-ai">ИИ: <span class="metric-target-ai">≥ 30.7%</span></span>
+            </div>
+            <div class="metric-segments" data-metric="longWordRatio">
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
             </div>
           </div>
 
@@ -272,19 +341,23 @@
               <span class="bm-human" title="Естественный повтор фраз в живой речи">Чел: <span class="metric-target-human">3.5%</span></span>
               <span class="bm-ai" title="ИИ неестественно избегает повтора троек слов">ИИ: <span class="metric-target-ai">≤ 1.4%</span></span>
             </div>
+            <div class="metric-segments" data-metric="threeGramRepetition">
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+              <span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span><span class="seg"></span>
+            </div>
           </div>
 
         </div>
 
         <!-- Дополнительные индикаторы (SD и Зачины) -->
         <div class="secondary-metrics-row">
-          <div class="secondary-metric-item" title="Стандартное отклонение длины предложений. Рецензия ругает не только длинные, но и ровные предложения.">
-            <span class="sec-label">Вариативность длины (SD):</span>
+          <div class="secondary-metric-item" title="Стандартное отклонение длины предложений.">
+            <span class="sec-label">Вариативность (SD):</span>
             <strong id="val-std-dev" class="sec-value">0.0 сл.</strong>
             <span id="badge-std-dev" class="metric-status-badge status-low-data">...</span>
           </div>
 
-          <div class="secondary-metric-item" title="Максимальная доля предложений, начинающихся с одного и того же слова">
+          <div class="secondary-metric-item" title="Максимальная доля предложений с одинаковым зачином">
             <span class="sec-label">Повтор зачинов:</span>
             <strong id="val-starter-uniformity" class="sec-value">0.0%</strong>
             <span id="badge-starter-uniformity" class="metric-status-badge status-low-data">...</span>
@@ -295,7 +368,7 @@
       <!-- Секция 3: Глобальные дефициты текста -->
       <section class="sidebar-section section-deficits">
         <div class="section-title-row">
-          <span class="section-title">Глобальные сигналы текста</span>
+          <span class="section-title">◇ —— ГЛОБАЛЬНЫЕ СИГНАЛЫ —— ◇</span>
         </div>
         <div id="global-deficits-container">
           <!-- Заполняется динамически из js/editor.js -->
@@ -305,7 +378,7 @@
       <!-- Секция 4: Предложения с локальными замечаниями -->
       <section class="sidebar-section section-issues">
         <div class="section-title-row">
-          <span class="section-title">Замечания по предложениям</span>
+          <span class="section-title">◇ —— ЗАМЕЧАНИЯ —— ◇</span>
           <span id="issues-total-count" class="badge-count">0</span>
         </div>
 
@@ -325,6 +398,26 @@
 
     </aside>
   </div>
+
+  <!-- Нижняя тактическая полоса в стиле NieR -->
+  <footer class="tactical-bottom-bar">
+    <div class="bottom-bar-left">
+      <span class="bar-prompt-marker">|</span>
+      <span class="bar-hint-text">Подсказка: таблицы выделяются блоками <code class="key-code">:::table</code> ... <code class="key-code">:::</code> и оцениваются в 11 pt.</span>
+    </div>
+    <div class="bottom-bar-right">
+      <div class="keybind-group">
+        <span class="key-cap">W</span><span class="key-cap">S</span><span class="key-cap">D</span>
+        <span class="key-label">Page Scroll</span>
+      </div>
+      <div class="keybind-group">
+        <span class="key-cap">Enter</span>
+        <span class="key-label">Details</span>
+        <span class="key-symbol">■</span>
+      </div>
+    </div>
+  </footer>
+
 
   <!-- Модальное окно настроек -->
   <div id="settings-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settings-title">

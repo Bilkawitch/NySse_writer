@@ -1,113 +1,72 @@
 /* ==========================================================================
-   NySse Writer — Стили интерфейса редактора и аудита текста
+   NySse Writer — Тактический визуальный стиль (NieR / Military Terminal)
+   Палитра: песочно-оливковый беж (khaki), темный графит, техническая разметка
    ========================================================================== */
 
-/* 1. Переменные темы оформления */
+/* 1. Глобальные CSS переменные */
 :root {
-  /* Базовые цвета тёмной темы (по умолчанию) */
-  --bg-app: #0e1117;
-  --bg-header: #151922;
-  --bg-viewport: #0e1117;
-  --bg-page: #161b26;
-  --bg-sidebar: #131720;
-  --bg-card: #1a202c;
-  --bg-card-hover: #222938;
-  --bg-modal: #181d28;
-  --bg-input: #12161f;
+  /* Палитра в стиле референса */
+  --bg-app: #bcc0a4;
+  --bg-canvas: #bcc0a4;
+  --bg-header: #b5b99e;
+  --bg-sub-bar: #b5b99e;
+  --bg-page: #d7dac0;
+  --bg-bottom-bar: #cbd0b4;
 
-  --border-subtle: #242b3b;
-  --border-focus: #3b82f6;
+  --border-tactical-dark: #777b65;
+  --border-tactical-light: #9ea388;
+  --border-page-inner: #9da288;
 
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  /* Правая панель (темный тактический слейт) */
+  --bg-sidebar: #20221b;
+  --bg-card: #171913;
+  --bg-card-hover: #1e2018;
+  --border-sidebar: #313528;
+  --border-card: #2f3227;
 
-  --accent: #38bdf8;
-  --accent-hover: #0ea5e9;
+  /* Типографика */
+  --text-dark: #1f211a;
+  --text-dark-muted: #4e5241;
+  --text-dark-dim: #6d725d;
 
-  /* Светофорные цвета */
-  --status-green-bg: rgba(16, 185, 129, 0.14);
-  --status-green-text: #10b981;
-  --status-green-border: rgba(16, 185, 129, 0.35);
+  --text-light: #dcdfc7;
+  --text-light-muted: #959a82;
+  --text-light-dim: #676c56;
 
-  --status-yellow-bg: rgba(245, 158, 11, 0.14);
-  --status-yellow-text: #f59e0b;
-  --status-yellow-border: rgba(245, 158, 11, 0.35);
+  /* Светофорные статусы */
+  --status-green: #84a956;
+  --status-green-bg: rgba(132, 169, 86, 0.16);
+  --status-green-border: #84a956;
 
-  --status-red-bg: rgba(239, 68, 68, 0.18);
-  --status-red-text: #ef4444;
-  --status-red-border: rgba(239, 68, 68, 0.45);
+  --status-yellow: #d69e2e;
+  --status-yellow-bg: rgba(214, 158, 46, 0.16);
+  --status-yellow-border: #d69e2e;
 
-  --status-neutral-bg: rgba(100, 116, 139, 0.12);
-  --status-neutral-text: #64748b;
+  --status-red: #e05252;
+  --status-red-bg: rgba(224, 82, 82, 0.18);
+  --status-red-border: #e05252;
 
-  /* Подсветка текста */
-  --hl-danger-bg: rgba(239, 68, 68, 0.28);
-  --hl-danger-line: #ef4444;
+  --status-neutral: #676c56;
+  --status-neutral-bg: rgba(103, 108, 86, 0.14);
 
-  --hl-warning-bg: rgba(245, 158, 11, 0.22);
-  --hl-warning-line: #f59e0b;
+  /* Подсветка зеркального слоя */
+  --hl-danger-bg: rgba(224, 82, 82, 0.22);
+  --hl-danger-line: #c23838;
 
-  --hl-table-bg: rgba(99, 102, 241, 0.12);
-  --hl-table-line: #6366f1;
+  --hl-warning-bg: rgba(214, 158, 46, 0.20);
+  --hl-warning-line: #b5801c;
 
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
+  --hl-table-bg: rgba(90, 105, 145, 0.15);
+  --hl-table-line: #526084;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
 
   --sidebar-width: 380px;
 }
 
-/* Светлая тема */
-body.theme-light {
-  --bg-app: #f1f5f9;
-  --bg-header: #ffffff;
-  --bg-viewport: #f8fafc;
-  --bg-page: #ffffff;
-  --bg-sidebar: #ffffff;
-  --bg-card: #f8fafc;
-  --bg-card-hover: #f1f5f9;
-  --bg-modal: #ffffff;
-  --bg-input: #f8fafc;
-
-  --border-subtle: #e2e8f0;
-  --border-focus: #2563eb;
-
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --text-dim: #94a3b8;
-
-  --accent: #0284c7;
-  --accent-hover: #0369a1;
-
-  --status-green-bg: rgba(16, 185, 129, 0.12);
-  --status-green-text: #059669;
-  --status-green-border: rgba(16, 185, 129, 0.3);
-
-  --status-yellow-bg: rgba(217, 119, 6, 0.12);
-  --status-yellow-text: #d97706;
-  --status-yellow-border: rgba(217, 119, 6, 0.3);
-
-  --status-red-bg: rgba(220, 38, 38, 0.12);
-  --status-red-text: #dc2626;
-  --status-red-border: rgba(220, 38, 38, 0.3);
-
-  --hl-danger-bg: rgba(239, 68, 68, 0.24);
-  --hl-danger-line: #dc2626;
-
-  --hl-warning-bg: rgba(245, 158, 11, 0.20);
-  --hl-warning-line: #d97706;
-
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.07);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* 2. Сброс и базовые настройки */
+/* Сброс */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -118,18 +77,20 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: var(--text-main);
+  color: var(--text-dark);
   background-color: var(--bg-app);
   overflow: hidden;
-  line-height: 1.5;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
 }
 
-/* 3. Шапка приложения */
+/* ==========================================================================
+   2. Шапка приложения
+   ========================================================================== */
 .app-header {
-  height: 54px;
+  height: 48px;
   background-color: var(--bg-header);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-tactical-dark);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -141,7 +102,7 @@ html, body {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .brand-logo {
@@ -151,17 +112,17 @@ html, body {
 }
 
 .logo-symbol {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: var(--status-green-bg);
-  width: 30px;
-  height: 30px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1f211a;
+  background: transparent;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-tactical-dark);
 }
 
 .brand-text {
@@ -171,49 +132,48 @@ html, body {
 
 .brand-title {
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.01em;
+  color: var(--text-dark);
 }
 
 .brand-subtitle {
-  font-size: 0.7rem;
-  color: var(--text-muted);
+  font-size: 0.68rem;
+  color: var(--text-dark-muted);
 }
 
 .header-badges {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .badge-offline {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  background-color: var(--status-neutral-bg);
-  color: var(--text-muted);
-  padding: 2px 7px;
+  background-color: transparent;
+  color: var(--text-dark-muted);
+  padding: 2px 8px;
   border-radius: 999px;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-tactical-dark);
 }
 
 .status-badge {
-  font-size: 0.72rem;
-  font-weight: 500;
+  font-size: 0.68rem;
+  font-weight: 600;
   padding: 2px 8px;
   border-radius: 999px;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-tactical-dark);
 }
 
 .status-badge.saved {
-  background-color: var(--status-green-bg);
-  color: var(--status-green-text);
-  border: 1px solid var(--status-green-border);
+  background-color: rgba(132, 169, 86, 0.2);
+  color: #3b5020;
 }
 
 .status-badge.pending {
-  background-color: var(--status-yellow-bg);
-  color: var(--status-yellow-text);
-  border: 1px solid var(--status-yellow-border);
+  background-color: rgba(214, 158, 46, 0.2);
+  color: #6a4a0c;
 }
 
 .header-center {
@@ -223,52 +183,51 @@ html, body {
 
 .editor-font-toggle {
   display: flex;
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-tactical-dark);
+  border-radius: 999px;
   padding: 2px;
 }
 
 .font-btn {
   background: transparent;
   border: none;
-  color: var(--text-muted);
-  font-size: 0.75rem;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: var(--radius-sm);
+  color: var(--text-dark-muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .font-btn.active {
-  background-color: var(--bg-card);
-  color: var(--text-main);
-  box-shadow: var(--shadow-sm);
+  background-color: #21231c;
+  color: #dcdfc7;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .header-divider {
   width: 1px;
-  height: 22px;
-  background-color: var(--border-subtle);
+  height: 20px;
+  background-color: var(--border-tactical-dark);
   margin: 0 4px;
 }
 
-/* 4. Кнопки и контролы */
+/* Кнопки в тактическом стиле */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.78rem;
+  font-weight: 600;
   border-radius: var(--radius-sm);
-  padding: 5px 12px;
+  padding: 4px 10px;
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 0.15s ease;
@@ -276,84 +235,141 @@ html, body {
 }
 
 .btn-sm {
-  padding: 4px 9px;
-  font-size: 0.75rem;
+  padding: 3px 8px;
+  font-size: 0.74rem;
 }
 
 .btn-xs {
-  padding: 2px 7px;
-  font-size: 0.7rem;
+  padding: 2px 6px;
+  font-size: 0.68rem;
+}
+
+.btn-tactical {
+  background-color: transparent;
+  border: 1px solid var(--border-tactical-dark);
+  color: var(--text-dark);
+}
+
+.btn-tactical:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.btn-tactical-accent {
+  background-color: #21231c;
+  border: 1px solid #21231c;
+  color: #dcdfc7;
+}
+
+.btn-tactical-accent:hover {
+  background-color: #313528;
 }
 
 .btn-icon {
   background: transparent;
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  width: 30px;
-  height: 30px;
+  border: 1px solid var(--border-tactical-dark);
+  color: var(--text-dark);
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: all 0.15s ease;
+  font-size: 0.85rem;
 }
 
 .btn-icon:hover {
-  background-color: var(--bg-card-hover);
-  color: var(--text-main);
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
-.btn-primary {
-  background-color: var(--accent);
-  color: #0f172a;
-  font-weight: 600;
+/* ==========================================================================
+   3. Вторая полоса: Тактические вкладки и линейка с треугольниками
+   ========================================================================== */
+.sub-header-bar {
+  background-color: var(--bg-sub-bar);
+  border-bottom: 1px solid var(--border-tactical-dark);
+  display: flex;
+  flex-direction: column;
 }
 
-.btn-primary:hover {
-  background-color: var(--accent-hover);
+.tactical-tabs {
+  display: flex;
+  padding: 6px 16px 0 16px;
+  gap: 2px;
 }
 
-.btn-secondary {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-}
-
-.btn-secondary:hover {
-  background-color: var(--bg-card-hover);
-  border-color: var(--text-dim);
-}
-
-.btn-ghost {
+.tab-item {
   background: transparent;
-  color: var(--text-muted);
-}
-
-.btn-ghost:hover {
-  color: var(--text-main);
-  background-color: var(--bg-card-hover);
-}
-
-.btn-icon-danger {
-  background: transparent;
-  border: none;
-  color: var(--text-dim);
+  border: 1px solid var(--border-tactical-dark);
+  border-bottom: none;
+  color: var(--text-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 5px 16px;
   cursor: pointer;
-  padding: 3px 6px;
-  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
-.btn-icon-danger:hover {
-  color: var(--status-red-text);
-  background-color: var(--status-red-bg);
+.tab-item:hover {
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
-/* 5. Главный макет (Редактор + Выезжающая панель) */
+.tab-item.active {
+  background-color: #21231c;
+  color: #dcdfc7;
+  border-color: #21231c;
+}
+
+.tab-indicator {
+  font-size: 0.65rem;
+}
+
+/* Линейка с паттерном треугольников и точек в стиле NieR */
+.tactical-ruler-line {
+  height: 14px;
+  background-color: #b5b99e;
+  border-top: 1px solid var(--border-tactical-dark);
+  border-bottom: 1px solid var(--border-tactical-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.ruler-ticks {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#6c715b 1px, transparent 1px),
+                    radial-gradient(#6c715b 1.5px, transparent 1.5px);
+  background-size: 24px 14px, 48px 14px;
+  background-position: 0 7px, 12px 7px;
+  opacity: 0.8;
+}
+
+.tactical-ruler-line::before {
+  content: "▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼ · · · ▲ · · · ▼";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 7px;
+  color: #646955;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  line-height: 13px;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   4. Главный макет (Редактор + Выезжающая панель)
+   ========================================================================== */
 .app-layout {
   display: flex;
-  height: calc(100% - 54px);
+  height: calc(100% - 48px - 38px - 38px); /* Шапка + Табы/линейка + Нижняя полоса */
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -364,12 +380,45 @@ html, body {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: var(--bg-viewport);
+  background-color: var(--bg-canvas);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 20px 80px 20px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 24px 24px 60px 24px;
+  position: relative;
+}
+
+/* Фоновая тактическая графика: водяной знак и технические орбиты */
+.tactical-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.tactical-watermark {
+  position: absolute;
+  top: 24px;
+  left: 36px;
+  font-size: 58px;
+  font-weight: 900;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.08em;
+  color: #626752;
+  opacity: 0.35;
+  user-select: none;
+}
+
+.tactical-svg-arcs {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: #6c715b;
+  opacity: 0.38;
 }
 
 .editor-page-container {
@@ -377,60 +426,89 @@ html, body {
   max-width: 860px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  z-index: 2;
+  margin-top: 10px;
 }
 
-.editor-format-hint {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  background: var(--bg-card);
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
-  border: 1px dashed var(--border-subtle);
-}
-
-.editor-format-hint code {
-  color: var(--accent);
-  background-color: var(--bg-input);
-  padding: 1px 4px;
-  border-radius: 3px;
-  font-family: monospace;
-}
-
-/* 6. Стек редактора: Зеркальный слой + Textarea */
+/* ==========================================================================
+   5. Документ-лист: Рамка, закладка, зеркальный слой и поле ввода
+   ========================================================================== */
 .editor-wrapper {
   position: relative;
   width: 100%;
-  min-height: 750px;
+  min-height: 720px;
   background-color: var(--bg-page);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-tactical-dark);
+  box-shadow: 0 8px 30px rgba(32, 35, 27, 0.22);
 }
 
-/* Семейства шрифтов */
+/* Внутренняя декоративная рамка листа с отступом */
+.editor-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--border-page-inner);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Левая декоративная закладка / переплет */
+.sheet-bookmark-ribbon {
+  position: absolute;
+  left: 14px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background-color: #8c9078;
+  z-index: 4;
+}
+
+.sheet-bookmark-ribbon::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 20px;
+  width: 2px;
+  height: 40px;
+  background-color: #777b65;
+}
+
+/* Уголки листа */
+.sheet-frame-corners span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 4;
+}
+
+.corner-tl { top: 2px; left: 2px; border-top: 2px solid #5a5f4d; border-left: 2px solid #5a5f4d; }
+.corner-tr { top: 2px; right: 2px; border-top: 2px solid #5a5f4d; border-right: 2px solid #5a5f4d; }
+.corner-bl { bottom: 2px; left: 2px; border-bottom: 2px solid #5a5f4d; border-left: 2px solid #5a5f4d; }
+.corner-br { bottom: 2px; right: 2px; border-bottom: 2px solid #5a5f4d; border-right: 2px solid #5a5f4d; }
+
+/* Шрифты листа */
 .editor-wrapper.font-serif {
-  font-family: "Times New Roman", "PT Serif", Georgia, serif;
+  font-family: "Times New Roman", Georgia, serif;
 }
 
 .editor-wrapper.font-sans {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .editor-wrapper.font-mono {
-  font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  font-family: "JetBrains Mono", Consolas, monospace;
 }
 
-/* Идентичные правила типографики для совпадения символов 1-в-1 */
+/* Текстовые слои: 100% совпадающая типографика */
 .editor-mirror,
 .editor-textarea {
   font-family: inherit;
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.15rem; /* ~18.5px */
   line-height: 1.75;
   letter-spacing: 0;
   word-spacing: 0;
   text-rendering: optimizeLegibility;
-  padding: 42px 48px;
+  padding: 42px 48px 42px 52px;
   margin: 0;
   box-sizing: border-box;
   white-space: pre-wrap;
@@ -454,15 +532,15 @@ html, body {
   z-index: 1;
 }
 
-/* Поле ввода textarea (нативный курсор, выделение, ввод) */
+/* Поле ввода textarea */
 .editor-textarea {
   position: relative;
   width: 100%;
-  min-height: 750px;
+  min-height: 720px;
   height: 100%;
   background: transparent;
-  color: var(--text-main);
-  caret-color: var(--accent);
+  color: #1a1c16;
+  caret-color: #21231c;
   border: none;
   outline: none;
   resize: none;
@@ -470,7 +548,7 @@ html, body {
   z-index: 2;
 }
 
-/* 7. Подсветка в зеркальном слое */
+/* Подсветка зеркального слоя */
 .mirror-mark {
   color: transparent !important;
   border-radius: 2px;
@@ -501,119 +579,24 @@ html, body {
   border-left: 3px solid var(--hl-danger-line);
 }
 
-/* 8. Всплывающий попап фактов у предложения */
-.sentence-popup {
-  position: absolute;
-  z-index: 50;
-  width: 320px;
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  padding: 12px 14px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(6px);
-  transition: opacity 0.15s ease, transform 0.15s ease;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-.sentence-popup.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.popup-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 6px;
-  margin-bottom: 8px;
-}
-
-.popup-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.popup-close-btn {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.popup-close-btn:hover {
-  color: var(--text-main);
-}
-
-.popup-facts-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 0.78rem;
-  line-height: 1.4;
-  margin-bottom: 10px;
-}
-
-.popup-facts-list li {
-  padding-left: 12px;
-  position: relative;
-}
-
-.popup-facts-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--text-dim);
-}
-
-.popup-facts-list li.fact-danger::before {
-  color: var(--status-red-text);
-}
-
-.popup-facts-list li.fact-warning::before {
-  color: var(--status-yellow-text);
-}
-
-.popup-facts-list li.fact-info::before {
-  color: var(--accent);
-}
-
-.popup-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 6px;
-}
-
-.popup-hint {
-  font-size: 0.65rem;
-  color: var(--text-dim);
-}
-
-/* 9. Правая боковая панель аудита */
+/* ==========================================================================
+   6. Правая панель аудита (Тактический темный слейт)
+   ========================================================================== */
 .sidebar-panel {
   width: var(--sidebar-width);
   height: 100%;
   background-color: var(--bg-sidebar);
-  border-left: 1px solid var(--border-subtle);
+  border-left: 1px solid var(--border-sidebar);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 16px;
+  gap: 14px;
+  padding: 14px;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), margin-right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
+  color: var(--text-light);
 }
 
-/* Свёрнутое состояние панели */
 body.sidebar-collapsed .sidebar-panel {
   transform: translateX(100%);
   margin-right: calc(-1 * var(--sidebar-width));
@@ -622,7 +605,7 @@ body.sidebar-collapsed .sidebar-panel {
 .sidebar-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .section-title-row {
@@ -632,28 +615,20 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .section-title {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  color: var(--text-light-muted);
+  text-align: center;
+  width: 100%;
 }
 
 .section-legend {
-  font-size: 0.7rem;
-  color: var(--text-dim);
+  font-size: 0.68rem;
+  color: var(--text-light-dim);
 }
 
-.badge-count {
-  background-color: var(--status-neutral-bg);
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 1px 6px;
-  border-radius: 999px;
-}
-
-/* Быстрые счетчики объема */
+/* Верхние плашки объема */
 .stats-pills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -662,9 +637,9 @@ body.sidebar-collapsed .sidebar-panel {
 
 .stat-pill {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-sm);
-  padding: 8px 6px;
+  padding: 7px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -672,15 +647,15 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .pill-label {
-  font-size: 0.65rem;
-  color: var(--text-muted);
+  font-size: 0.62rem;
+  color: var(--text-light-muted);
   white-space: nowrap;
 }
 
 .pill-value {
   font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-main);
+  font-weight: 800;
+  color: var(--text-light);
   font-variant-numeric: tabular-nums;
   margin-top: 2px;
 }
@@ -688,12 +663,12 @@ body.sidebar-collapsed .sidebar-panel {
 /* Карточка A4 */
 .a4-pages-card {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 12px;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .a4-pages-header {
@@ -703,15 +678,15 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .a4-label {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-light-muted);
 }
 
 .a4-hero-number {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
   font-weight: 800;
-  color: var(--accent);
+  color: var(--text-light);
   line-height: 1;
 }
 
@@ -719,71 +694,58 @@ body.sidebar-collapsed .sidebar-panel {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.7rem;
+  color: var(--text-light-muted);
 }
 
 .a4-fraction {
-  color: var(--status-yellow-text);
-  font-weight: 600;
+  color: var(--status-yellow);
+  font-weight: 700;
 }
 
 .a4-subtext-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 6px;
+  border-top: 1px solid var(--border-card);
+  padding-top: 4px;
   margin-top: 2px;
 }
 
 .a4-subtext {
-  font-size: 0.7rem;
-  color: var(--text-dim);
+  font-size: 0.68rem;
+  color: var(--text-light-dim);
 }
 
 .a4-disclaimer {
-  font-size: 0.65rem;
-  color: var(--text-dim);
+  font-size: 0.64rem;
+  color: var(--text-light-dim);
   font-style: italic;
 }
 
-/* 10. Сетка карточек метрик рецензии */
+/* ==========================================================================
+   7. Карточки метрик со сегментированными индикаторами в стиле NieR
+   ========================================================================== */
 .metrics-grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
 .metric-card {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 9px 12px;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .metric-card:hover {
   background-color: var(--bg-card-hover);
-}
-
-.metric-card.card-green {
-  border-left: 3px solid var(--status-green-text);
-}
-
-.metric-card.card-yellow {
-  border-left: 3px solid var(--status-yellow-text);
-}
-
-.metric-card.card-red {
-  border-left: 3px solid var(--status-red-text);
-}
-
-.metric-card.card-low-data {
-  border-left: 3px solid var(--status-neutral-text);
+  border-color: #414534;
 }
 
 .metric-top {
@@ -793,43 +755,46 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .metric-name {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-light-muted);
 }
 
+/* Круглый тактический значок статуса: (!) или (✓) */
 .metric-status-badge {
   font-size: 0.7rem;
-  font-weight: 700;
-  width: 20px;
-  height: 20px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+  line-height: 1;
 }
 
 .status-green {
+  color: var(--status-green);
+  border: 1.5px solid var(--status-green);
   background-color: var(--status-green-bg);
-  color: var(--status-green-text);
-  border: 1px solid var(--status-green-border);
 }
 
 .status-yellow {
+  color: var(--status-yellow);
+  border: 1.5px solid var(--status-yellow);
   background-color: var(--status-yellow-bg);
-  color: var(--status-yellow-text);
-  border: 1px solid var(--status-yellow-border);
 }
 
 .status-red {
+  color: var(--status-red);
+  border: 1.5px solid var(--status-red);
   background-color: var(--status-red-bg);
-  color: var(--status-red-text);
-  border: 1px solid var(--status-red-border);
 }
 
 .status-low-data {
+  color: var(--status-neutral);
+  border: 1.5px solid var(--status-neutral);
   background-color: var(--status-neutral-bg);
-  color: var(--status-neutral-text);
 }
 
 .metric-main {
@@ -842,18 +807,18 @@ body.sidebar-collapsed .sidebar-panel {
   font-size: 1.25rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
-  color: var(--text-main);
+  color: var(--text-light);
   line-height: 1.1;
 }
 
 .metric-unit {
   font-size: 0.72rem;
-  color: var(--text-dim);
+  color: var(--text-light-dim);
 }
 
 .metric-sub-note {
-  font-size: 0.65rem;
-  color: var(--text-dim);
+  font-size: 0.64rem;
+  color: var(--text-light-dim);
   font-style: italic;
   margin-left: auto;
 }
@@ -862,29 +827,54 @@ body.sidebar-collapsed .sidebar-panel {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.7rem;
-  margin-top: 2px;
+  font-size: 0.68rem;
 }
 
 .bm-human {
-  color: var(--status-green-text);
+  color: var(--text-light-muted);
 }
 
 .bm-ai {
-  color: var(--status-red-text);
+  color: var(--status-red);
 }
 
-/* Дополнительные метрики в строку */
+/* Сегментированный индикатор из 10 квадратиков в стиле референса */
+.metric-segments {
+  display: flex;
+  gap: 3px;
+  margin-top: 2px;
+}
+
+.metric-segments .seg {
+  flex: 1;
+  height: 5px;
+  background-color: #292c22;
+  border-radius: 1px;
+}
+
+.metric-segments .seg.active-green {
+  background-color: var(--status-green);
+}
+
+.metric-segments .seg.active-yellow {
+  background-color: var(--status-yellow);
+}
+
+.metric-segments .seg.active-red {
+  background-color: var(--status-red);
+}
+
+/* Дополнительные индикаторы (SD, Зачины) */
 .secondary-metrics-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .secondary-metric-item {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-sm);
   padding: 6px 8px;
   display: flex;
@@ -893,53 +883,53 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .sec-label {
-  font-size: 0.65rem;
-  color: var(--text-dim);
+  font-size: 0.64rem;
+  color: var(--text-light-dim);
 }
 
 .sec-value {
   font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-main);
+  font-weight: 800;
+  color: var(--text-light);
 }
 
-/* 11. Глобальные дефициты текста */
+/* Глобальные дефициты */
 .low-data-notice,
 .deficits-clean-notice {
-  font-size: 0.74rem;
-  padding: 8px 10px;
+  font-size: 0.72rem;
+  padding: 7px 9px;
   border-radius: var(--radius-sm);
   display: flex;
-  gap: 8px;
+  gap: 6px;
   line-height: 1.35;
 }
 
 .low-data-notice {
-  background-color: var(--status-neutral-bg);
-  color: var(--text-muted);
-  border: 1px solid var(--border-subtle);
+  background-color: rgba(103, 108, 86, 0.12);
+  color: var(--text-light-muted);
+  border: 1px solid var(--border-card);
 }
 
 .deficits-clean-notice {
   background-color: var(--status-green-bg);
-  color: var(--status-green-text);
+  color: var(--status-green);
   border: 1px solid var(--status-green-border);
 }
 
 .deficits-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .deficit-item {
   border-radius: var(--radius-sm);
-  padding: 8px 10px;
-  font-size: 0.74rem;
+  padding: 7px 9px;
+  font-size: 0.72rem;
   line-height: 1.35;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .deficit-danger {
@@ -959,126 +949,117 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .deficit-badge {
-  font-size: 0.7rem;
-  font-weight: 700;
-  width: 16px;
-  height: 16px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 0.68rem;
+  font-weight: 800;
 }
 
 .deficit-title {
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--text-light);
 }
 
 .deficit-body {
-  color: var(--text-muted);
+  color: var(--text-light-muted);
 }
 
-/* 12. Список предложений с замечаниями */
+/* Список предложений с замечаниями */
 .issue-filter-tabs {
   display: flex;
-  gap: 4px;
+  gap: 3px;
   background-color: var(--bg-card);
   padding: 2px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-card);
 }
 
 .issue-filter-tab {
   flex: 1;
   background: transparent;
   border: none;
-  color: var(--text-muted);
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 4px 0;
-  border-radius: 3px;
+  color: var(--text-light-muted);
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 3px 0;
+  border-radius: 2px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .issue-filter-tab.active {
-  background-color: var(--bg-header);
-  color: var(--text-main);
-  box-shadow: var(--shadow-sm);
+  background-color: #272a21;
+  color: var(--text-light);
 }
 
 .issues-list-container {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  max-height: 360px;
+  gap: 5px;
+  max-height: 320px;
   overflow-y: auto;
 }
 
 .issues-empty {
-  font-size: 0.75rem;
-  color: var(--text-dim);
+  font-size: 0.72rem;
+  color: var(--text-light-dim);
   text-align: center;
-  padding: 20px 10px;
+  padding: 16px 8px;
   background-color: var(--bg-card);
   border-radius: var(--radius-sm);
 }
 
 .issue-item {
   background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-card);
   border-radius: var(--radius-sm);
-  padding: 8px 10px;
+  padding: 7px 9px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   transition: all 0.15s ease;
 }
 
 .issue-item:hover {
   background-color: var(--bg-card-hover);
-  border-color: var(--text-dim);
-  transform: translateX(-2px);
+  border-color: #414534;
 }
 
 .issue-item.issue-danger {
-  border-left: 3px solid var(--status-red-text);
+  border-left: 3px solid var(--status-red);
 }
 
 .issue-item.issue-warning {
-  border-left: 3px solid var(--status-yellow-text);
+  border-left: 3px solid var(--status-yellow);
 }
 
 .issue-item-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 6px;
 }
 
 .issue-word-badge {
-  font-size: 0.68rem;
-  font-weight: 700;
-  background-color: var(--bg-input);
-  padding: 1px 6px;
-  border-radius: 3px;
-  color: var(--text-main);
+  font-size: 0.65rem;
+  font-weight: 800;
+  background-color: #24271f;
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: var(--text-light);
 }
 
 .issue-reason {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-light-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .issue-preview {
-  font-size: 0.72rem;
-  color: var(--text-dim);
+  font-size: 0.7rem;
+  color: var(--text-light-dim);
   line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -1086,11 +1067,189 @@ body.sidebar-collapsed .sidebar-panel {
   overflow: hidden;
 }
 
-/* 13. Модальное окно настроек */
+.badge-count {
+  background-color: #2b2e23;
+  color: var(--text-light);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   8. Всплывающий попап фактов у предложения
+   ========================================================================== */
+.sentence-popup {
+  position: absolute;
+  z-index: 50;
+  width: 320px;
+  background-color: #20221b;
+  border: 1px solid #3c4031;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  color: var(--text-light);
+}
+
+.sentence-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #313528;
+  padding-bottom: 5px;
+  margin-bottom: 7px;
+}
+
+.popup-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.popup-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-light-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.popup-facts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  margin-bottom: 9px;
+}
+
+.popup-facts-list li {
+  padding-left: 12px;
+  position: relative;
+}
+
+.popup-facts-list li::before {
+  content: "◇";
+  position: absolute;
+  left: 0;
+  font-size: 0.65rem;
+  color: var(--text-light-dim);
+}
+
+.popup-facts-list li.fact-danger::before {
+  color: var(--status-red);
+}
+
+.popup-facts-list li.fact-warning::before {
+  color: var(--status-yellow);
+}
+
+.popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #313528;
+  padding-top: 6px;
+}
+
+.popup-hint {
+  font-size: 0.64rem;
+  color: var(--text-light-dim);
+}
+
+/* ==========================================================================
+   9. Нижняя тактическая полоса подсказок и горячих клавиш (NieR Bar)
+   ========================================================================== */
+.tactical-bottom-bar {
+  height: 38px;
+  background-color: var(--bg-bottom-bar);
+  border-top: 1px solid var(--border-tactical-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  z-index: 100;
+}
+
+.bottom-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-prompt-marker {
+  font-weight: 900;
+  color: var(--text-dark);
+}
+
+.bar-hint-text {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.key-code {
+  background-color: rgba(0, 0, 0, 0.08);
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-family: monospace;
+}
+
+.bottom-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.keybind-group {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.key-cap {
+  background-color: #21231c;
+  color: #dcdfc7;
+  font-family: -apple-system, BlinkMacSystemFont, monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 2px;
+  line-height: 1.1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.key-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-left: 4px;
+  color: #2d3025;
+}
+
+.key-symbol {
+  margin-left: 3px;
+  font-size: 0.65rem;
+}
+
+/* ==========================================================================
+   10. Модальное окно настроек в тактическом стиле
+   ========================================================================== */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(20, 22, 17, 0.75);
   backdrop-filter: blur(4px);
   z-index: 1000;
   display: flex;
@@ -1111,68 +1270,66 @@ body.sidebar-collapsed .sidebar-panel {
   width: 100%;
   max-width: 680px;
   max-height: 85vh;
-  background-color: var(--bg-modal);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  background-color: #20221b;
+  border: 1px solid #3c4031;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  color: var(--text-light);
 }
 
 .modal-header {
-  padding: 14px 20px;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 18px;
+  border-bottom: 1px solid #313528;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .modal-title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .settings-tabs-nav {
   display: flex;
-  border-bottom: 1px solid var(--border-subtle);
-  background-color: var(--bg-input);
+  border-bottom: 1px solid #313528;
+  background-color: #171913;
   padding: 0 16px;
-  gap: 8px;
+  gap: 6px;
 }
 
 .settings-tab-btn {
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 10px 12px;
+  color: var(--text-light-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 9px 12px;
   cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.settings-tab-btn:hover {
-  color: var(--text-main);
 }
 
 .settings-tab-btn.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--text-light);
+  border-bottom-color: var(--text-light);
 }
 
 .modal-body {
-  padding: 20px;
+  padding: 18px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  gap: 14px;
 }
 
 .settings-tab-content {
   display: none;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .settings-tab-content.active {
@@ -1180,199 +1337,68 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .tab-description {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  line-height: 1.4;
+  font-size: 0.78rem;
+  color: var(--text-light-muted);
 }
 
 .settings-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .settings-table th,
 .settings-table td {
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 7px 9px;
+  border-bottom: 1px solid #2f3227;
   text-align: left;
 }
 
 .settings-table th {
-  color: var(--text-muted);
-  font-weight: 600;
-  background-color: var(--bg-card);
-}
-
-.input-sm {
-  width: 75px;
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-  padding: 4px 6px;
-  border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-}
-
-.input-xs {
-  width: 55px;
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-  padding: 3px 5px;
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
-}
-
-.input-text {
-  width: 100%;
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-}
-
-.select-sm {
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-  padding: 5px 8px;
-  border-radius: var(--radius-sm);
-  font-size: 0.78rem;
-}
-
-.form-textarea {
-  width: 100%;
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-  padding: 8px 10px;
-  border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-  font-family: monospace;
-  resize: vertical;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.field-hint {
-  font-size: 0.72rem;
-  color: var(--text-dim);
-}
-
-.add-phrase-box {
-  display: grid;
-  grid-template-columns: 2fr 1.2fr 2fr auto;
-  gap: 8px;
-  align-items: center;
-}
-
-.signal-phrases-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  max-height: 200px;
-  overflow-y: auto;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 8px;
-  background-color: var(--bg-input);
-}
-
-.signal-phrase-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4px 6px;
-  background-color: var(--bg-card);
-  border-radius: 3px;
-  font-size: 0.78rem;
-}
-
-.phrase-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.phrase-badge {
-  font-size: 0.65rem;
+  color: var(--text-light-muted);
   font-weight: 700;
-  padding: 1px 5px;
-  border-radius: 3px;
+  background-color: #171913;
 }
 
-.badge-danger {
-  background-color: var(--status-red-bg);
-  color: var(--status-red-text);
-}
-
-.badge-warning {
-  background-color: var(--status-yellow-bg);
-  color: var(--status-yellow-text);
-}
-
-.phrase-comment {
-  color: var(--text-dim);
-  font-size: 0.72rem;
-}
-
-.form-grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.margins-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+.input-sm, .input-xs, .input-text, .select-sm, .form-textarea {
+  background-color: #171913;
+  border: 1px solid #313528;
+  color: var(--text-light);
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
   font-size: 0.78rem;
 }
+
+.input-sm { width: 75px; }
+.input-xs { width: 55px; }
+.input-text { width: 100%; }
 
 .modal-footer {
-  padding: 12px 20px;
-  border-top: 1px solid var(--border-subtle);
+  padding: 10px 18px;
+  border-top: 1px solid #313528;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--bg-header);
+  background-color: #171913;
 }
 
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* 14. Всплывающее уведомление (Toast) */
+/* Toast */
 #app-toast {
   position: fixed;
-  bottom: 24px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background-color: var(--text-main);
-  color: var(--bg-app);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 8px 18px;
+  background-color: #21231c;
+  color: #dcdfc7;
+  border: 1px solid #414534;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 16px;
   border-radius: 999px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   opacity: 0;
   pointer-events: none;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
   z-index: 2000;
 }
 
