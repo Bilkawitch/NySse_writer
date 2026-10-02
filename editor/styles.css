@@ -619,6 +619,433 @@ html, body {
 }
 
 /* ==========================================================================
+   5.5. Панель истории версий и ветвлений Git (сжимает редактор)
+   ========================================================================== */
+.history-panel {
+  display: none;
+  width: 340px;
+  min-width: 300px;
+  max-width: 380px;
+  height: 100%;
+  background-color: #191b14;
+  border-left: 1px solid var(--border-sidebar);
+  border-right: 1px solid var(--border-sidebar);
+  flex-direction: column;
+  z-index: 9;
+  color: var(--text-light);
+  flex-shrink: 0;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+body.history-open .history-panel {
+  display: flex;
+}
+
+.hist-header {
+  padding: 8px 12px;
+  background-color: #21241b;
+  border-bottom: 1px solid var(--border-sidebar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.hist-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #c9ceb2;
+}
+
+.hist-status-dot {
+  color: var(--status-green);
+  font-size: 0.65rem;
+}
+
+.hist-commit-box {
+  padding: 8px 12px;
+  background-color: #171912;
+  border-bottom: 1px solid var(--border-sidebar);
+  display: flex;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.hist-commit-input {
+  flex: 1;
+  background-color: #22251c;
+  border: 1px solid #363b2c;
+  color: var(--text-light);
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 0px;
+  outline: none;
+}
+
+.hist-commit-input:focus {
+  border-color: var(--border-tactical-light);
+}
+
+.hist-section {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-sidebar);
+}
+
+.hist-tree-section {
+  max-height: 220px;
+  overflow-y: auto;
+  background-color: #181a13;
+}
+
+.hist-commits-section {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #14160f;
+}
+
+.hist-section-title {
+  padding: 6px 12px;
+  background-color: #1e2118;
+  border-bottom: 1px solid #2d3124;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--text-light-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-xs-link {
+  background: transparent;
+  border: 1px solid #434937;
+  color: var(--text-light);
+  font-size: 0.64rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 0px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-xs-link:hover {
+  background-color: #2d3124;
+  color: #fff;
+}
+
+/* Дерево проектов и веток */
+.hist-projects-tree {
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", monospace;
+}
+
+.tree-project-item {
+  margin-bottom: 6px;
+}
+
+.tree-proj-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 3px 6px;
+  font-weight: 700;
+  color: #d2d6bc;
+}
+
+.tree-proj-header:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.tree-badge-active {
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: var(--status-green);
+  border: 1px solid var(--status-green);
+  padding: 0 4px;
+  margin-left: auto;
+  line-height: 1.2;
+}
+
+.tree-branches-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 14px;
+  margin-top: 2px;
+  gap: 2px;
+}
+
+.tree-branch-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 6px;
+  cursor: pointer;
+  color: var(--text-light-muted);
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.tree-branch-item:hover {
+  background-color: #22261b;
+  color: var(--text-light);
+}
+
+.tree-branch-item.active-branch {
+  background-color: #25291d;
+  color: #e4e7d1;
+  border-color: #424835;
+  font-weight: 700;
+}
+
+.branch-connector {
+  color: #555b44;
+  font-size: 0.7rem;
+}
+
+.branch-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.branch-badge {
+  font-size: 0.58rem;
+  font-weight: 800;
+  background-color: var(--status-green-bg);
+  color: var(--status-green);
+  border: 1px solid var(--status-green);
+  padding: 0 4px;
+}
+
+.branch-actions {
+  display: flex;
+  gap: 3px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.tree-branch-item:hover .branch-actions {
+  opacity: 1;
+}
+
+.branch-rename-btn,
+.branch-del-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-light-muted);
+  font-size: 0.65rem;
+  cursor: pointer;
+  padding: 1px 3px;
+}
+
+.branch-rename-btn:hover { color: #fff; }
+.branch-del-btn:hover { color: var(--status-red); }
+
+.tree-add-project-row {
+  margin-top: 6px;
+  padding-left: 6px;
+}
+
+/* Вертикальный железнодорожный таймлайн коммитов (IDE Railway Graph) */
+.hist-timeline-container {
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hist-empty-notice {
+  font-size: 0.72rem;
+  color: var(--text-light-dim);
+  padding: 16px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.timeline-row {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  min-height: 64px;
+}
+
+.timeline-track {
+  width: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.timeline-node {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #5a6249;
+  background-color: #171912;
+  border-radius: 0px;
+  z-index: 2;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-head {
+  border-color: var(--status-green);
+  background-color: #212519;
+  box-shadow: 0 0 6px rgba(132, 169, 86, 0.4);
+}
+
+.node-inner-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--status-green);
+}
+
+.timeline-rail {
+  position: absolute;
+  top: 14px;
+  bottom: -4px;
+  left: 8px;
+  width: 2px;
+  background-color: #383e2d;
+  z-index: 1;
+}
+
+.timeline-card {
+  flex: 1;
+  background-color: #1c1e16;
+  border: 1px solid #2d3124;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 0.15s ease;
+}
+
+.timeline-card:hover {
+  background-color: #23261c;
+  border-color: #444b37;
+}
+
+.is-head-commit .timeline-card {
+  border-color: #4b543b;
+  background-color: #1f2318;
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.commit-hash {
+  font-family: monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #a8b08f;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 1px 4px;
+}
+
+.is-head-commit .commit-hash {
+  color: var(--status-green);
+}
+
+.commit-time {
+  font-size: 0.65rem;
+  color: var(--text-light-dim);
+}
+
+.commit-head-pill {
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: var(--status-green);
+  border: 1px solid var(--status-green);
+  padding: 0 4px;
+  margin-left: auto;
+}
+
+.commit-msg {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.timeline-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  gap: 6px;
+}
+
+.commit-stats-tag {
+  font-size: 0.64rem;
+  color: var(--text-light-muted);
+}
+
+.commit-current-tag {
+  font-size: 0.62rem;
+  color: var(--status-green);
+  font-weight: 700;
+}
+
+.history-panel .btn-icon-btn {
+  color: var(--text-light);
+  border-color: #3f4532;
+}
+
+.history-panel .btn-icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #646d50;
+}
+
+.history-panel .btn-tactical {
+  color: #dcdfc7;
+  border-color: #4b523b;
+  background-color: #22261b;
+}
+
+.history-panel .btn-tactical:hover {
+  background-color: #313727;
+  border-color: #656d4f;
+  color: #fff;
+}
+
+.branch-svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--status-green);
+}
+
+.commit-checkout-btn {
+  background-color: #24291c !important;
+  color: #c9ceb2 !important;
+  border: 1px solid #4a5438 !important;
+}
+
+.commit-checkout-btn:hover {
+  background-color: #363d2a !important;
+  border-color: #6a7751 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
    6. Правая панель аудита (Тактический темный слейт)
    ========================================================================== */
 .sidebar-panel {

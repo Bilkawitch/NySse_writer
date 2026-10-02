@@ -7,6 +7,8 @@ import { getSettings, saveSettings, resetToReviewDefaults, onSettingsChange, exp
 import { parseDocument } from './parse.js';
 import { computeAllMetrics } from './metrics.js';
 import { estimateA4Pages } from './pages.js';
+import { gitRepo } from './repo.js';
+import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js';
 
 // Селекторы элементов DOM
 let textareaEl = null;
@@ -69,21 +71,38 @@ export function initEditor() {
     console.warn('Ошибка чтения состояния панели:', e);
   }
 
-  // 2. Восстановление сохраненного текста документа
+  // 2. Восстановление сохраненного текста документа из Git-репозитория или fallback
   let initialText = '';
-  try {
-    const savedText = localStorage.getItem(DOC_STORAGE_KEY);
-    if (savedText !== null && savedText.trim().length > 0) {
-      initialText = savedText;
-    } else {
-      // Предлагаем стартовый демо-текст с примером таблицы и разными предложениями
+  const headCommit = gitRepo.getHeadCommit();
+  if (headCommit && typeof headCommit.content === 'string') {
+    initialText = headCommit.content;
+  } else {
+    try {
+      const savedText = localStorage.getItem(DOC_STORAGE_KEY);
+      if (savedText !== null && savedText.trim().length > 0) {
+        initialText = savedText;
+      } else {
+        // Стартовый демо-текст с примером таблицы и разными предложениями
+        initialText = getDemoReviewText();
+      }
+    } catch (e) {
       initialText = getDemoReviewText();
     }
-  } catch (e) {
-    initialText = getDemoReviewText();
+    gitRepo.initDefaultProject(initialText);
   }
 
   textareaEl.value = initialText;
+
+  // Инициализация боковой панели истории (Git-дерево и вертикальный таймлайн)
+  initHistoryPanel((newText) => {
+    textareaEl.value = newText;
+    recalculateAll(true);
+    closePopup();
+    const curHead = gitRepo.getHeadCommit();
+    if (curHead) {
+      setSaveStatus(`Ревизия [${curHead.id}]`, true);
+    }
+  });
 
   // 3. Навешивание слушателей событий
   setupEventListeners();
@@ -95,20 +114,24 @@ export function initEditor() {
 
   // 5. Первичный расчет и подсветка
   recalculateAll(true);
+  const initialHead = gitRepo.getHeadCommit();
+  if (initialHead) {
+    setSaveStatus(`Сохранено [${initialHead.id}]`, true);
+  }
 }
 
 /**
  * Привязка всех событий ввода, скролла, кнопок и попапов
  */
 function setupEventListeners() {
-  // Ввод текста с дебаунсом 60-80 мс
+  // Ввод текста с быстрым дебаунсом для синтаксиса и 2-секундным порогом для автокоммита в Git
   textareaEl.addEventListener('input', () => {
-    setSaveStatus('Изменения...', false);
+    setSaveStatus('Ввод...', false);
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       recalculateAll(false);
-      scheduleAutoSave();
     }, 70);
+    scheduleGitAutoSave();
   });
 
   // Синхронизация скролла между textarea и зеркальным слоем
@@ -167,11 +190,23 @@ function setupEventListeners() {
   const btnNew = document.getElementById('btn-new-doc');
   if (btnNew) {
     btnNew.addEventListener('click', () => {
-      if (confirm('Очистить текст и создать новый документ?')) {
+      // 1. Автосохранение/коммит старого текста перед созданием нового
+      gitRepo.commit(textareaEl.value);
+
+      // 2. Создание новой ветки (каждый текст — отдельная ветка)
+      const curProj = gitRepo.getActiveProject();
+      const branchCount = Object.keys(curProj.branches).length + 1;
+      const defaultName = `Текст ${branchCount}`;
+      const branchName = prompt('Создать новый документ. Введите название ветки:', defaultName);
+
+      if (branchName !== null) {
+        gitRepo.createBranch(branchName, '');
         textareaEl.value = '';
         recalculateAll(true);
-        scheduleAutoSave();
         closePopup();
+        textareaEl.focus();
+        setSaveStatus('Новый черновик', true);
+        showToast(`Создан новый черновик в ветке "${branchName}". Предыдущий текст сохранён.`);
       }
     });
   }
@@ -228,21 +263,39 @@ function setupEventListeners() {
   const tacticalTabs = document.querySelectorAll('.tactical-tabs .tab-item');
   tacticalTabs.forEach(tab => {
     tab.addEventListener('click', () => {
+      const view = tab.getAttribute('data-view');
+
+      if (view === 'history') {
+        const isNowOpen = toggleHistoryPanel();
+        if (!isNowOpen) {
+          // Если панель истории закрыта, переключаем активную вкладку на DOCUMENT
+          const docTab = document.getElementById('tab-document');
+          if (docTab) {
+            tacticalTabs.forEach(t => {
+              t.classList.remove('active');
+              t.setAttribute('aria-selected', 'false');
+            });
+            docTab.classList.add('active');
+            docTab.setAttribute('aria-selected', 'true');
+          }
+        }
+        return;
+      }
+
       tacticalTabs.forEach(t => {
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
       });
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
-      const view = tab.getAttribute('data-view');
+
       if (view === 'analysis') {
         document.body.classList.remove('sidebar-collapsed');
         try { localStorage.setItem(SIDEBAR_STATE_KEY, 'false'); } catch (e) {}
         const sec = document.querySelector('.section-metrics');
         if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-      } else if (view === 'history') {
-        showToast('История: автосохранение активно в локальной памяти браузера');
-      } else {
+      } else if (view === 'document') {
+        toggleHistoryPanel(false);
         textareaEl.focus();
       }
     });
@@ -270,19 +323,24 @@ function setupEventListeners() {
 }
 
 /**
- * Планирование автосохранения в localStorage
+ * Планирование автосохранения / коммита в Git-репозиторий (2 секунды после завершения ввода)
  */
-function scheduleAutoSave() {
+function scheduleGitAutoSave() {
   clearTimeout(autoSaveTimer);
   autoSaveTimer = setTimeout(() => {
     try {
       localStorage.setItem(DOC_STORAGE_KEY, textareaEl.value);
-      setSaveStatus('Сохранено', true);
+      const commit = gitRepo.commit(textareaEl.value);
+      if (commit) {
+        setSaveStatus(`Сохранено [${commit.id}]`, true);
+      } else {
+        setSaveStatus('Сохранено', true);
+      }
     } catch (e) {
       console.warn('Ошибка автосохранения:', e);
       setSaveStatus('Ошибка памяти', false);
     }
-  }, 400);
+  }, 2000); // 2-секундный порог после прекращения печати
 }
 
 function setSaveStatus(text, isSaved) {
