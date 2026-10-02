@@ -134,8 +134,15 @@ function setupEventListeners() {
     scheduleGitAutoSave();
   });
 
-  // Синхронизация скролла между textarea и зеркальным слоем
+  // Синхронизация скролла и калибровки геометрии между textarea и зеркальным слоем
+  const syncMirrorDimensions = () => {
+    if (!textareaEl || !mirrorEl) return;
+    const scrollbarWidth = textareaEl.offsetWidth - textareaEl.clientWidth;
+    mirrorEl.style.paddingRight = `${48 + scrollbarWidth}px`;
+  };
+
   const syncScroll = () => {
+    syncMirrorDimensions();
     mirrorEl.scrollTop = textareaEl.scrollTop;
     mirrorEl.scrollLeft = textareaEl.scrollLeft;
     hidePopupIfScrolledOut();
@@ -589,6 +596,9 @@ function renderMirrorHighlights(rawText, parsedDoc) {
   if (rawText.endsWith('\n')) {
     html += '\n ';
   }
+
+  // Распорный блок для компенсации выпадения padding-bottom из scrollHeight в overflow:hidden
+  html += '<div class="mirror-bottom-spacer" aria-hidden="true"></div>';
 
   mirrorEl.innerHTML = html;
 

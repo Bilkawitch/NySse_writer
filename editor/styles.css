@@ -571,6 +571,14 @@ html, body {
   z-index: 1;
 }
 
+/* Распорка для коррекции scrollHeight зеркала при прокрутке до упора вниз */
+.mirror-bottom-spacer {
+  display: block;
+  width: 100%;
+  height: 70px;
+  pointer-events: none;
+}
+
 /* Поле ввода textarea */
 .editor-textarea {
   position: relative;
@@ -583,7 +591,8 @@ html, body {
   border: none;
   outline: none;
   resize: none;
-  overflow-y: auto;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
   z-index: 2;
 }
 
