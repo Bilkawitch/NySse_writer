@@ -12,6 +12,7 @@
 
 import { getSettings, saveSettings, resetToReviewDefaults, exportSettingsJSON, importSettingsJSON } from './settings.js';
 import { showToast } from './editor.js';
+import { AI_PRESETS, testAiConnection } from './ai-provider.js';
 
 let modalEl = null;
 
@@ -139,6 +140,58 @@ export function initSettingsModal() {
       renderSignalPhrasesList(settings.signalPhrases);
     });
   }
+
+  // Обработчики вкладки ИИ Провайдера
+  const aiProviderSelect = document.getElementById('set-ai-provider');
+  if (aiProviderSelect) {
+    aiProviderSelect.addEventListener('change', () => {
+      const pKey = aiProviderSelect.value;
+      const preset = AI_PRESETS[pKey];
+      if (preset) {
+        setVal('set-ai-base-url', preset.baseUrl);
+        setVal('set-ai-model', preset.defaultModel);
+        updateAiProviderHint(pKey);
+        renderAiModelChips(preset.models);
+      }
+    });
+  }
+
+  const toggleKeyVisBtn = document.getElementById('btn-toggle-ai-key-vis');
+  if (toggleKeyVisBtn) {
+    toggleKeyVisBtn.addEventListener('click', () => {
+      const keyInput = document.getElementById('set-ai-key');
+      if (keyInput) {
+        keyInput.type = keyInput.type === 'password' ? 'text' : 'password';
+      }
+    });
+  }
+
+  const testConnBtn = document.getElementById('btn-test-ai-conn');
+  if (testConnBtn) {
+    testConnBtn.addEventListener('click', async () => {
+      const statusEl = document.getElementById('ai-conn-status');
+      if (!statusEl) return;
+
+      const cfg = {
+        provider: getVal('set-ai-provider') || 'openrouter',
+        baseUrl: getVal('set-ai-base-url'),
+        model: getVal('set-ai-model'),
+        apiKey: getVal('set-ai-key')
+      };
+
+      statusEl.textContent = '⏳ Проверка соединения...';
+      statusEl.className = 'ai-conn-status status-testing';
+
+      try {
+        await testAiConnection(cfg);
+        statusEl.textContent = '✓ Соединение успешно установлено';
+        statusEl.className = 'ai-conn-status status-ok';
+      } catch (err) {
+        statusEl.textContent = `! Ошибка: ${err.message}`;
+        statusEl.className = 'ai-conn-status status-err';
+      }
+    });
+  }
 }
 
 export function openSettings() {
@@ -204,6 +257,49 @@ function loadSettingsIntoForm() {
   setVal('set-page-margin-left', p.marginLeftMm || 20);
   setVal('set-page-margin-right', p.marginRightMm || 20);
   setVal('set-page-main-norm', p.charsPerA4MainNorm || 1800);
+
+  // 4. ИИ Провайдер
+  const ai = s.aiConfig || {};
+  const currentProvider = ai.provider || 'openrouter';
+  setVal('set-ai-provider', currentProvider);
+  setVal('set-ai-base-url', ai.baseUrl || AI_PRESETS.openrouter.baseUrl);
+  setVal('set-ai-model', ai.model || AI_PRESETS.openrouter.defaultModel);
+  setVal('set-ai-key', ai.apiKey || '');
+  updateAiProviderHint(currentProvider);
+  renderAiModelChips(AI_PRESETS[currentProvider]?.models || []);
+
+  const statusEl = document.getElementById('ai-conn-status');
+  if (statusEl) {
+    statusEl.textContent = '';
+    statusEl.className = 'ai-conn-status';
+  }
+}
+
+function updateAiProviderHint(providerKey) {
+  const hintEl = document.getElementById('ai-provider-hint');
+  if (hintEl && AI_PRESETS[providerKey]) {
+    hintEl.textContent = AI_PRESETS[providerKey].hint;
+  }
+}
+
+function renderAiModelChips(models) {
+  const container = document.getElementById('ai-model-quick-list');
+  if (!container) return;
+
+  if (!models || models.length === 0) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = models.map(m => `
+    <button type="button" class="btn-model-chip" data-model="${m}">${m.split('/').pop()}</button>
+  `).join('');
+
+  container.querySelectorAll('.btn-model-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      setVal('set-ai-model', chip.getAttribute('data-model'));
+    });
+  });
 }
 
 /**
@@ -306,6 +402,13 @@ function gatherAndSaveSettings() {
   s.pageEstimation.marginLeftMm = parseFloat(getVal('set-page-margin-left')) || 20;
   s.pageEstimation.marginRightMm = parseFloat(getVal('set-page-margin-right')) || 20;
   s.pageEstimation.charsPerA4MainNorm = parseInt(getVal('set-page-main-norm'), 10) || 1800;
+
+  // ИИ Провайдер
+  s.aiConfig = s.aiConfig || {};
+  s.aiConfig.provider = getVal('set-ai-provider') || 'openrouter';
+  s.aiConfig.baseUrl = getVal('set-ai-base-url') || '';
+  s.aiConfig.model = getVal('set-ai-model') || '';
+  s.aiConfig.apiKey = getVal('set-ai-key') || '';
 
   saveSettings(s);
 }

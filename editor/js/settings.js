@@ -6,7 +6,7 @@
  * сохранение в localStorage, экспорт и импорт в JSON.
  */
 
-import { DEFAULT_FORMULAIC_STARTERS, DEFAULT_SIGNAL_PHRASES } from './dicts.js';
+import { DEFAULT_FORMULAIC_STARTERS, DEFAULT_SIGNAL_PHRASES, DEFAULT_ABSTRACT_HEDGES } from './dicts.js';
 
 export const REVIEW_DEFAULTS = {
   // 1. Средняя длина предложения (слов / предложений)
@@ -99,7 +99,8 @@ export const REVIEW_DEFAULTS = {
     warningWordCount: 30,       // Жёлтый порог (пользовательский ориентир)
     highlightWarningEnabled: true,
     highlightFormulaicStarters: true,
-    highlightSignalPhrases: true
+    highlightSignalPhrases: true,
+    highlightAbstractHedges: true
   },
 
   // Минимальный объем для достоверности метрик
@@ -124,7 +125,17 @@ export const REVIEW_DEFAULTS = {
 
   // Списки фраз
   formulaicStarters: [...DEFAULT_FORMULAIC_STARTERS],
-  signalPhrases: [...DEFAULT_SIGNAL_PHRASES]
+  signalPhrases: [...DEFAULT_SIGNAL_PHRASES],
+  abstractHedges: [...DEFAULT_ABSTRACT_HEDGES],
+
+  // Конфигурация ИИ-провайдера (OpenRouter, DeepSeek, OpenAI, Groq, Ollama, Custom)
+  aiConfig: {
+    provider: 'openrouter',
+    baseUrl: 'https://openrouter.ai/api/v1',
+    model: 'deepseek/deepseek-chat',
+    apiKey: '',
+    customModel: ''
+  }
 };
 
 const STORAGE_KEY = 'nysse_editor_settings_v1';

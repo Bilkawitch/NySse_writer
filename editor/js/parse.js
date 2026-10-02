@@ -258,6 +258,24 @@ export function analyzeSentenceIssues(sentence, settings = getSettings()) {
     }
   }
 
+  // 5. Абстрактные обобщения без конкретики (Turnitin Method 5)
+  if (settings.highlight.highlightAbstractHedges && settings.abstractHedges) {
+    const cleanLowerText = sentence.cleanText.toLowerCase();
+    for (const hedge of settings.abstractHedges) {
+      const h = hedge.trim().toLowerCase();
+      if (!h) continue;
+      if (cleanLowerText.includes(h)) {
+        issues.push({
+          type: 'abstract_hedge',
+          severity: 'warning',
+          phrase: hedge,
+          message: `Абстрактное обобщение: «${hedge}» (маркер Turnitin — замените на конкретного автора, год или факт)`
+        });
+        break;
+      }
+    }
+  }
+
   return issues;
 }
 
@@ -378,6 +396,39 @@ export function parseDocument(rawText, settings = getSettings()) {
     }
   }
 
+  // 3.5. Группировка предложений по абзацам (Turnitin Method 1)
+  const paragraphs = [];
+  let currentParaSentences = [];
+  let currentParaIndex = 0;
+
+  for (let sIdx = 0; sIdx < sentences.length; sIdx++) {
+    const s = sentences[sIdx];
+    if (sIdx > 0) {
+      const prev = sentences[sIdx - 1];
+      const gap = rawText.substring(prev.endOffset, s.startOffset);
+      if (gap.includes('\n\n') || gap.split('\n').length > 2) {
+        if (currentParaSentences.length > 0) {
+          paragraphs.push({
+            index: currentParaIndex,
+            sentenceCount: currentParaSentences.length,
+            sentences: [...currentParaSentences]
+          });
+          currentParaIndex++;
+          currentParaSentences = [];
+        }
+      }
+    }
+    s.paragraphIndex = currentParaIndex;
+    currentParaSentences.push(s);
+  }
+  if (currentParaSentences.length > 0) {
+    paragraphs.push({
+      index: currentParaIndex,
+      sentenceCount: currentParaSentences.length,
+      sentences: [...currentParaSentences]
+    });
+  }
+
   // 4. Общие символьные счетчики
   let charsWithSpaces = rawText.length;
   let charsNoSpaces = rawText.replace(/\s+/g, '').length;
@@ -390,6 +441,7 @@ export function parseDocument(rawText, settings = getSettings()) {
     rawText,
     tables,
     sentences,
+    paragraphs,
     mainWords: allMainWords,
     totalWordsCount: allMainWords.length + tableWordsTotal,
     mainWordsCount: allMainWords.length,

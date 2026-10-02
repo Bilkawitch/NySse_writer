@@ -323,6 +323,55 @@ export function computeAllMetrics(parsedDoc, settings = getSettings()) {
         text: `${starterResult.maxRatio.toFixed(1)}% предложений начинаются со слова «${starterResult.topStarter}».`
       });
     }
+
+    // Turnitin Method 1: Проверка монотонности длины абзацев (4–6 предложений)
+    const paragraphs = parsedDoc.paragraphs || [];
+    if (paragraphs.length >= 3) {
+      const fourToSixCount = paragraphs.filter(p => p.sentenceCount >= 4 && p.sentenceCount <= 6).length;
+      const shortCount = paragraphs.filter(p => p.sentenceCount <= 2).length;
+      const longCount = paragraphs.filter(p => p.sentenceCount >= 8).length;
+      const ratioFourToSix = fourToSixCount / paragraphs.length;
+
+      if (ratioFourToSix >= 0.7 && shortCount === 0 && longCount === 0) {
+        globalDeficits.push({
+          type: 'paragraph_monotony',
+          severity: 'warning',
+          title: 'Монотонная структура абзацев (сигнатура Turnitin)',
+          text: `${Math.round(ratioFourToSix * 100)}% абзацев содержат по 4–6 предложений со стандартным ритмом (тезис → 2 поддержки → связка). Разбейте часть абзацев на 2–3 предложения, добавьте одно предложение-акцент или увеличьте один абзац с фактами до 8–10 предложений (Turnitin Method 1).`
+        });
+      }
+    }
+
+    // Turnitin / GPTZero Method 2: Серии предложений по 15–25 слов подряд
+    let maxConsecutiveAiLength = 0;
+    let curConsecutive = 0;
+    for (const s of sentences) {
+      if (s.wordCount >= 15 && s.wordCount <= 25) {
+        curConsecutive++;
+        if (curConsecutive > maxConsecutiveAiLength) maxConsecutiveAiLength = curConsecutive;
+      } else {
+        curConsecutive = 0;
+      }
+    }
+    if (maxConsecutiveAiLength >= 4) {
+      globalDeficits.push({
+        type: 'rhythm_monotony_run',
+        severity: 'warning',
+        title: 'Монотонный ритм предложений (серия по 15–25 слов)',
+        text: `Обнаружена серия из ${maxConsecutiveAiLength} предложений подряд длиной 15–25 слов (сигнатура GPTZero v3.4). Человеческий текст чередует очень короткие фразы и развернутые предложения с придаточными (burstiness).`
+      });
+    }
+
+    // Turnitin Method 5: Абстрактные обобщения без конкретики
+    const hedgesFound = sentences.filter(s => s.issues && s.issues.some(i => i.type === 'abstract_hedge')).length;
+    if (hedgesFound > 0) {
+      globalDeficits.push({
+        type: 'abstract_hedges_flag',
+        severity: 'warning',
+        title: 'Абстрактные обобщения без конкретики',
+        text: `Найдено ${hedgesFound} предложений с абстрактными штампами («многие авторы», «some researchers argue»). Замените их на конкретную фамилию, год или ссылку на работу (Turnitin Method 5).`
+      });
+    }
   }
 
   // Сбор всех предложений с нарушениями

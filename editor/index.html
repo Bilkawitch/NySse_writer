@@ -429,6 +429,9 @@
       </section>
 
     </aside>
+
+    <!-- Панель ИИ-анализа текста (Turnitin / GPTZero) -->
+    <aside class="ai-panel" id="ai-panel" role="region" aria-label="Панель ИИ-анализа"></aside>
   </div>
 
   <!-- Нижняя тактическая полоса в стиле NieR -->
@@ -466,6 +469,7 @@
         <button class="settings-tab-btn active" data-target="tab-thresholds">Пороги рецензии</button>
         <button class="settings-tab-btn" data-target="tab-phrases">Зачины и фразы</button>
         <button class="settings-tab-btn" data-target="tab-pages">Параметры A4</button>
+        <button class="settings-tab-btn" data-target="tab-ai">ИИ Провайдер</button>
       </div>
 
       <div class="modal-body">
@@ -627,6 +631,60 @@
           <div class="form-group">
             <label>Запасной норматив знаков на страницу (14 pt, 1.5 инт.):</label>
             <input type="number" id="set-page-main-norm" class="input-sm" value="1800"> знаков с пробелами
+          </div>
+        </div>
+
+        <!-- Вкладка 4: ИИ Провайдер (Turnitin / GPTZero аудит) -->
+        <div id="tab-ai" class="settings-tab-content">
+          <p class="tab-description">
+            Интеграция с языковыми моделями для семантического выявления ИИ-сигнатур Turnitin и GPTZero.
+          </p>
+
+          <div class="ai-privacy-box">
+            <div class="ai-privacy-icon">🔒</div>
+            <div class="ai-privacy-text">
+              <strong>100% клиентская приватность:</strong> Все API-ключи хранятся исключительно в LocalStorage вашего браузера. Запросы отправляются напрямую из браузера (CORS direct fetch) на выбранный эндпоинт без промежуточных серверов и логов.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label><strong>Провайдер API:</strong></label>
+            <select id="set-ai-provider" class="select-sm input-text">
+              <option value="openrouter">OpenRouter (рекомендуется для браузера — DeepSeek, Claude, Llama)</option>
+              <option value="deepseek">DeepSeek API (официальный)</option>
+              <option value="openai">OpenAI API (GPT-4o, GPT-4o-mini)</option>
+              <option value="groq">Groq Cloud (сверхбыстрый инференс Llama 3)</option>
+              <option value="ollama">Ollama (локально на ПК без ключа)</option>
+              <option value="custom">Свой OpenAI-совместимый endpoint (vLLM, LM Studio)</option>
+            </select>
+            <p id="ai-provider-hint" class="field-hint">Поддерживает любые модели, прямой CORS из браузера</p>
+          </div>
+
+          <div class="form-group">
+            <label><strong>Базовый URL (API Base URL):</strong></label>
+            <input type="text" id="set-ai-base-url" class="input-text" placeholder="https://openrouter.ai/api/v1">
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label><strong>Модель:</strong></label>
+              <input type="text" id="set-ai-model" class="input-text" placeholder="deepseek/deepseek-chat">
+              <div id="ai-model-quick-list" class="ai-model-quick-chips"></div>
+            </div>
+            <div class="form-group">
+              <label><strong>API-ключ (сохраняется только у вас):</strong></label>
+              <div class="input-password-wrapper">
+                <input type="password" id="set-ai-key" class="input-text" placeholder="sk-...">
+                <button type="button" id="btn-toggle-ai-key-vis" class="btn btn-secondary btn-xs" title="Показать/скрыть">👁</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group ai-conn-test-row">
+            <button type="button" id="btn-test-ai-conn" class="btn btn-tactical btn-sm">
+              ⚡ Проверить связь с провайдером
+            </button>
+            <span id="ai-conn-status" class="ai-conn-status"></span>
           </div>
         </div>
 

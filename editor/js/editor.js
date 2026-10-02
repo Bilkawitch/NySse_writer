@@ -9,6 +9,7 @@ import { computeAllMetrics } from './metrics.js';
 import { estimateA4Pages } from './pages.js';
 import { gitRepo } from './repo.js';
 import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js';
+import { initAiPanel, renderAiPanel, triggerAiAudit, setAuditTriggerHandler } from './ai-panel.js';
 
 // Селекторы элементов DOM
 let textareaEl = null;
@@ -103,6 +104,38 @@ export function initEditor() {
       setSaveStatus(`Ревизия [${curHead.id}]`, true);
     }
   });
+
+  // Инициализация панели ИИ-анализа (Turnitin / GPTZero)
+  const aiPanelEl = document.getElementById('ai-panel');
+  if (aiPanelEl) {
+    initAiPanel(aiPanelEl, {
+      onApplyRewrite: (orig, rewrite) => {
+        const text = textareaEl.value;
+        const idx = text.indexOf(orig);
+        if (idx === -1) return false;
+        textareaEl.value = text.substring(0, idx) + rewrite + text.substring(idx + orig.length);
+        recalculateAll(true);
+        gitRepo.commit(textareaEl.value);
+        const newHead = gitRepo.getHeadCommit();
+        if (newHead) setSaveStatus(`ИИ-правка [${newHead.id}]`, true);
+        return true;
+      },
+      onLocateSentence: (orig) => {
+        const text = textareaEl.value;
+        const idx = text.indexOf(orig);
+        if (idx !== -1) {
+          textareaEl.focus();
+          textareaEl.setSelectionRange(idx, idx + orig.length);
+          const linesBefore = text.substring(0, idx).split('\n').length;
+          textareaEl.scrollTop = Math.max(0, (linesBefore - 4) * 28);
+        }
+      }
+    });
+
+    setAuditTriggerHandler(() => {
+      triggerAiAudit(textareaEl.value, currentMetrics, currentParsedDoc);
+    });
+  }
 
   // 3. Навешивание слушателей событий
   setupEventListeners();
@@ -425,11 +458,11 @@ function setupEventListeners() {
       tab.setAttribute('aria-selected', 'true');
 
       if (view === 'analysis') {
-        document.body.classList.remove('sidebar-collapsed');
-        try { localStorage.setItem(SIDEBAR_STATE_KEY, 'false'); } catch (e) {}
-        const sec = document.querySelector('.section-metrics');
-        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+        document.body.classList.add('view-analysis');
+        document.body.classList.remove('history-open');
+        renderAiPanel();
       } else if (view === 'document') {
+        document.body.classList.remove('view-analysis');
         toggleHistoryPanel(false);
         textareaEl.focus();
       }

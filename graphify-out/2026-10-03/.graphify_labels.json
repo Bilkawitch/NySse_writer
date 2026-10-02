@@ -1,6 +1,6 @@
 {
-  "0": "settings.js",
-  "1": "settings-modal.js",
+  "0": "parse.js",
+  "1": "settings.js",
   "2": "Design System: NySse Writer",
   "3": "Product",
   "4": "editor.js",
@@ -9,6 +9,5 @@
   "7": "history-panel.js",
   "8": "package.json",
   "9": "cli.js",
-  "10": "README.md",
-  "11": "ai-panel.js"
+  "10": "README.md"
 }

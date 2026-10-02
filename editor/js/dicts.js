@@ -124,7 +124,19 @@ export const DEFAULT_FORMULAIC_STARTERS = [
   'с одной стороны',
   'с другой стороны',
   'в конечном счете',
-  'по всей видимости'
+  'по всей видимости',
+  // Английские формульные связки (топ детекторов Turnitin / GPTZero)
+  'moreover',
+  'furthermore',
+  'in addition',
+  'in conclusion',
+  'it is important to note',
+  'it should be noted',
+  'it is worth noting',
+  'additionally',
+  'consequently',
+  'notably',
+  'crucially'
 ];
 
 // Сигнальные фразы по умолчанию (пользователь может дополнять/удалять в настройках)
@@ -133,7 +145,7 @@ export const DEFAULT_SIGNAL_PHRASES = [
   {
     phrase: 'необходимо отметить',
     severity: 'warning',
-    comment: 'Канцелярская связка'
+    comment: 'Канцелярская связка (ИИ-маркер)'
   },
   {
     phrase: 'стоит отметить',
@@ -146,8 +158,44 @@ export const DEFAULT_SIGNAL_PHRASES = [
     comment: 'Искусственное усиление важности'
   },
   {
+    phrase: 'в заключение стоит подчеркнуть',
+    severity: 'danger',
+    comment: 'Классическая ИИ-формула концовки (Turnitin)'
+  },
+  {
     phrase: 'как уже упоминалось ранее',
     severity: 'warning',
     comment: 'Плеоназм-отсылка'
+  },
+  {
+    phrase: 'it is important to note',
+    severity: 'danger',
+    comment: 'Turnitin Top Flag: шаблонная связка'
+  },
+  {
+    phrase: 'moreover',
+    severity: 'warning',
+    comment: 'Маркер машинного перехода'
+  },
+  {
+    phrase: 'furthermore',
+    severity: 'warning',
+    comment: 'Маркер машинного перехода'
   }
+];
+
+// Абстрактные обобщения без конкретики (Turnitin Method 5: Concrete Ungoogleable Specifics)
+export const DEFAULT_ABSTRACT_HEDGES = [
+  'многие исследователи',
+  'многие ученые',
+  'ряд исследователей',
+  'некоторые авторы',
+  'многие исследования показывают',
+  'исследования показывают',
+  'принято считать',
+  'many studies show',
+  'some researchers argue',
+  'it is widely believed',
+  'studies have shown',
+  'many experts believe'
 ];

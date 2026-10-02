@@ -1,17 +1,17 @@
 # Graph Report - NySse_writer  (2026-10-02)
 
 ## Corpus Check
-- 14 files · ~15,695 words
+- 14 files · ~16,240 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 3 file(s) not represented in the graph (top: (none) 1, .css 1, .bat 1)
+- Unclassified: 5 file(s) not represented in the graph (top: .bat 2, (none) 1, .exe 1)
 
 ## Summary
-- 173 nodes · 343 edges · 11 communities (10 shown, 1 thin omitted)
+- 174 nodes · 347 edges · 11 communities (10 shown, 1 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `434a33dc`
+- Built from commit: `08856123`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -28,28 +28,28 @@
 - cli.js
 
 ## God Nodes (most connected - your core abstractions)
-1. `GitRepository` - 20 edges
-2. `setupEventListeners()` - 15 edges
-3. `getSettings()` - 15 edges
+1. `GitRepository` - 21 edges
+2. `setupEventListeners()` - 17 edges
+3. `getSettings()` - 16 edges
 4. `initSettingsModal()` - 11 edges
 5. `recalculateAll()` - 10 edges
 6. `Product` - 10 edges
 7. `Design System: NySse Writer` - 9 edges
 8. `initEditor()` - 8 edges
-9. `renderHistoryPanel()` - 7 edges
-10. `computeAllMetrics()` - 7 edges
+9. `saveSettings()` - 8 edges
+10. `renderHistoryPanel()` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `initEditor()` --calls--> `initHistoryPanel()`  [EXTRACTED]
   editor/js/editor.js → editor/js/history-panel.js
 - `setupEventListeners()` --calls--> `toggleHistoryPanel()`  [EXTRACTED]
   editor/js/editor.js → editor/js/history-panel.js
+- `setupEventListeners()` --calls--> `getSettings()`  [EXTRACTED]
+  editor/js/editor.js → editor/js/settings.js
+- `setupEventListeners()` --calls--> `saveSettings()`  [EXTRACTED]
+  editor/js/editor.js → editor/js/settings.js
 - `recalculateAll()` --calls--> `computeAllMetrics()`  [EXTRACTED]
   editor/js/editor.js → editor/js/metrics.js
-- `recalculateAll()` --calls--> `parseDocument()`  [EXTRACTED]
-  editor/js/editor.js → editor/js/parse.js
-- `recalculateAll()` --calls--> `getSettings()`  [EXTRACTED]
-  editor/js/editor.js → editor/js/settings.js
 
 ## Import Cycles
 - None detected.
@@ -81,7 +81,7 @@ Cohesion: 0.60
 Nodes (5): calculateSentenceStdDev(), calculateStarterUniformity(), calculateThreeGramRepetition(), computeAllMetrics(), evaluateStatus()
 
 ### Community 6 - "GitRepository"
-Cohesion: 0.23
+Cohesion: 0.22
 Nodes (3): generateCommitHash(), generateId(), GitRepository
 
 ### Community 7 - "history-panel.js"
@@ -105,7 +105,7 @@ Nodes (13): { exec }, fs, http, MIME_TYPES, openBrowser(), path, ROOT_DIR, start
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `getSettings()` connect `settings.js` to `parse.js`, `editor.js`, `metrics.js`?**
-  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `setupEventListeners()` (e.g. with `exportPlainTextFile()` and `handleEditorClick()`) actually correct?**
   _`setupEventListeners()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `initSettingsModal()` (e.g. with `closeSettings()` and `openSettings()`) actually correct?**
