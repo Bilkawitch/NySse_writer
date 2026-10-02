@@ -4,6 +4,19 @@
   "graph": {},
   "nodes": [
     {
+      "id": "editor_js_repo_gitrepository",
+      "label": "GitRepository",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": "gitrepository",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L27"
+    },
+    {
       "id": "editor_js_parse_analyzesentenceissues",
       "label": "analyzeSentenceIssues()",
       "_callable": true,
@@ -349,7 +362,7 @@
       "file_type": "code",
       "norm_label": "checksentenceatoffset()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L782"
+      "source_location": "L840"
     },
     {
       "id": "editor_js_editor_closepopup",
@@ -361,7 +374,7 @@
       "file_type": "code",
       "norm_label": "closepopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L754"
+      "source_location": "L812"
     },
     {
       "id": "editor_js_editor_escapehtml",
@@ -373,7 +386,7 @@
       "file_type": "code",
       "norm_label": "escapehtml()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L35"
+      "source_location": "L37"
     },
     {
       "id": "editor_js_editor_exportplaintextfile",
@@ -385,7 +398,7 @@
       "file_type": "code",
       "norm_label": "exportplaintextfile()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L297"
+      "source_location": "L355"
     },
     {
       "id": "editor_js_editor_fillpopupcontent",
@@ -397,7 +410,7 @@
       "file_type": "code",
       "norm_label": "fillpopupcontent()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L702"
+      "source_location": "L760"
     },
     {
       "id": "editor_js_editor_getdemoreviewtext",
@@ -409,7 +422,7 @@
       "file_type": "code",
       "norm_label": "getdemoreviewtext()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L826"
+      "source_location": "L884"
     },
     {
       "id": "editor_js_editor_handleeditorclick",
@@ -421,7 +434,7 @@
       "file_type": "code",
       "norm_label": "handleeditorclick()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L772"
+      "source_location": "L830"
     },
     {
       "id": "editor_js_editor_handleeditorcursormove",
@@ -433,7 +446,7 @@
       "file_type": "code",
       "norm_label": "handleeditorcursormove()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L777"
+      "source_location": "L835"
     },
     {
       "id": "editor_js_editor_hidepopupifscrolledout",
@@ -445,7 +458,7 @@
       "file_type": "code",
       "norm_label": "hidepopupifscrolledout()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L761"
+      "source_location": "L819"
     },
     {
       "id": "editor_js_editor_initeditor",
@@ -457,7 +470,7 @@
       "file_type": "code",
       "norm_label": "initeditor()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L48"
+      "source_location": "L50"
     },
     {
       "id": "editor_js_editor_positionandshowpopup",
@@ -469,7 +482,7 @@
       "file_type": "code",
       "norm_label": "positionandshowpopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L677"
+      "source_location": "L735"
     },
     {
       "id": "editor_js_editor_recalculateall",
@@ -481,7 +494,7 @@
       "file_type": "code",
       "norm_label": "recalculateall()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L314"
+      "source_location": "L372"
     },
     {
       "id": "editor_js_editor_renderglobaldeficits",
@@ -493,7 +506,7 @@
       "file_type": "code",
       "norm_label": "renderglobaldeficits()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L529"
+      "source_location": "L587"
     },
     {
       "id": "editor_js_editor_renderissuelist",
@@ -505,7 +518,7 @@
       "file_type": "code",
       "norm_label": "renderissuelist()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L574"
+      "source_location": "L632"
     },
     {
       "id": "editor_js_editor_rendermetriccard",
@@ -517,7 +530,7 @@
       "file_type": "code",
       "norm_label": "rendermetriccard()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L479"
+      "source_location": "L537"
     },
     {
       "id": "editor_js_editor_rendermirrorhighlights",
@@ -529,7 +542,7 @@
       "file_type": "code",
       "norm_label": "rendermirrorhighlights()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L340"
+      "source_location": "L398"
     },
     {
       "id": "editor_js_editor_rendersidebarstats",
@@ -541,19 +554,19 @@
       "file_type": "code",
       "norm_label": "rendersidebarstats()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L417"
+      "source_location": "L475"
     },
     {
-      "id": "editor_js_editor_scheduleautosave",
-      "label": "scheduleAutoSave()",
+      "id": "editor_js_editor_schedulegitautosave",
+      "label": "scheduleGitAutoSave()",
       "_callable": true,
       "_origin": "ast",
       "community": 4,
       "community_name": "editor.js",
       "file_type": "code",
-      "norm_label": "scheduleautosave()",
+      "norm_label": "schedulegitautosave()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L275"
+      "source_location": "L328"
     },
     {
       "id": "editor_js_editor_scrolltosentenceandopenpopup",
@@ -565,7 +578,7 @@
       "file_type": "code",
       "norm_label": "scrolltosentenceandopenpopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L643"
+      "source_location": "L701"
     },
     {
       "id": "editor_js_editor_setsavestatus",
@@ -577,7 +590,7 @@
       "file_type": "code",
       "norm_label": "setsavestatus()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L288"
+      "source_location": "L346"
     },
     {
       "id": "editor_js_editor_settext",
@@ -589,7 +602,7 @@
       "file_type": "code",
       "norm_label": "settext()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L796"
+      "source_location": "L854"
     },
     {
       "id": "editor_js_editor_setupeventlisteners",
@@ -601,7 +614,7 @@
       "file_type": "code",
       "norm_label": "setupeventlisteners()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L103"
+      "source_location": "L126"
     },
     {
       "id": "editor_js_editor_showtoast",
@@ -613,7 +626,31 @@
       "file_type": "code",
       "norm_label": "showtoast()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L804"
+      "source_location": "L862"
+    },
+    {
+      "id": "editor_js_pages_estimatea4pages",
+      "label": "estimateA4Pages()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "editor.js",
+      "file_type": "code",
+      "norm_label": "estimatea4pages()",
+      "source_file": "editor/js/pages.js",
+      "source_location": "L60"
+    },
+    {
+      "id": "editor_js_pages_getsandbox",
+      "label": "getSandbox()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "editor.js",
+      "file_type": "code",
+      "norm_label": "getsandbox()",
+      "source_file": "editor/js/pages.js",
+      "source_location": "L22"
     },
     {
       "id": "editor_js_settings_onsettingschange",
@@ -688,28 +725,352 @@
       "source_location": "L21"
     },
     {
-      "id": "editor_js_pages_estimatea4pages",
-      "label": "estimateA4Pages()",
+      "id": "editor_js_repo_generatecommithash",
+      "label": "generateCommitHash()",
       "_callable": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": "pages.js",
+      "community": 6,
+      "community_name": "GitRepository",
       "file_type": "code",
-      "norm_label": "estimatea4pages()",
-      "source_file": "editor/js/pages.js",
+      "norm_label": "generatecommithash()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "editor_js_repo_generateid",
+      "label": "generateId()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": "generateid()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_calcstats",
+      "label": ".calcStats()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".calcstats()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L127"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_checkoutbranch",
+      "label": ".checkoutBranch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".checkoutbranch()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L256"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_checkoutcommit",
+      "label": ".checkoutCommit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".checkoutcommit()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L266"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_commit",
+      "label": ".commit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".commit()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L176"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_constructor",
+      "label": ".constructor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".constructor()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L28"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_createbranch",
+      "label": ".createBranch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".createbranch()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L220"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_createproject",
+      "label": ".createProject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".createproject()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L307"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_deletebranch",
+      "label": ".deleteBranch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".deletebranch()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L360"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_getactivebranch",
+      "label": ".getActiveBranch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".getactivebranch()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L153"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_getactiveproject",
+      "label": ".getActiveProject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".getactiveproject()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L138"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_getbranchhistory",
+      "label": ".getBranchHistory()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".getbranchhistory()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L283"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_getheadcommit",
+      "label": ".getHeadCommit()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".getheadcommit()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L168"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_initdefaultproject",
+      "label": ".initDefaultProject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".initdefaultproject()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L82"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_load",
+      "label": ".load()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".load()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L39"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_notify",
+      "label": ".notify()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".notify()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L71"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_renamebranch",
+      "label": ".renameBranch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".renamebranch()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L378"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_save",
+      "label": ".save()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".save()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L56"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_subscribe",
+      "label": ".subscribe()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".subscribe()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L66"
+    },
+    {
+      "id": "editor_js_repo_gitrepository_switchproject",
+      "label": ".switchProject()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "GitRepository",
+      "file_type": "code",
+      "norm_label": ".switchproject()",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L352"
+    },
+    {
+      "id": "editor_js_history_panel_attacheventlisteners",
+      "label": "attachEventListeners()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "attacheventlisteners()",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L218"
+    },
+    {
+      "id": "editor_js_history_panel_escapehtml",
+      "label": "escapeHtml()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "escapehtml()",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L362"
+    },
+    {
+      "id": "editor_js_history_panel_formatcommittime",
+      "label": "formatCommitTime()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "formatcommittime()",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L353"
+    },
+    {
+      "id": "editor_js_history_panel_inithistorypanel",
+      "label": "initHistoryPanel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "inithistorypanel()",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L14"
+    },
+    {
+      "id": "editor_js_history_panel_renderhistorypanel",
+      "label": "renderHistoryPanel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "renderhistorypanel()",
+      "source_file": "editor/js/history-panel.js",
       "source_location": "L60"
     },
     {
-      "id": "editor_js_pages_getsandbox",
-      "label": "getSandbox()",
+      "id": "editor_js_history_panel_renderprojectstreehtml",
+      "label": "renderProjectsTreeHtml()",
       "_callable": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": "pages.js",
+      "community": 7,
+      "community_name": "history-panel.js",
       "file_type": "code",
-      "norm_label": "getsandbox()",
-      "source_file": "editor/js/pages.js",
-      "source_location": "L22"
+      "norm_label": "renderprojectstreehtml()",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L123"
+    },
+    {
+      "id": "editor_js_history_panel_rendertimelinehtml",
+      "label": "renderTimelineHtml()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "rendertimelinehtml()",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L172"
+    },
+    {
+      "id": "editor_js_history_panel_togglehistorypanel",
+      "label": "toggleHistoryPanel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "togglehistorypanel()",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L35"
     },
     {
       "id": "editor_js_dicts",
@@ -1347,6 +1708,17 @@
       "source_location": "L1"
     },
     {
+      "id": "editor_js_pages",
+      "label": "pages.js",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "editor.js",
+      "file_type": "code",
+      "norm_label": "pages.js",
+      "source_file": "editor/js/pages.js",
+      "source_location": "L1"
+    },
+    {
       "id": "editor_js_metrics",
       "label": "metrics.js",
       "_origin": "ast",
@@ -1358,15 +1730,37 @@
       "source_location": "L1"
     },
     {
-      "id": "editor_js_pages",
-      "label": "pages.js",
+      "id": "editor_js_repo",
+      "label": "repo.js",
       "_origin": "ast",
-      "community": 8,
-      "community_name": "pages.js",
+      "community": 6,
+      "community_name": "GitRepository",
       "file_type": "code",
-      "norm_label": "pages.js",
-      "source_file": "editor/js/pages.js",
+      "norm_label": "repo.js",
+      "source_file": "editor/js/repo.js",
       "source_location": "L1"
+    },
+    {
+      "id": "editor_js_history_panel",
+      "label": "history-panel.js",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "history-panel.js",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "editor_js_repo_gitrepo",
+      "label": "gitRepo",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "history-panel.js",
+      "file_type": "code",
+      "norm_label": "gitrepo",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L390"
     }
   ],
   "links": [
@@ -1379,7 +1773,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L789",
+      "source_location": "L847",
       "weight": 1.0
     },
     {
@@ -1391,7 +1785,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L792",
+      "source_location": "L850",
       "weight": 1.0
     },
     {
@@ -1403,7 +1797,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L308",
+      "source_location": "L366",
       "weight": 1.0
     },
     {
@@ -1415,7 +1809,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L715",
+      "source_location": "L773",
       "weight": 1.0
     },
     {
@@ -1427,7 +1821,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L729",
+      "source_location": "L787",
       "weight": 1.0
     },
     {
@@ -1439,7 +1833,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L748",
+      "source_location": "L806",
       "weight": 1.0
     },
     {
@@ -1451,7 +1845,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L774",
+      "source_location": "L832",
       "weight": 1.0
     },
     {
@@ -1463,7 +1857,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L779",
+      "source_location": "L837",
       "weight": 1.0
     },
     {
@@ -1475,19 +1869,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L765",
+      "source_location": "L823",
       "weight": 1.0
     },
     {
       "source": "editor_js_editor_initeditor",
-      "target": "editor_js_editor_getdemoreviewtext",
+      "target": "editor_js_editor_closepopup",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L80",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor_initeditor",
+      "target": "editor_js_editor_setsavestatus",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L103",
       "weight": 1.0
     },
     {
@@ -1499,7 +1905,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L89",
+      "source_location": "L108",
       "weight": 1.0
     },
     {
@@ -1511,7 +1917,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L92",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor_initeditor",
+      "target": "editor_js_editor_getdemoreviewtext",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor_initeditor",
+      "target": "editor_js_history_panel_inithistorypanel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L97",
       "weight": 1.0
     },
     {
@@ -1523,7 +1953,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L93",
+      "source_location": "L99",
       "weight": 1.0
     },
     {
@@ -1535,7 +1965,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L684",
+      "source_location": "L742",
       "weight": 1.0
     },
     {
@@ -1547,7 +1977,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L316",
+      "source_location": "L374",
       "weight": 1.0
     },
     {
@@ -1559,7 +1989,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L319",
+      "source_location": "L377",
       "weight": 1.0
     },
     {
@@ -1571,7 +2001,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L322",
+      "source_location": "L380",
       "weight": 1.0
     },
     {
@@ -1583,7 +2013,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L325",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -1595,7 +2025,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L328",
+      "source_location": "L386",
       "weight": 1.0
     },
     {
@@ -1607,7 +2037,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L331",
+      "source_location": "L389",
       "weight": 1.0
     },
     {
@@ -1619,7 +2049,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L332",
+      "source_location": "L390",
       "weight": 1.0
     },
     {
@@ -1631,7 +2061,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L561",
+      "source_location": "L619",
       "weight": 1.0
     },
     {
@@ -1643,7 +2073,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L622",
+      "source_location": "L680",
       "weight": 1.0
     },
     {
@@ -1655,7 +2085,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L635",
+      "source_location": "L693",
       "weight": 1.0
     },
     {
@@ -1667,7 +2097,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L383",
+      "source_location": "L441",
       "weight": 1.0
     },
     {
@@ -1679,7 +2109,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L419",
+      "source_location": "L477",
       "weight": 1.0
     },
     {
@@ -1691,7 +2121,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L433",
+      "source_location": "L491",
       "weight": 1.0
     },
     {
@@ -1703,11 +2133,11 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L473",
+      "source_location": "L531",
       "weight": 1.0
     },
     {
-      "source": "editor_js_editor_scheduleautosave",
+      "source": "editor_js_editor_schedulegitautosave",
       "target": "editor_js_editor_setsavestatus",
       "relation": "calls",
       "_origin": "ast",
@@ -1715,7 +2145,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L280",
+      "source_location": "L335",
       "weight": 1.0
     },
     {
@@ -1727,7 +2157,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L665",
+      "source_location": "L723",
       "weight": 1.0
     },
     {
@@ -1739,7 +2169,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L106",
+      "source_location": "L129",
       "weight": 1.0
     },
     {
@@ -1751,19 +2181,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L109",
+      "source_location": "L132",
       "weight": 1.0
     },
     {
       "source": "editor_js_editor_setupeventlisteners",
-      "target": "editor_js_editor_scheduleautosave",
+      "target": "editor_js_editor_schedulegitautosave",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L110",
+      "source_location": "L134",
       "weight": 1.0
     },
     {
@@ -1775,7 +2205,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L118",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -1787,7 +2217,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L126",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -1799,7 +2229,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L145",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -1811,7 +2241,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L162",
+      "source_location": "L185",
       "weight": 1.0
     },
     {
@@ -1823,7 +2253,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L207",
+      "source_location": "L209",
       "weight": 1.0
     },
     {
@@ -1835,7 +2265,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L220",
+      "source_location": "L255",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor_setupeventlisteners",
+      "target": "editor_js_history_panel_togglehistorypanel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L269",
       "weight": 1.0
     },
     {
@@ -1847,7 +2289,127 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L263",
+      "source_location": "L316",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_attacheventlisteners",
+      "target": "editor_js_history_panel_togglehistorypanel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_inithistorypanel",
+      "target": "editor_js_history_panel_renderhistorypanel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_renderhistorypanel",
+      "target": "editor_js_history_panel_renderprojectstreehtml",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_renderhistorypanel",
+      "target": "editor_js_history_panel_escapehtml",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_renderhistorypanel",
+      "target": "editor_js_history_panel_rendertimelinehtml",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_renderhistorypanel",
+      "target": "editor_js_history_panel_attacheventlisteners",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_renderprojectstreehtml",
+      "target": "editor_js_history_panel_escapehtml",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_rendertimelinehtml",
+      "target": "editor_js_history_panel_formatcommittime",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_rendertimelinehtml",
+      "target": "editor_js_history_panel_escapehtml",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L200",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel_togglehistorypanel",
+      "target": "editor_js_history_panel_renderhistorypanel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -2028,6 +2590,450 @@
       "context": "call",
       "source_file": "editor/js/parse.js",
       "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_checkoutbranch",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L257",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_checkoutbranch",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L261",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_checkoutbranch",
+      "target": "editor_js_repo_gitrepository_getheadcommit",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L262",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_checkoutcommit",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L267",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_checkoutcommit",
+      "target": "editor_js_repo_gitrepository_getactivebranch",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L268",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_checkoutcommit",
+      "target": "editor_js_repo_gitrepository_commit",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L275",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_commit",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_commit",
+      "target": "editor_js_repo_gitrepository_getactivebranch",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_commit",
+      "target": "editor_js_repo_gitrepository_getheadcommit",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_commit",
+      "target": "editor_js_repo_generatecommithash",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_commit",
+      "target": "editor_js_repo_gitrepository_calcstats",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_commit",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_constructor",
+      "target": "editor_js_repo_gitrepository_load",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createbranch",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createbranch",
+      "target": "editor_js_repo_generateid",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L226",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createbranch",
+      "target": "editor_js_repo_generatecommithash",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createbranch",
+      "target": "editor_js_repo_gitrepository_calcstats",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L236",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createbranch",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createproject",
+      "target": "editor_js_repo_generateid",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createproject",
+      "target": "editor_js_repo_generatecommithash",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L312",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_createproject",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L347",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_deletebranch",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L361",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_deletebranch",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L373",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_getactivebranch",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_getactiveproject",
+      "target": "editor_js_repo_gitrepository_initdefaultproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_getbranchhistory",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L284",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_getheadcommit",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_getheadcommit",
+      "target": "editor_js_repo_gitrepository_getactivebranch",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_initdefaultproject",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_initdefaultproject",
+      "target": "editor_js_repo_generatecommithash",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_initdefaultproject",
+      "target": "editor_js_repo_gitrepository_calcstats",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_load",
+      "target": "editor_js_repo_gitrepository_initdefaultproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_renamebranch",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L379",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_renamebranch",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L384",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_save",
+      "target": "editor_js_repo_gitrepository_notify",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_switchproject",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L355",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository_switchproject",
+      "target": "editor_js_repo_gitrepository_getheadcommit",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/repo.js",
+      "source_location": "L356",
       "weight": 1.0
     },
     {
@@ -2416,6 +3422,42 @@
     },
     {
       "source": "editor_js_editor",
+      "target": "editor_js_repo_gitrepo",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
+      "target": "editor_js_history_panel_inithistorypanel",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
+      "target": "editor_js_history_panel_togglehistorypanel",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
       "target": "editor_js_settings_exportsettingsjson",
       "relation": "imports",
       "_origin": "ast",
@@ -2520,6 +3562,18 @@
       "context": "import",
       "source_file": "editor/js/editor.js",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_repo_gitrepo",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -2680,6 +3734,30 @@
     },
     {
       "source": "editor_js_editor",
+      "target": "editor_js_repo",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
+      "target": "editor_js_history_panel",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
       "target": "editor_js_settings",
       "relation": "imports_from",
       "_origin": "ast",
@@ -2724,6 +3802,18 @@
       "context": "import",
       "source_file": "editor/js/editor.js",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_repo",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -3104,18 +4194,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L103",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
       "source": "editor_js_editor",
-      "target": "editor_js_editor_scheduleautosave",
+      "target": "editor_js_editor_schedulegitautosave",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L275",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -3126,7 +4216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L288",
+      "source_location": "L346",
       "weight": 1.0
     },
     {
@@ -3137,29 +4227,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L297",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_editor_recalculateall",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "editor/js/editor.js",
-      "source_location": "L314",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_editor_rendermirrorhighlights",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "editor/js/editor.js",
-      "source_location": "L340",
+      "source_location": "L355",
       "weight": 1.0
     },
     {
@@ -3170,7 +4238,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L35",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
+      "target": "editor_js_editor_recalculateall",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/editor.js",
+      "source_location": "L372",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
+      "target": "editor_js_editor_rendermirrorhighlights",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/editor.js",
+      "source_location": "L398",
       "weight": 1.0
     },
     {
@@ -3181,18 +4271,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L417",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_editor_rendermetriccard",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "editor/js/editor.js",
-      "source_location": "L479",
+      "source_location": "L475",
       "weight": 1.0
     },
     {
@@ -3203,7 +4282,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L48",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
+      "target": "editor_js_editor_rendermetriccard",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/editor.js",
+      "source_location": "L537",
       "weight": 1.0
     },
     {
@@ -3214,7 +4304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L529",
+      "source_location": "L587",
       "weight": 1.0
     },
     {
@@ -3225,7 +4315,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L574",
+      "source_location": "L632",
       "weight": 1.0
     },
     {
@@ -3236,7 +4326,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L643",
+      "source_location": "L701",
       "weight": 1.0
     },
     {
@@ -3247,7 +4337,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L677",
+      "source_location": "L735",
       "weight": 1.0
     },
     {
@@ -3258,7 +4348,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L702",
+      "source_location": "L760",
       "weight": 1.0
     },
     {
@@ -3269,7 +4359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L754",
+      "source_location": "L812",
       "weight": 1.0
     },
     {
@@ -3280,7 +4370,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L761",
+      "source_location": "L819",
       "weight": 1.0
     },
     {
@@ -3291,7 +4381,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L772",
+      "source_location": "L830",
       "weight": 1.0
     },
     {
@@ -3302,7 +4392,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L777",
+      "source_location": "L835",
       "weight": 1.0
     },
     {
@@ -3313,7 +4403,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L782",
+      "source_location": "L840",
       "weight": 1.0
     },
     {
@@ -3324,7 +4414,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L796",
+      "source_location": "L854",
       "weight": 1.0
     },
     {
@@ -3335,7 +4425,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L804",
+      "source_location": "L862",
       "weight": 1.0
     },
     {
@@ -3346,7 +4436,95 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L826",
+      "source_location": "L884",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_renderprojectstreehtml",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_inithistorypanel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_rendertimelinehtml",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_attacheventlisteners",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_togglehistorypanel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_formatcommittime",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L353",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_escapehtml",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L362",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_history_panel",
+      "target": "editor_js_history_panel_renderhistorypanel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/history-panel.js",
+      "source_location": "L60",
       "weight": 1.0
     },
     {
@@ -3534,6 +4712,50 @@
       "confidence_score": 1.0,
       "source_file": "editor/js/parse.js",
       "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo",
+      "target": "editor_js_repo_generatecommithash",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo",
+      "target": "editor_js_repo_generateid",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo",
+      "target": "editor_js_repo_gitrepository",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo",
+      "target": "editor_js_repo_gitrepo",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L390",
       "weight": 1.0
     },
     {
@@ -3889,6 +5111,215 @@
       "weight": 1.0
     },
     {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_calcstats",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_getactiveproject",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_getactivebranch",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_getheadcommit",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_commit",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_createbranch",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_checkoutbranch",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_checkoutcommit",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L266",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_constructor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_getbranchhistory",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L283",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_createproject",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_switchproject",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L352",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_deletebranch",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L360",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_renamebranch",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L378",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_load",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_save",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_subscribe",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_notify",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_repo_gitrepository",
+      "target": "editor_js_repo_gitrepository_initdefaultproject",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/repo.js",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
       "source": "editor_js_editor_setupeventlisteners",
       "target": "editor_js_editor_handleeditorclick",
       "relation": "indirect_call",
@@ -3897,7 +5328,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "editor/js/editor.js",
-      "source_location": "L123",
+      "source_location": "L146",
       "weight": 1.0
     },
     {
@@ -3909,7 +5340,7 @@
       "confidence_score": 0.85,
       "context": "argument",
       "source_file": "editor/js/editor.js",
-      "source_location": "L200",
+      "source_location": "L235",
       "weight": 1.0
     },
     {
@@ -3938,5 +5369,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "023f9d384342a248a08ab783107c69b5f46cde97"
+  "built_at_commit": "24275d73d10dbd58ddba665906a01d6af72b8691"
 }

@@ -76,5 +76,23 @@
     "seen": 1790972323.2931902,
     "ast_hash": "cdef5953a0149b817f7c0910f9b71444",
     "semantic_hash": ""
+  },
+  "bin/cli.js": {
+    "mtime": 1790972742.4050245,
+    "seen": 1790972779.9694662,
+    "ast_hash": "a49494449ab57bd1f855afe604140889",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1790972749.7533514,
+    "seen": 1790972779.9694843,
+    "ast_hash": "cb5584ef815964d91c62935dc8b72694",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1790972731.610931,
+    "seen": 1790972779.969488,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
   }
 }
