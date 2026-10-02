@@ -1,17 +1,17 @@
 # Graph Report - NySse_writer  (2026-10-02)
 
 ## Corpus Check
-- 11 files · ~15,306 words
+- 14 files · ~15,695 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 2 file(s) not represented in the graph (top: (none) 1, .css 1)
+- Unclassified: 3 file(s) not represented in the graph (top: (none) 1, .css 1, .bat 1)
 
 ## Summary
-- 140 nodes · 311 edges · 8 communities
+- 173 nodes · 343 edges · 11 communities (10 shown, 1 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `24275d73`
+- Built from commit: `434a33dc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,6 +24,8 @@
 - metrics.js
 - GitRepository
 - history-panel.js
+- package.json
+- cli.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `GitRepository` - 20 edges
@@ -52,7 +54,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (8 total, 0 thin omitted)
+## Communities (11 total, 1 thin omitted)
 
 ### Community 0 - "parse.js"
 Cohesion: 0.23
@@ -86,20 +88,33 @@ Nodes (3): generateCommitHash(), generateId(), GitRepository
 Cohesion: 0.42
 Nodes (9): attachEventListeners(), escapeHtml(), formatCommitTime(), initHistoryPanel(), renderHistoryPanel(), renderProjectsTreeHtml(), renderTimelineHtml(), toggleHistoryPanel() (+1 more)
 
+### Community 8 - "package.json"
+Cohesion: 0.12
+Nodes (16): author, bin, nysse, nysse-writer, description, keywords, license, main (+8 more)
+
+### Community 9 - "cli.js"
+Cohesion: 0.14
+Nodes (13): { exec }, fs, http, MIME_TYPES, openBrowser(), path, ROOT_DIR, startServer() (+5 more)
+
 ## Knowledge Gaps
-- **29 isolated node(s):** `ABBREV_SET`, `REVIEW_DEFAULTS`, `listeners`, `Overview`, `Primary` (+24 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 32 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **49 isolated node(s):** `http`, `fs`, `path`, `{ exec }`, `MIME_TYPES` (+44 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 58 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `getSettings()` connect `settings.js` to `parse.js`, `editor.js`, `metrics.js`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `setupEventListeners()` (e.g. with `exportPlainTextFile()` and `handleEditorClick()`) actually correct?**
   _`setupEventListeners()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `initSettingsModal()` (e.g. with `closeSettings()` and `openSettings()`) actually correct?**
   _`initSettingsModal()` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `ABBREV_SET`, `REVIEW_DEFAULTS`, `listeners` to the rest of the system?**
-  _29 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `http`, `fs`, `path` to the rest of the system?**
+  _49 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Design System: NySse Writer` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
+- **Should `package.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `cli.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
