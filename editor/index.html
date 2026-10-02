@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NySse Writer — Локальный академический редактор</title>
+  <meta name="description" content="Редактор текста с локальной проверкой синтаксических порогов, длины предложений, 3-грамм и оценкой страниц A4 без отправки данных на сервер.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Главная шапка приложения -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-logo">
+        <span class="logo-symbol">§</span>
+        <div class="brand-text">
+          <span class="brand-title">NySse Writer</span>
+          <span class="brand-subtitle">Локальный аудит академического текста</span>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge-offline" title="Все вычисления производятся исключительно в вашем браузере">100% офлайн</span>
+        <span id="save-status" class="status-badge saved">Сохранено</span>
+      </div>
+    </div>
+
+    <div class="header-center">
+      <div class="editor-font-toggle" title="Шрифт редактора">
+        <button class="font-btn active" data-font="serif" title="Times New Roman (академический)">Serif</button>
+        <button class="font-btn" data-font="sans" title="Inter / Sans-serif (современный)">Sans</button>
+        <button class="font-btn" data-font="mono" title="Моноширинный">Mono</button>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <button id="btn-load-demo" class="btn btn-secondary btn-sm" title="Загрузить пример текста из рецензии">
+        <span class="btn-icon">📄</span> Демо
+      </button>
+      <button id="btn-new-doc" class="btn btn-secondary btn-sm" title="Очистить и создать новый документ">
+        <span class="btn-icon">✦</span> Новый
+      </button>
+      <button id="btn-open-file" class="btn btn-secondary btn-sm" title="Открыть текстовый файл .txt">
+        <span class="btn-icon">📂</span> Открыть
+      </button>
+      <input type="file" id="file-upload-input" accept=".txt,.text,.md" style="display:none;">
+
+      <button id="btn-save-txt" class="btn btn-primary btn-sm" title="Сохранить как чистый .txt файл без подсветки">
+        <span class="btn-icon">💾</span> Сохранить .txt
+      </button>
+      <button id="btn-copy-text" class="btn btn-secondary btn-sm" title="Копировать чистый текст в буфер">
+        <span class="btn-icon">📋</span>
+      </button>
+
+      <div class="header-divider"></div>
+
+      <button id="btn-theme-toggle" class="btn btn-icon" title="Сменить тему оформления (Тёмная / Светлая)">
+        <span id="theme-icon">🌙</span>
+      </button>
+
+      <button id="btn-open-settings" class="btn btn-icon" title="Настройки порогов и словарей">
+        ⚙
+      </button>
+
+      <button id="btn-toggle-sidebar" class="btn btn-icon" title="Свернуть / развернуть правую панель">
+        ◨
+      </button>
+    </div>
+  </header>
+
+  <!-- Основная рабочая область -->
+  <div class="app-layout">
+    
+    <!-- Центральная область редактирования -->
+    <main class="editor-viewport" id="editor-viewport">
+      <div class="editor-page-container">
+        
+        <!-- Верхняя подсказка по таблицам -->
+        <div class="editor-format-hint">
+          <span>Подсказка: таблицы выделяются блоками <code>:::table</code> ... <code>:::</code> и оцениваются в 11 pt.</span>
+        </div>
+
+        <div class="editor-wrapper font-serif" id="editor-wrapper">
+          <!-- Зеркальный слой подсветки: идентичный шрифт, переносы, отступы. Текст transparent, виден только mark -->
+          <div class="editor-mirror" id="editor-mirror" aria-hidden="true"></div>
+
+          <!-- Нативный textarea для ввода и редактирования: прозрачный фон, системный курсор и undo -->
+          <textarea
+            id="editor-textarea"
+            class="editor-textarea"
+            spellcheck="true"
+            placeholder="Вставьте или начните писать текст вашей научной статьи или работы..."
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+          ></textarea>
+
+          <!-- Всплывающий попап фактов у активного предложения -->
+          <div id="sentence-popup" class="sentence-popup" role="tooltip">
+            <div class="popup-header">
+              <span id="popup-title" class="popup-title">Предложение</span>
+              <button id="popup-close-btn" class="popup-close-btn" title="Закрыть">✕</button>
+            </div>
+            <ul id="popup-facts-list" class="popup-facts-list">
+              <!-- Факты заполняются из js/editor.js -->
+            </ul>
+            <div class="popup-footer">
+              <button id="popup-copy-btn" class="btn btn-xs btn-secondary">Копировать</button>
+              <span class="popup-hint">Только факты • без оценок «тона»</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Выезжающая правая панель аудита -->
+    <aside class="sidebar-panel" id="sidebar-panel">
+      
+      <!-- Секция 1: Верхние счетчики объема и страницы A4 -->
+      <section class="sidebar-section section-volume">
+        <div class="section-title-row">
+          <span class="section-title">Объем документа</span>
+        </div>
+        
+        <div class="stats-pills-grid">
+          <div class="stat-pill">
+            <span class="pill-label">Слов</span>
+            <span id="stat-words-count" class="pill-value">0</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-label">Знаков (с проб.)</span>
+            <span id="stat-chars-spaces" class="pill-value">0</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-label">Без пробелов</span>
+            <span id="stat-chars-nospaces" class="pill-value">0</span>
+          </div>
+        </div>
+
+        <!-- Оценка страниц A4 -->
+        <div class="a4-pages-card">
+          <div class="a4-pages-header">
+            <span class="a4-label">Страниц A4 (оценка вёрсткой):</span>
+            <span id="a4-total-pages" class="a4-hero-number">0.0</span>
+          </div>
+          <div class="a4-details-row">
+            <span>Текст 14 pt: <strong id="a4-main-pages">0 стр.</strong></span>
+            <span>Таблицы 11 pt: <strong id="a4-table-pages">0 стр.</strong></span>
+            <span id="a4-fractional" class="a4-fraction">+0%</span>
+          </div>
+          <div class="a4-subtext-row">
+            <span id="a4-norm-fallback" class="a4-subtext">~0 стр. (норматив 1800 зн.)</span>
+            <span class="a4-disclaimer">оценка, не пагинация Word</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция 2: Семь ключевых метрик из рецензии -->
+      <section class="sidebar-section section-metrics">
+        <div class="section-title-row">
+          <span class="section-title">Пороги рецензии</span>
+          <span class="section-legend" title="Зеленый: человек, Желтый: граница, Красный: ИИ">светофор</span>
+        </div>
+
+        <div class="metrics-grid">
+          
+          <!-- 1. Средняя длина предложения -->
+          <div class="metric-card" id="card-avg-sentence">
+            <div class="metric-top">
+              <span class="metric-name">Средняя длина предложения</span>
+              <span class="metric-status-badge status-low-data">...</span>
+            </div>
+            <div class="metric-main">
+              <span class="metric-current-val">0.0</span>
+              <span class="metric-unit">слов</span>
+            </div>
+            <div class="metric-benchmarks">
+              <span class="bm-human" title="Человеческий ориентир">Чел: <span class="metric-target-human">23.2</span></span>
+              <span class="bm-ai" title="Красная граница стороны ИИ">ИИ: ≥ <span class="metric-target-ai">29.2</span></span>
+            </div>
+          </div>
+
+          <!-- 2. Доля очень длинных (41+) -->
+          <div class="metric-card" id="card-long-sentences">
+            <div class="metric-top">
+              <span class="metric-name">Очень длинные (41+ слов)</span>
+              <span class="metric-status-badge status-low-data">...</span>
+            </div>
+            <div class="metric-main">
+              <span class="metric-current-val">0.0%</span>
+            </div>
+            <div class="metric-benchmarks">
+              <span class="bm-human">Чел: <span class="metric-target-human">6.2%</span></span>
+              <span class="bm-ai">ИИ: <span class="metric-target-ai">≥ 17.0%</span></span>
+            </div>
+          </div>
+
+          <!-- 3. Доля очень коротких (<=6 слов) -->
+          <div class="metric-card" id="card-short-sentences">
+            <div class="metric-top">
+              <span class="metric-name">Очень короткие (≤6 слов)</span>
+              <span class="metric-status-badge status-low-data">...</span>
+            </div>
+            <div class="metric-main">
+              <span class="metric-current-val">0.0%</span>
+              <span class="metric-sub-note">порог ≤6 — допущение</span>
+            </div>
+            <div class="metric-benchmarks">
+              <span class="bm-human" title="Люди чаще используют краткие фразы">Чел: <span class="metric-target-human">5.8%</span></span>
+              <span class="bm-ai" title="У ИИ дефицит коротких фраз">ИИ: <span class="metric-target-ai">≤ 2.4%</span></span>
+            </div>
+          </div>
+
+          <!-- 4. Доля служебных слов -->
+          <div class="metric-card" id="card-stopwords">
+            <div class="metric-top">
+              <span class="metric-name">Доля служебных слов</span>
+              <span class="metric-status-badge status-low-data">...</span>
+            </div>
+            <div class="metric-main">
+              <span class="metric-current-val">0.0%</span>
+            </div>
+            <div class="metric-benchmarks">
+              <span class="bm-human" title="Естественная плотность служебной лексики">Чел: <span class="metric-target-human">40.2%</span></span>
+              <span class="bm-ai" title="Текст ИИ излишне перегружен терминами">ИИ: <span class="metric-target-ai">≤ 33.0%</span></span>
+            </div>
+          </div>
+
+          <!-- 5. Средняя длина слова -->
+          <div class="metric-card" id="card-avg-word">
+            <div class="metric-top">
+              <span class="metric-name">Средняя длина слова</span>
+              <span class="metric-status-badge status-low-data">...</span>
+            </div>
+            <div class="metric-main">
+              <span class="metric-current-val">0.00</span>
+              <span class="metric-unit">букв</span>
+            </div>
+            <div class="metric-benchmarks">
+              <span class="bm-human">Чел: <span class="metric-target-human">5.24</span></span>
+              <span class="bm-ai">ИИ: ≥ <span class="metric-target-ai">5.86</span></span>
+            </div>
+          </div>
+
+          <!-- 6. Доля длинных слов (8+) -->
+          <div class="metric-card" id="card-long-words">
+            <div class="metric-top">
+              <span class="metric-name">Длинные слова (8+ букв)</span>
+              <span class="metric-status-badge status-low-data">...</span>
+            </div>
+            <div class="metric-main">
+              <span class="metric-current-val">0.0%</span>
+            </div>
+            <div class="metric-benchmarks">
+              <span class="bm-human">Чел: <span class="metric-target-human">23.1%</span></span>
+              <span class="bm-ai">ИИ: <span class="metric-target-ai">≥ 30.7%</span></span>
+            </div>
+          </div>
+
+          <!-- 7. Повтор 3-грамм -->
+          <div class="metric-card" id="card-three-grams">
+            <div class="metric-top">
+              <span class="metric-name">Повтор 3-грамм</span>
+              <span class="metric-status-badge status-low-data">...</span>
+            </div>
+            <div class="metric-main">
+              <span class="metric-current-val">0.0%</span>
+              <span class="metric-sub-note">локальный прокси: (N−U)/N</span>
+            </div>
+            <div class="metric-benchmarks">
+              <span class="bm-human" title="Естественный повтор фраз в живой речи">Чел: <span class="metric-target-human">3.5%</span></span>
+              <span class="bm-ai" title="ИИ неестественно избегает повтора троек слов">ИИ: <span class="metric-target-ai">≤ 1.4%</span></span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Дополнительные индикаторы (SD и Зачины) -->
+        <div class="secondary-metrics-row">
+          <div class="secondary-metric-item" title="Стандартное отклонение длины предложений. Рецензия ругает не только длинные, но и ровные предложения.">
+            <span class="sec-label">Вариативность длины (SD):</span>
+            <strong id="val-std-dev" class="sec-value">0.0 сл.</strong>
+            <span id="badge-std-dev" class="metric-status-badge status-low-data">...</span>
+          </div>
+
+          <div class="secondary-metric-item" title="Максимальная доля предложений, начинающихся с одного и того же слова">
+            <span class="sec-label">Повтор зачинов:</span>
+            <strong id="val-starter-uniformity" class="sec-value">0.0%</strong>
+            <span id="badge-starter-uniformity" class="metric-status-badge status-low-data">...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Секция 3: Глобальные дефициты текста -->
+      <section class="sidebar-section section-deficits">
+        <div class="section-title-row">
+          <span class="section-title">Глобальные сигналы текста</span>
+        </div>
+        <div id="global-deficits-container">
+          <!-- Заполняется динамически из js/editor.js -->
+        </div>
+      </section>
+
+      <!-- Секция 4: Предложения с локальными замечаниями -->
+      <section class="sidebar-section section-issues">
+        <div class="section-title-row">
+          <span class="section-title">Замечания по предложениям</span>
+          <span id="issues-total-count" class="badge-count">0</span>
+        </div>
+
+        <!-- Фильтры категорий замечаний -->
+        <div class="issue-filter-tabs">
+          <button class="issue-filter-tab active" data-filter="all">Все</button>
+          <button class="issue-filter-tab" data-filter="danger">41+ слов</button>
+          <button class="issue-filter-tab" data-filter="starters">Зачины</button>
+          <button class="issue-filter-tab" data-filter="warning">30+ слов</button>
+        </div>
+
+        <!-- Список предложений -->
+        <div id="issues-list-container" class="issues-list-container">
+          <!-- Карточки предложений -->
+        </div>
+      </section>
+
+    </aside>
+  </div>
+
+  <!-- Модальное окно настроек -->
+  <div id="settings-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="settings-title" class="modal-title">Настройки порогов и параметров</h2>
+        <button id="btn-close-settings" class="btn-icon" title="Закрыть">✕</button>
+      </div>
+
+      <!-- Вкладки настроек -->
+      <div class="settings-tabs-nav">
+        <button class="settings-tab-btn active" data-target="tab-thresholds">Пороги рецензии</button>
+        <button class="settings-tab-btn" data-target="tab-phrases">Зачины и фразы</button>
+        <button class="settings-tab-btn" data-target="tab-pages">Параметры A4</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Вкладка 1: Пороги рецензии -->
+        <div id="tab-thresholds" class="settings-tab-content active">
+          <p class="tab-description">
+            Числовые пороги из рецензии являются константами по умолчанию. Вы можете сдвигать рамку под требования или сменить модель.
+          </p>
+
+          <table class="settings-table">
+            <thead>
+              <tr>
+                <th>Метрика</th>
+                <th>Ориентир человека</th>
+                <th>Красная граница (ИИ)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Средняя длина предложения</strong> (слов)
+                </td>
+                <td><input type="number" step="0.1" id="set-avg-sent-human" class="input-sm"></td>
+                <td><input type="number" step="0.1" id="set-avg-sent-ai" class="input-sm"></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Очень длинные предложения</strong> (порог: <input type="number" id="set-long-sent-words" class="input-xs" value="41"> слов)
+                </td>
+                <td><input type="number" step="0.1" id="set-long-sent-human" class="input-sm"> %</td>
+                <td><input type="number" step="0.1" id="set-long-sent-ai" class="input-sm"> %</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Очень короткие предложения</strong> (порог: <input type="number" id="set-short-sent-words" class="input-xs" value="6"> слов)<br>
+                  <small class="text-muted">Порог ≤6 слов — допущение, не число чекера</small>
+                </td>
+                <td><input type="number" step="0.1" id="set-short-sent-human" class="input-sm"> %</td>
+                <td><input type="number" step="0.1" id="set-short-sent-ai" class="input-sm"> %</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Доля служебных слов</strong> (%)
+                </td>
+                <td><input type="number" step="0.1" id="set-stopword-human" class="input-sm"> %</td>
+                <td><input type="number" step="0.1" id="set-stopword-ai" class="input-sm"> %</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Средняя длина слова</strong> (букв)
+                </td>
+                <td><input type="number" step="0.01" id="set-avg-word-human" class="input-sm"></td>
+                <td><input type="number" step="0.01" id="set-avg-word-ai" class="input-sm"></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Длинные слова</strong> (порог: <input type="number" id="set-long-word-chars" class="input-xs" value="8"> букв)
+                </td>
+                <td><input type="number" step="0.1" id="set-long-word-human" class="input-sm"> %</td>
+                <td><input type="number" step="0.1" id="set-long-word-ai" class="input-sm"> %</td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Повтор 3-грамм</strong> (%)<br>
+                  <small class="text-muted">Формула (N−U)/N — локальный прокси</small>
+                </td>
+                <td><input type="number" step="0.1" id="set-3gram-human" class="input-sm"> %</td>
+                <td><input type="number" step="0.1" id="set-3gram-ai" class="input-sm"> %</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="settings-subgroup">
+            <h4>Дополнительные предупреждения</h4>
+            <div class="form-row">
+              <label>Предупреждать о приближении к длине предложения от:</label>
+              <div class="input-inline">
+                <input type="number" id="set-warn-sent-words" class="input-xs" value="30"> слов
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="set-warn-sent-enabled" checked> подсвечивать жёлтым
+                </label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Минимум вариативности длины предложений (SD):</label>
+              <input type="number" step="0.5" id="set-stddev-min" class="input-sm" value="8.0"> слов
+            </div>
+            <div class="form-row">
+              <label>Максимум одинаковых зачинов (% предложений):</label>
+              <input type="number" step="1" id="set-starter-max" class="input-sm" value="20"> %
+            </div>
+          </div>
+        </div>
+
+        <!-- Вкладка 2: Зачины и фразы -->
+        <div id="tab-phrases" class="settings-tab-content">
+          <div class="form-group">
+            <label><strong>Формульные зачины и вводные связки</strong> (по одному на строку):</label>
+            <p class="field-hint">Подсвечиваются жёлтым при появлении в начале предложения.</p>
+            <textarea id="textarea-formulaic-starters" rows="6" class="form-textarea"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label><strong>Сигнальные и пользовательские фразы</strong>:</label>
+            <p class="field-hint">Фразы проверяются по всему тексту предложения.</p>
+            
+            <div class="add-phrase-box">
+              <input type="text" id="input-new-phrase" placeholder="Фраза (например: «голосовой LLM»)" class="input-text">
+              <select id="select-new-phrase-severity" class="select-sm">
+                <option value="warning">Жёлтый (предупреждение)</option>
+                <option value="danger">Красный (запрет)</option>
+              </select>
+              <input type="text" id="input-new-phrase-comment" placeholder="Комментарий / причина" class="input-text">
+              <button id="btn-add-signal-phrase" class="btn btn-secondary btn-sm">+ Добавить</button>
+            </div>
+
+            <div id="signal-phrases-list" class="signal-phrases-list">
+              <!-- Список сигнальных фраз -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Вкладка 3: Параметры A4 -->
+        <div id="tab-pages" class="settings-tab-content">
+          <p class="tab-description">
+            Геометрия виртуального листа A4 для расчета высоты текста и таблиц.
+          </p>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label>Шрифт документа:</label>
+              <input type="text" id="set-page-font" class="input-text" value="Times New Roman, serif">
+            </div>
+            <div class="form-group">
+              <label>Межстрочный интервал:</label>
+              <input type="number" step="0.1" id="set-page-lineheight" class="input-sm" value="1.5">
+            </div>
+            <div class="form-group">
+              <label>Кегль основного текста (pt):</label>
+              <input type="number" id="set-page-fontsize" class="input-sm" value="14"> pt
+            </div>
+            <div class="form-group">
+              <label>Кегль таблиц (pt):</label>
+              <input type="number" id="set-page-table-fontsize" class="input-sm" value="11"> pt
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Поля страницы (мм):</label>
+            <div class="margins-grid">
+              <div>Верхнее: <input type="number" id="set-page-margin-top" class="input-xs" value="20"> мм</div>
+              <div>Нижнее: <input type="number" id="set-page-margin-bottom" class="input-xs" value="20"> мм</div>
+              <div>Левое: <input type="number" id="set-page-margin-left" class="input-xs" value="20"> мм</div>
+              <div>Правое: <input type="number" id="set-page-margin-right" class="input-xs" value="20"> мм</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Запасной норматив знаков на страницу (14 pt, 1.5 инт.):</label>
+            <input type="number" id="set-page-main-norm" class="input-sm" value="1800"> знаков с пробелами
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <div class="footer-left">
+          <button id="btn-reset-defaults" class="btn btn-secondary btn-sm" title="Сбросить все числа к эталонам рецензии">
+            ↺ Сбросить к числам из рецензии
+          </button>
+          <button id="btn-export-settings" class="btn btn-ghost btn-sm" title="Экспорт настроек в JSON файл">Экспорт JSON</button>
+          <button id="btn-import-settings" class="btn btn-ghost btn-sm" title="Импорт настроек из JSON файла">Импорт JSON</button>
+          <input type="file" id="settings-file-input" accept=".json" style="display:none;">
+        </div>
+        <div class="footer-right">
+          <button id="btn-save-settings" class="btn btn-primary">Применить и сохранить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Главный скрипт приложения (ES Module) -->
+  <script type="module">
+    import { initEditor } from './js/editor.js';
+    import { initSettingsModal } from './js/settings-modal.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initEditor();
+      initSettingsModal();
+
+      // Переключатель светлой / тёмной темы
+      const themeBtn = document.getElementById('btn-theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+      const savedTheme = localStorage.getItem('nysse_theme') || 'dark';
+
+      if (savedTheme === 'light') {
+        document.body.classList.remove('theme-dark');
+        document.body.classList.add('theme-light');
+        if (themeIcon) themeIcon.textContent = '☀️';
+      }
+
+      if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+          const isLight = document.body.classList.toggle('theme-light');
+          document.body.classList.toggle('theme-dark', !isLight);
+          if (themeIcon) themeIcon.textContent = isLight ? '☀️' : '🌙';
+          localStorage.setItem('nysse_theme', isLight ? 'light' : 'dark');
+        });
+      }
+
+      // Переключатель шрифтов редактора
+      const fontBtns = document.querySelectorAll('.font-btn');
+      const editorWrapper = document.getElementById('editor-wrapper');
+      fontBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          fontBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const font = btn.getAttribute('data-font');
+          if (editorWrapper) {
+            editorWrapper.classList.remove('font-serif', 'font-sans', 'font-mono');
+            editorWrapper.classList.add(`font-${font}`);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

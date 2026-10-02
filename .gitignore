@@ -1,0 +1,9 @@
+# System / OS
+.DS_Store
+Thumbs.db
+
+# Logs and runtime
+*.log
+
+# Temp & scratch
+/scratch/

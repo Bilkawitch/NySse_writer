@@ -1,0 +1,11 @@
+{
+  "0": "parse.js",
+  "1": "settings-modal.js",
+  "2": "settings.js",
+  "3": "setupEventListeners",
+  "4": "editor.js",
+  "5": "metrics.js",
+  "6": "checkSentenceAtOffset",
+  "7": "showToast",
+  "8": "pages.js"
+}
