@@ -52,5 +52,11 @@
     "seen": 1790964190.4066167,
     "ast_hash": "e4ddc9d193c517f7daf23ce8b42f6fbc",
     "semantic_hash": ""
+  },
+  "PRODUCT.md": {
+    "mtime": 1790967539.3906848,
+    "seen": 1790967548.0107634,
+    "ast_hash": "320efc3109b780e820d3150a6bd286b5",
+    "semantic_hash": ""
   }
 }

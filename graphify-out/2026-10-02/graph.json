@@ -160,42 +160,6 @@
       "source_location": "L333"
     },
     {
-      "id": "editor_js_settings_modal_gatherandsavesettings",
-      "label": "gatherAndSaveSettings()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
-      "file_type": "code",
-      "norm_label": "gatherandsavesettings()",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L254"
-    },
-    {
-      "id": "editor_js_settings_modal_getcheck",
-      "label": "getCheck()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
-      "file_type": "code",
-      "norm_label": "getcheck()",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L323"
-    },
-    {
-      "id": "editor_js_settings_modal_getval",
-      "label": "getVal()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "settings-modal.js",
-      "file_type": "code",
-      "norm_label": "getval()",
-      "source_file": "editor/js/settings-modal.js",
-      "source_location": "L313"
-    },
-    {
       "id": "editor_js_settings_modal_initsettingsmodal",
       "label": "initSettingsModal()",
       "_callable": true,
@@ -344,8 +308,8 @@
       "label": "getDemoReviewText()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "community_name": "initEditor",
+      "community": 4,
+      "community_name": "editor.js",
       "file_type": "code",
       "norm_label": "getdemoreviewtext()",
       "source_file": "editor/js/editor.js",
@@ -356,36 +320,12 @@
       "label": "initEditor()",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "community_name": "initEditor",
+      "community": 4,
+      "community_name": "editor.js",
       "file_type": "code",
       "norm_label": "initeditor()",
       "source_file": "editor/js/editor.js",
       "source_location": "L48"
-    },
-    {
-      "id": "editor_js_settings_onsettingschange",
-      "label": "onSettingsChange()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "initEditor",
-      "file_type": "code",
-      "norm_label": "onsettingschange()",
-      "source_file": "editor/js/settings.js",
-      "source_location": "L216"
-    },
-    {
-      "id": "editor_js_editor_escapehtml",
-      "label": "escapeHtml()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "editor.js",
-      "file_type": "code",
-      "norm_label": "escapehtml()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L35"
     },
     {
       "id": "editor_js_editor_recalculateall",
@@ -410,18 +350,6 @@
       "norm_label": "renderglobaldeficits()",
       "source_file": "editor/js/editor.js",
       "source_location": "L525"
-    },
-    {
-      "id": "editor_js_editor_renderissuelist",
-      "label": "renderIssueList()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 4,
-      "community_name": "editor.js",
-      "file_type": "code",
-      "norm_label": "renderissuelist()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L570"
     },
     {
       "id": "editor_js_editor_rendermetriccard",
@@ -470,6 +398,18 @@
       "norm_label": "settext()",
       "source_file": "editor/js/editor.js",
       "source_location": "L792"
+    },
+    {
+      "id": "editor_js_settings_onsettingschange",
+      "label": "onSettingsChange()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "editor.js",
+      "file_type": "code",
+      "norm_label": "onsettingschange()",
+      "source_file": "editor/js/settings.js",
+      "source_location": "L216"
     },
     {
       "id": "editor_js_metrics_calculatesentencestddev",
@@ -556,6 +496,18 @@
       "source_location": "L750"
     },
     {
+      "id": "editor_js_editor_exportplaintextfile",
+      "label": "exportPlainTextFile()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "setupEventListeners",
+      "file_type": "code",
+      "norm_label": "exportplaintextfile()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L293"
+    },
+    {
       "id": "editor_js_editor_handleeditorclick",
       "label": "handleEditorClick()",
       "_callable": true,
@@ -628,16 +580,28 @@
       "source_location": "L103"
     },
     {
-      "id": "editor_js_editor_exportplaintextfile",
-      "label": "exportPlainTextFile()",
+      "id": "editor_js_editor_showtoast",
+      "label": "showToast()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "setupEventListeners",
+      "file_type": "code",
+      "norm_label": "showtoast()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L800"
+    },
+    {
+      "id": "editor_js_editor_escapehtml",
+      "label": "escapeHtml()",
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "showToast",
+      "community_name": "escapeHtml",
       "file_type": "code",
-      "norm_label": "exportplaintextfile()",
+      "norm_label": "escapehtml()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L293"
+      "source_location": "L35"
     },
     {
       "id": "editor_js_editor_fillpopupcontent",
@@ -645,7 +609,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "showToast",
+      "community_name": "escapeHtml",
       "file_type": "code",
       "norm_label": "fillpopupcontent()",
       "source_file": "editor/js/editor.js",
@@ -657,11 +621,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "showToast",
+      "community_name": "escapeHtml",
       "file_type": "code",
       "norm_label": "positionandshowpopup()",
       "source_file": "editor/js/editor.js",
       "source_location": "L673"
+    },
+    {
+      "id": "editor_js_editor_renderissuelist",
+      "label": "renderIssueList()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "escapeHtml",
+      "file_type": "code",
+      "norm_label": "renderissuelist()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L570"
     },
     {
       "id": "editor_js_editor_scrolltosentenceandopenpopup",
@@ -669,23 +645,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "showToast",
+      "community_name": "escapeHtml",
       "file_type": "code",
       "norm_label": "scrolltosentenceandopenpopup()",
       "source_file": "editor/js/editor.js",
       "source_location": "L639"
-    },
-    {
-      "id": "editor_js_editor_showtoast",
-      "label": "showToast()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "showToast",
-      "file_type": "code",
-      "norm_label": "showtoast()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L800"
     },
     {
       "id": "editor_js_pages_estimatea4pages",
@@ -710,6 +674,42 @@
       "norm_label": "getsandbox()",
       "source_file": "editor/js/pages.js",
       "source_location": "L22"
+    },
+    {
+      "id": "editor_js_settings_modal_gatherandsavesettings",
+      "label": "gatherAndSaveSettings()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "gatherAndSaveSettings",
+      "file_type": "code",
+      "norm_label": "gatherandsavesettings()",
+      "source_file": "editor/js/settings-modal.js",
+      "source_location": "L254"
+    },
+    {
+      "id": "editor_js_settings_modal_getcheck",
+      "label": "getCheck()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "gatherAndSaveSettings",
+      "file_type": "code",
+      "norm_label": "getcheck()",
+      "source_file": "editor/js/settings-modal.js",
+      "source_location": "L323"
+    },
+    {
+      "id": "editor_js_settings_modal_getval",
+      "label": "getVal()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "gatherAndSaveSettings",
+      "file_type": "code",
+      "norm_label": "getval()",
+      "source_file": "editor/js/settings-modal.js",
+      "source_location": "L313"
     },
     {
       "id": "editor_js_dicts",
@@ -831,6 +831,138 @@
       "norm_label": "review_defaults",
       "source_file": "editor/js/settings.js",
       "source_location": "L11"
+    },
+    {
+      "id": "product",
+      "label": "PRODUCT.md",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "product.md",
+      "source_file": "PRODUCT.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "product_brand_commitments",
+      "label": "Brand Commitments",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "brand commitments",
+      "source_file": "PRODUCT.md",
+      "source_location": "L47"
+    },
+    {
+      "id": "product_capabilities_and_constraints",
+      "label": "Capabilities and Constraints",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "capabilities and constraints",
+      "source_file": "PRODUCT.md",
+      "source_location": "L30"
+    },
+    {
+      "id": "product_evidence_on_hand",
+      "label": "Evidence on Hand",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "evidence on hand",
+      "source_file": "PRODUCT.md",
+      "source_location": "L52"
+    },
+    {
+      "id": "product_operating_context",
+      "label": "Operating Context",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "operating context",
+      "source_file": "PRODUCT.md",
+      "source_location": "L23"
+    },
+    {
+      "id": "product_platform",
+      "label": "Platform",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "platform",
+      "source_file": "PRODUCT.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "product_positioning",
+      "label": "Positioning",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "positioning",
+      "source_file": "PRODUCT.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "product_product",
+      "label": "Product",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "product",
+      "source_file": "PRODUCT.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "product_product_principles",
+      "label": "Product Principles",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "product principles",
+      "source_file": "PRODUCT.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "product_product_purpose",
+      "label": "Product Purpose",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "product purpose",
+      "source_file": "PRODUCT.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "product_users",
+      "label": "Users",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "Product",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "users",
+      "source_file": "PRODUCT.md",
+      "source_location": "L9"
     },
     {
       "id": "editor_js_editor",
@@ -3034,6 +3166,116 @@
       "weight": 1.0
     },
     {
+      "source": "product",
+      "target": "product_product",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_product_purpose",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_positioning",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_operating_context",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_capabilities_and_constraints",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_brand_commitments",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_platform",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_evidence_on_hand",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_product_principles",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "product_product",
+      "target": "product_users",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PRODUCT.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "editor_js_editor_setupeventlisteners",
       "target": "editor_js_editor_handleeditorclick",
       "relation": "indirect_call",
@@ -3083,5 +3325,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8ac192a0369ef598ad161e0e861fabb411d47f38"
+  "built_at_commit": "c8877052257ee4d37e2dac1ab5bc1a75e6d60015"
 }
