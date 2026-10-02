@@ -345,11 +345,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "setupEventListeners",
+      "community_name": "initEditor",
       "file_type": "code",
       "norm_label": "getdemoreviewtext()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L764"
+      "source_location": "L822"
     },
     {
       "id": "editor_js_editor_initeditor",
@@ -357,71 +357,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "setupEventListeners",
+      "community_name": "initEditor",
       "file_type": "code",
       "norm_label": "initeditor()",
       "source_file": "editor/js/editor.js",
       "source_location": "L48"
-    },
-    {
-      "id": "editor_js_editor_recalculateall",
-      "label": "recalculateAll()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "setupEventListeners",
-      "file_type": "code",
-      "norm_label": "recalculateall()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L273"
-    },
-    {
-      "id": "editor_js_editor_renderissuelist",
-      "label": "renderIssueList()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "setupEventListeners",
-      "file_type": "code",
-      "norm_label": "renderissuelist()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L512"
-    },
-    {
-      "id": "editor_js_editor_scheduleautosave",
-      "label": "scheduleAutoSave()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "setupEventListeners",
-      "file_type": "code",
-      "norm_label": "scheduleautosave()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L234"
-    },
-    {
-      "id": "editor_js_editor_setsavestatus",
-      "label": "setSaveStatus()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "setupEventListeners",
-      "file_type": "code",
-      "norm_label": "setsavestatus()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L247"
-    },
-    {
-      "id": "editor_js_editor_setupeventlisteners",
-      "label": "setupEventListeners()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "setupEventListeners",
-      "file_type": "code",
-      "norm_label": "setupeventlisteners()",
-      "source_file": "editor/js/editor.js",
-      "source_location": "L103"
     },
     {
       "id": "editor_js_settings_onsettingschange",
@@ -429,7 +369,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "setupEventListeners",
+      "community_name": "initEditor",
       "file_type": "code",
       "norm_label": "onsettingschange()",
       "source_file": "editor/js/settings.js",
@@ -448,6 +388,18 @@
       "source_location": "L35"
     },
     {
+      "id": "editor_js_editor_recalculateall",
+      "label": "recalculateAll()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "editor.js",
+      "file_type": "code",
+      "norm_label": "recalculateall()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L310"
+    },
+    {
       "id": "editor_js_editor_renderglobaldeficits",
       "label": "renderGlobalDeficits()",
       "_callable": true,
@@ -457,7 +409,19 @@
       "file_type": "code",
       "norm_label": "renderglobaldeficits()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L467"
+      "source_location": "L525"
+    },
+    {
+      "id": "editor_js_editor_renderissuelist",
+      "label": "renderIssueList()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "editor.js",
+      "file_type": "code",
+      "norm_label": "renderissuelist()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L570"
     },
     {
       "id": "editor_js_editor_rendermetriccard",
@@ -469,7 +433,7 @@
       "file_type": "code",
       "norm_label": "rendermetriccard()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L438"
+      "source_location": "L475"
     },
     {
       "id": "editor_js_editor_rendermirrorhighlights",
@@ -481,7 +445,7 @@
       "file_type": "code",
       "norm_label": "rendermirrorhighlights()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L299"
+      "source_location": "L336"
     },
     {
       "id": "editor_js_editor_rendersidebarstats",
@@ -493,7 +457,7 @@
       "file_type": "code",
       "norm_label": "rendersidebarstats()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L376"
+      "source_location": "L413"
     },
     {
       "id": "editor_js_editor_settext",
@@ -505,7 +469,7 @@
       "file_type": "code",
       "norm_label": "settext()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L734"
+      "source_location": "L792"
     },
     {
       "id": "editor_js_metrics_calculatesentencestddev",
@@ -573,11 +537,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "checkSentenceAtOffset",
+      "community_name": "setupEventListeners",
       "file_type": "code",
       "norm_label": "checksentenceatoffset()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L720"
+      "source_location": "L778"
     },
     {
       "id": "editor_js_editor_closepopup",
@@ -585,11 +549,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "checkSentenceAtOffset",
+      "community_name": "setupEventListeners",
       "file_type": "code",
       "norm_label": "closepopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L692"
+      "source_location": "L750"
     },
     {
       "id": "editor_js_editor_handleeditorclick",
@@ -597,11 +561,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "checkSentenceAtOffset",
+      "community_name": "setupEventListeners",
       "file_type": "code",
       "norm_label": "handleeditorclick()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L710"
+      "source_location": "L768"
     },
     {
       "id": "editor_js_editor_handleeditorcursormove",
@@ -609,11 +573,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "checkSentenceAtOffset",
+      "community_name": "setupEventListeners",
       "file_type": "code",
       "norm_label": "handleeditorcursormove()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L715"
+      "source_location": "L773"
     },
     {
       "id": "editor_js_editor_hidepopupifscrolledout",
@@ -621,11 +585,47 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "checkSentenceAtOffset",
+      "community_name": "setupEventListeners",
       "file_type": "code",
       "norm_label": "hidepopupifscrolledout()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L699"
+      "source_location": "L757"
+    },
+    {
+      "id": "editor_js_editor_scheduleautosave",
+      "label": "scheduleAutoSave()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "setupEventListeners",
+      "file_type": "code",
+      "norm_label": "scheduleautosave()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L271"
+    },
+    {
+      "id": "editor_js_editor_setsavestatus",
+      "label": "setSaveStatus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "setupEventListeners",
+      "file_type": "code",
+      "norm_label": "setsavestatus()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L284"
+    },
+    {
+      "id": "editor_js_editor_setupeventlisteners",
+      "label": "setupEventListeners()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "setupEventListeners",
+      "file_type": "code",
+      "norm_label": "setupeventlisteners()",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L103"
     },
     {
       "id": "editor_js_editor_exportplaintextfile",
@@ -637,7 +637,7 @@
       "file_type": "code",
       "norm_label": "exportplaintextfile()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L256"
+      "source_location": "L293"
     },
     {
       "id": "editor_js_editor_fillpopupcontent",
@@ -649,7 +649,7 @@
       "file_type": "code",
       "norm_label": "fillpopupcontent()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L640"
+      "source_location": "L698"
     },
     {
       "id": "editor_js_editor_positionandshowpopup",
@@ -661,7 +661,7 @@
       "file_type": "code",
       "norm_label": "positionandshowpopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L615"
+      "source_location": "L673"
     },
     {
       "id": "editor_js_editor_scrolltosentenceandopenpopup",
@@ -673,7 +673,7 @@
       "file_type": "code",
       "norm_label": "scrolltosentenceandopenpopup()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L581"
+      "source_location": "L639"
     },
     {
       "id": "editor_js_editor_showtoast",
@@ -685,7 +685,7 @@
       "file_type": "code",
       "norm_label": "showtoast()",
       "source_file": "editor/js/editor.js",
-      "source_location": "L742"
+      "source_location": "L800"
     },
     {
       "id": "editor_js_pages_estimatea4pages",
@@ -876,7 +876,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L727",
+      "source_location": "L785",
       "weight": 1.0
     },
     {
@@ -888,7 +888,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L730",
+      "source_location": "L788",
       "weight": 1.0
     },
     {
@@ -900,7 +900,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L267",
+      "source_location": "L304",
       "weight": 1.0
     },
     {
@@ -912,7 +912,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L653",
+      "source_location": "L711",
       "weight": 1.0
     },
     {
@@ -924,7 +924,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L667",
+      "source_location": "L725",
       "weight": 1.0
     },
     {
@@ -936,7 +936,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L686",
+      "source_location": "L744",
       "weight": 1.0
     },
     {
@@ -948,7 +948,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L712",
+      "source_location": "L770",
       "weight": 1.0
     },
     {
@@ -960,7 +960,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L717",
+      "source_location": "L775",
       "weight": 1.0
     },
     {
@@ -972,7 +972,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L703",
+      "source_location": "L761",
       "weight": 1.0
     },
     {
@@ -1032,7 +1032,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L622",
+      "source_location": "L680",
       "weight": 1.0
     },
     {
@@ -1044,7 +1044,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L275",
+      "source_location": "L312",
       "weight": 1.0
     },
     {
@@ -1056,7 +1056,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L278",
+      "source_location": "L315",
       "weight": 1.0
     },
     {
@@ -1068,7 +1068,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L281",
+      "source_location": "L318",
       "weight": 1.0
     },
     {
@@ -1080,7 +1080,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L284",
+      "source_location": "L321",
       "weight": 1.0
     },
     {
@@ -1092,7 +1092,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L287",
+      "source_location": "L324",
       "weight": 1.0
     },
     {
@@ -1104,7 +1104,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L290",
+      "source_location": "L327",
       "weight": 1.0
     },
     {
@@ -1116,7 +1116,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L291",
+      "source_location": "L328",
       "weight": 1.0
     },
     {
@@ -1128,7 +1128,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L499",
+      "source_location": "L557",
       "weight": 1.0
     },
     {
@@ -1140,7 +1140,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L560",
+      "source_location": "L618",
       "weight": 1.0
     },
     {
@@ -1152,7 +1152,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L573",
+      "source_location": "L631",
       "weight": 1.0
     },
     {
@@ -1164,7 +1164,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L342",
+      "source_location": "L379",
       "weight": 1.0
     },
     {
@@ -1176,7 +1176,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L378",
+      "source_location": "L415",
       "weight": 1.0
     },
     {
@@ -1188,7 +1188,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L392",
+      "source_location": "L429",
       "weight": 1.0
     },
     {
@@ -1200,7 +1200,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L432",
+      "source_location": "L469",
       "weight": 1.0
     },
     {
@@ -1212,7 +1212,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L239",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -1224,7 +1224,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/editor.js",
-      "source_location": "L603",
+      "source_location": "L661",
       "weight": 1.0
     },
     {
@@ -1333,6 +1333,18 @@
       "context": "call",
       "source_file": "editor/js/editor.js",
       "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor_setupeventlisteners",
+      "target": "editor_js_editor_scrolltosentenceandopenpopup",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "editor/js/editor.js",
+      "source_location": "L259",
       "weight": 1.0
     },
     {
@@ -2358,7 +2370,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L234",
+      "source_location": "L271",
       "weight": 1.0
     },
     {
@@ -2369,7 +2381,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L247",
+      "source_location": "L284",
       "weight": 1.0
     },
     {
@@ -2380,7 +2392,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L256",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -2391,7 +2403,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L273",
+      "source_location": "L310",
       "weight": 1.0
     },
     {
@@ -2402,7 +2414,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L299",
+      "source_location": "L336",
       "weight": 1.0
     },
     {
@@ -2424,7 +2436,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L376",
+      "source_location": "L413",
       "weight": 1.0
     },
     {
@@ -2435,18 +2447,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L438",
-      "weight": 1.0
-    },
-    {
-      "source": "editor_js_editor",
-      "target": "editor_js_editor_renderglobaldeficits",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "editor/js/editor.js",
-      "source_location": "L467",
+      "source_location": "L475",
       "weight": 1.0
     },
     {
@@ -2462,13 +2463,24 @@
     },
     {
       "source": "editor_js_editor",
+      "target": "editor_js_editor_renderglobaldeficits",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "editor/js/editor.js",
+      "source_location": "L525",
+      "weight": 1.0
+    },
+    {
+      "source": "editor_js_editor",
       "target": "editor_js_editor_renderissuelist",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L512",
+      "source_location": "L570",
       "weight": 1.0
     },
     {
@@ -2479,7 +2491,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L581",
+      "source_location": "L639",
       "weight": 1.0
     },
     {
@@ -2490,7 +2502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L615",
+      "source_location": "L673",
       "weight": 1.0
     },
     {
@@ -2501,7 +2513,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L640",
+      "source_location": "L698",
       "weight": 1.0
     },
     {
@@ -2512,7 +2524,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L692",
+      "source_location": "L750",
       "weight": 1.0
     },
     {
@@ -2523,7 +2535,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L699",
+      "source_location": "L757",
       "weight": 1.0
     },
     {
@@ -2534,7 +2546,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L710",
+      "source_location": "L768",
       "weight": 1.0
     },
     {
@@ -2545,7 +2557,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L715",
+      "source_location": "L773",
       "weight": 1.0
     },
     {
@@ -2556,7 +2568,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L720",
+      "source_location": "L778",
       "weight": 1.0
     },
     {
@@ -2567,7 +2579,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L734",
+      "source_location": "L792",
       "weight": 1.0
     },
     {
@@ -2578,7 +2590,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L742",
+      "source_location": "L800",
       "weight": 1.0
     },
     {
@@ -2589,7 +2601,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/editor.js",
-      "source_location": "L764",
+      "source_location": "L822",
       "weight": 1.0
     },
     {
@@ -3070,5 +3082,6 @@
       "weight": 1.0
     }
   ],
-  "hyperedges": []
+  "hyperedges": [],
+  "built_at_commit": "8ac192a0369ef598ad161e0e861fabb411d47f38"
 }
