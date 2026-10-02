@@ -4,7 +4,7 @@
  * API-ключ сохраняется строго локально в настройках пользователя.
  */
 
-import { getSettings } from './settings.js';
+import { getSettings } from './settings.js?v=2.2.1';
 
 // Пресеты провайдеров
 export const AI_PRESETS = {
@@ -78,22 +78,40 @@ export async function testAiConnection(config) {
     headers['X-Title'] = 'NySse Writer';
   }
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      model: cfg.model || 'deepseek/deepseek-chat',
-      messages: [{ role: 'user', content: 'Ответь одним словом: OK' }],
-      max_tokens: 10
-    })
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 12000);
 
-  if (!response.ok) {
-    const errorBody = await response.text();
-    throw new Error(`Ошибка ${response.status}: ${errorBody.slice(0, 150)}`);
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers,
+      signal: controller.signal,
+      body: JSON.stringify({
+        model: cfg.model || 'deepseek/deepseek-chat',
+        messages: [{ role: 'user', content: 'Ответь одним словом: OK' }],
+        max_tokens: 10
+      })
+    });
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      let msg = errorBody.slice(0, 150);
+      try {
+        const json = JSON.parse(errorBody);
+        if (json.error?.message) msg = json.error.message;
+      } catch (e) {}
+      throw new Error(`Статус ${response.status}: ${msg}`);
+    }
+
+    return true;
+  } catch (err) {
+    clearTimeout(timeoutId);
+    if (err.name === 'AbortError') {
+      throw new Error('Таймаут соединения (12 сек). Проверьте URL или интернет.');
+    }
+    throw err;
   }
-
-  return true;
 }
 
 /**

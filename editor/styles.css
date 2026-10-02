@@ -74,6 +74,11 @@
 }
 
 html, body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 100%;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -2460,6 +2465,29 @@ body.view-analysis .ai-panel {
 .ai-conn-status {
   font-size: 0.72rem;
   font-weight: 700;
+}
+
+.ai-conn-test-row button,
+#btn-test-ai-conn,
+.btn-test-conn {
+  background-color: #21241a !important;
+  border: 1px solid #777b65 !important;
+  color: #f0f3dc !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  padding: 6px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.15s ease !important;
+}
+
+.ai-conn-test-row button:hover,
+#btn-test-ai-conn:hover,
+.btn-test-conn:hover {
+  background-color: #383d2c !important;
+  border-color: #c9ceb2 !important;
+  color: #ffffff !important;
 }
 
 .ai-conn-status.status-testing {

@@ -10,9 +10,9 @@
  * - Экспортировать и импортировать настройки в формате JSON
  */
 
-import { getSettings, saveSettings, resetToReviewDefaults, exportSettingsJSON, importSettingsJSON } from './settings.js';
-import { showToast } from './editor.js';
-import { AI_PRESETS, testAiConnection } from './ai-provider.js';
+import { getSettings, saveSettings, resetToReviewDefaults, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.1';
+import { showToast } from './editor.js?v=2.2.1';
+import { AI_PRESETS, testAiConnection } from './ai-provider.js?v=2.2.1';
 
 let modalEl = null;
 
@@ -168,27 +168,50 @@ export function initSettingsModal() {
 
   const testConnBtn = document.getElementById('btn-test-ai-conn');
   if (testConnBtn) {
-    testConnBtn.addEventListener('click', async () => {
+    testConnBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       const statusEl = document.getElementById('ai-conn-status');
-      if (!statusEl) return;
 
-      const cfg = {
-        provider: getVal('set-ai-provider') || 'openrouter',
-        baseUrl: getVal('set-ai-base-url'),
-        model: getVal('set-ai-model'),
-        apiKey: getVal('set-ai-key')
-      };
+      const provider = getVal('set-ai-provider') || 'openrouter';
+      const baseUrl = getVal('set-ai-base-url') || '';
+      const model = getVal('set-ai-model') || '';
+      const apiKey = (getVal('set-ai-key') || '').trim();
 
-      statusEl.textContent = '⏳ Проверка соединения...';
-      statusEl.className = 'ai-conn-status status-testing';
+      if (!apiKey && provider !== 'ollama') {
+        if (statusEl) {
+          statusEl.textContent = '! Сначала введите API-ключ в поле выше';
+          statusEl.className = 'ai-conn-status status-err';
+        }
+        const keyInput = document.getElementById('set-ai-key');
+        if (keyInput) keyInput.focus();
+        return;
+      }
+
+      const originalBtnHtml = testConnBtn.innerHTML;
+      testConnBtn.innerHTML = '⏳ Проверка соединения...';
+      testConnBtn.disabled = true;
+
+      if (statusEl) {
+        statusEl.textContent = '⏳ Отправка запроса к API...';
+        statusEl.className = 'ai-conn-status status-testing';
+      }
 
       try {
-        await testAiConnection(cfg);
-        statusEl.textContent = '✓ Соединение успешно установлено';
-        statusEl.className = 'ai-conn-status status-ok';
+        await testAiConnection({ provider, baseUrl, model, apiKey });
+        if (statusEl) {
+          statusEl.textContent = '✓ Соединение успешно установлено!';
+          statusEl.className = 'ai-conn-status status-ok';
+        }
+        showToast('ИИ-провайдер готов к работе');
       } catch (err) {
-        statusEl.textContent = `! Ошибка: ${err.message}`;
-        statusEl.className = 'ai-conn-status status-err';
+        if (statusEl) {
+          statusEl.textContent = `! Ошибка: ${err.message}`;
+          statusEl.className = 'ai-conn-status status-err';
+        }
+      } finally {
+        testConnBtn.innerHTML = originalBtnHtml;
+        testConnBtn.disabled = false;
       }
     });
   }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NySse Writer — Локальный академический редактор</title>
   <meta name="description" content="Редактор текста с локальной проверкой синтаксических порогов, длины предложений, 3-грамм и оценкой страниц A4 без отправки данных на сервер.">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.2.1">
 </head>
 <body class="theme-dark">
 
@@ -101,7 +101,7 @@
       <button class="tab-item active" role="tab" id="tab-document" aria-selected="true" aria-controls="editor-viewport" data-view="document">
         <span class="tab-indicator" aria-hidden="true">■</span> DOCUMENT
       </button>
-      <button class="tab-item" role="tab" id="tab-analysis" aria-selected="false" aria-controls="sidebar-panel" data-view="analysis">
+      <button class="tab-item" role="tab" id="tab-analysis" aria-selected="false" aria-controls="ai-panel" data-view="analysis">
         <span class="tab-indicator" aria-hidden="true">■</span> ANALYSIS
       </button>
       <button class="tab-item" role="tab" id="tab-history" aria-selected="false" data-view="history">
@@ -681,7 +681,7 @@
           </div>
 
           <div class="form-group ai-conn-test-row">
-            <button type="button" id="btn-test-ai-conn" class="btn btn-tactical btn-sm">
+            <button type="button" id="btn-test-ai-conn" class="btn btn-tactical-accent btn-sm btn-test-conn">
               ⚡ Проверить связь с провайдером
             </button>
             <span id="ai-conn-status" class="ai-conn-status"></span>
@@ -706,12 +706,13 @@
     </div>
   </div>
 
-  <!-- Главный скрипт приложения (ES Module) -->
+  <!-- Главный скрипт приложения (ES Module) с защитой от кэширования -->
   <script type="module">
-    import { initEditor } from './js/editor.js';
-    import { initSettingsModal } from './js/settings-modal.js';
+    import { initEditor } from './js/editor.js?v=2.2.1';
+    import { initSettingsModal } from './js/settings-modal.js?v=2.2.1';
 
-    document.addEventListener('DOMContentLoaded', () => {
+    function bootstrapApp() {
+      window.scrollTo(0, 0);
       initEditor();
       initSettingsModal();
 
@@ -760,7 +761,13 @@
           }
         });
       });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bootstrapApp);
+    } else {
+      bootstrapApp();
+    }
   </script>
 </body>
 </html>

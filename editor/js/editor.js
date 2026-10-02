@@ -3,13 +3,13 @@
  * синхронизация скролла, попапы предложений, выезжающая панель, сохранение.
  */
 
-import { getSettings, saveSettings, resetToReviewDefaults, onSettingsChange, exportSettingsJSON, importSettingsJSON } from './settings.js';
-import { parseDocument } from './parse.js';
-import { computeAllMetrics } from './metrics.js';
-import { estimateA4Pages } from './pages.js';
-import { gitRepo } from './repo.js';
-import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js';
-import { initAiPanel, renderAiPanel, triggerAiAudit, setAuditTriggerHandler } from './ai-panel.js';
+import { getSettings, saveSettings, resetToReviewDefaults, onSettingsChange, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.1';
+import { parseDocument } from './parse.js?v=2.2.1';
+import { computeAllMetrics } from './metrics.js?v=2.2.1';
+import { estimateA4Pages } from './pages.js?v=2.2.1';
+import { gitRepo } from './repo.js?v=2.2.1';
+import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js?v=2.2.1';
+import { initAiPanel, renderAiPanel, triggerAiAudit, setAuditTriggerHandler } from './ai-panel.js?v=2.2.1';
 
 // Селекторы элементов DOM
 let textareaEl = null;
@@ -458,10 +458,12 @@ function setupEventListeners() {
       tab.setAttribute('aria-selected', 'true');
 
       if (view === 'analysis') {
+        window.scrollTo(0, 0);
         document.body.classList.add('view-analysis');
         document.body.classList.remove('history-open');
         renderAiPanel();
       } else if (view === 'document') {
+        window.scrollTo(0, 0);
         document.body.classList.remove('view-analysis');
         toggleHistoryPanel(false);
         textareaEl.focus();

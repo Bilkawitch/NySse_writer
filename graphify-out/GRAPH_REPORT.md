@@ -1,17 +1,17 @@
 # Graph Report - NySse_writer  (2026-10-03)
 
 ## Corpus Check
-- 16 files · ~19,765 words
+- 16 files · ~19,932 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: .bat 2, (none) 1, .exe 1)
 
 ## Summary
-- 193 nodes · 413 edges · 12 communities (11 shown, 1 thin omitted)
+- 203 nodes · 352 edges · 13 communities (12 shown, 1 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `66ef9688`
+- Built from commit: `e21dd98e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,43 +27,35 @@
 - package.json
 - cli.js
 - ai-panel.js
+- ai-provider.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `GitRepository` - 21 edges
-2. `getSettings()` - 21 edges
-3. `setupEventListeners()` - 18 edges
-4. `initSettingsModal()` - 16 edges
-5. `renderAiPanel()` - 11 edges
-6. `initEditor()` - 11 edges
-7. `recalculateAll()` - 10 edges
-8. `Product` - 10 edges
-9. `showToast()` - 9 edges
-10. `loadSettingsIntoForm()` - 9 edges
+2. `setupEventListeners()` - 14 edges
+3. `initSettingsModal()` - 10 edges
+4. `Product` - 10 edges
+5. `Design System: NySse Writer` - 9 edges
+6. `loadSettingsIntoForm()` - 8 edges
+7. `renderAiPanel()` - 7 edges
+8. `renderHistoryPanel()` - 7 edges
+9. `getSettings()` - 7 edges
+10. `initEditor()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `initEditor()` --calls--> `initAiPanel()`  [EXTRACTED]
-  editor/js/editor.js → editor/js/ai-panel.js
-- `renderAiPanel()` --calls--> `getSettings()`  [EXTRACTED]
-  editor/js/ai-panel.js → editor/js/settings.js
-- `setupEventListeners()` --calls--> `renderAiPanel()`  [EXTRACTED]
-  editor/js/editor.js → editor/js/ai-panel.js
-- `initEditor()` --calls--> `triggerAiAudit()`  [EXTRACTED]
-  editor/js/editor.js → editor/js/ai-panel.js
-- `runAiSemanticAudit()` --calls--> `getSettings()`  [EXTRACTED]
-  editor/js/ai-provider.js → editor/js/settings.js
+- None detected - all connections are within the same source files.
 
 ## Import Cycles
 - None detected.
 
-## Communities (12 total, 1 thin omitted)
+## Communities (13 total, 1 thin omitted)
 
 ### Community 0 - "settings.js"
-Cohesion: 0.18
-Nodes (17): DEFAULT_ABBREVIATIONS, DEFAULT_ABSTRACT_HEDGES, DEFAULT_FORMULAIC_STARTERS, DEFAULT_SIGNAL_PHRASES, DEFAULT_STOPWORDS, ABBREV_SET, analyzeSentenceIssues(), cleanWord() (+9 more)
+Cohesion: 0.12
+Nodes (27): DEFAULT_ABBREVIATIONS, DEFAULT_ABSTRACT_HEDGES, DEFAULT_FORMULAIC_STARTERS, DEFAULT_SIGNAL_PHRASES, DEFAULT_STOPWORDS, estimateA4Pages(), getSandbox(), ABBREV_SET (+19 more)
 
 ### Community 1 - "settings-modal.js"
-Cohesion: 0.24
-Nodes (21): testAiConnection(), deepClone(), deepMerge(), exportSettingsJSON(), getSettings(), importSettingsJSON(), closeSettings(), escapeHtml() (+13 more)
+Cohesion: 0.35
+Nodes (13): closeSettings(), escapeHtml(), gatherAndSaveSettings(), getCheck(), getVal(), initSettingsModal(), loadSettingsIntoForm(), openSettings() (+5 more)
 
 ### Community 2 - "Design System: NySse Writer"
 Cohesion: 0.09
@@ -74,8 +66,8 @@ Cohesion: 0.18
 Nodes (10): Brand Commitments, Capabilities and Constraints, Evidence on Hand, Operating Context, Platform, Positioning, Product, Product Principles (+2 more)
 
 ### Community 4 - "editor.js"
-Cohesion: 0.18
-Nodes (26): setAuditTriggerHandler(), checkSentenceAtOffset(), closePopup(), escapeHtml(), exportPlainTextFile(), fillPopupContent(), getDemoReviewText(), handleEditorClick() (+18 more)
+Cohesion: 0.15
+Nodes (29): checkSentenceAtOffset(), closePopup(), escapeHtml(), exportPlainTextFile(), fillPopupContent(), getDemoReviewText(), handleEditorClick(), handleEditorCursorMove() (+21 more)
 
 ### Community 5 - "metrics.js"
 Cohesion: 0.60
@@ -98,27 +90,31 @@ Cohesion: 0.14
 Nodes (13): { exec }, fs, http, MIME_TYPES, openBrowser(), path, ROOT_DIR, startServer() (+5 more)
 
 ### Community 11 - "ai-panel.js"
-Cohesion: 0.27
-Nodes (14): attachResultInteractions(), escapeHtml(), getCategoryLabel(), handleTriggerAudit(), initAiPanel(), renderAiPanel(), renderAuditResultsHtml(), renderPanelContent() (+6 more)
+Cohesion: 0.24
+Nodes (12): attachResultInteractions(), escapeHtml(), getCategoryLabel(), handleTriggerAudit(), initAiPanel(), renderAiPanel(), renderAuditResultsHtml(), renderPanelContent() (+4 more)
+
+### Community 12 - "ai-provider.js"
+Cohesion: 0.40
+Nodes (4): AI_PRESETS, parseAiJsonResponse(), runAiSemanticAudit(), ref_settings_js_v_2_2_1
 
 ## Knowledge Gaps
-- **49 isolated node(s):** `http`, `fs`, `path`, `{ exec }`, `MIME_TYPES` (+44 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 58 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **50 isolated node(s):** `http`, `fs`, `path`, `{ exec }`, `MIME_TYPES` (+45 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 69 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getSettings()` connect `settings-modal.js` to `settings.js`, `ai-panel.js`, `editor.js`, `metrics.js`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
-- **Why does `renderAiPanel()` connect `ai-panel.js` to `settings-modal.js`, `editor.js`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Why does `getSettings()` connect `settings.js` to `metrics.js`?**
+  _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `setupEventListeners()` (e.g. with `exportPlainTextFile()` and `handleEditorClick()`) actually correct?**
   _`setupEventListeners()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `initSettingsModal()` (e.g. with `closeSettings()` and `openSettings()`) actually correct?**
   _`initSettingsModal()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `http`, `fs`, `path` to the rest of the system?**
-  _49 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _50 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `settings.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.12298387096774194 - nodes in this community are weakly interconnected._
 - **Should `Design System: NySse Writer` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
