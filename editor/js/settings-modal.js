@@ -10,9 +10,9 @@
  * - Экспортировать и импортировать настройки в формате JSON
  */
 
-import { getSettings, saveSettings, resetToReviewDefaults, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.2';
-import { showToast } from './editor.js?v=2.2.2';
-import { AI_PRESETS, testAiConnection } from './ai-provider.js?v=2.2.2';
+import { getSettings, saveSettings, resetToReviewDefaults, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.3';
+import { showToast } from './editor.js?v=2.2.3';
+import { AI_PRESETS, testAiConnection } from './ai-provider.js?v=2.2.3';
 
 let modalEl = null;
 

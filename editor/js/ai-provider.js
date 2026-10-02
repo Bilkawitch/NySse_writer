@@ -4,7 +4,7 @@
  * API-ключ сохраняется строго локально в настройках пользователя.
  */
 
-import { getSettings } from './settings.js?v=2.2.2';
+import { getSettings } from './settings.js?v=2.2.3';
 
 // Пресеты провайдеров
 export const AI_PRESETS = {
@@ -40,6 +40,13 @@ export const AI_PRESETS = {
     defaultModel: 'llama-3.3-70b-versatile',
     models: ['llama-3.3-70b-versatile', 'mixtral-8x7b-32768'],
     hint: 'Мгновенный инференс Llama-3'
+  },
+  inceptionlabs: {
+    name: 'Inception Labs API',
+    baseUrl: 'https://api.inceptionlabs.ai/v1',
+    defaultModel: 'mercury-2.5',
+    models: ['mercury-2.5'],
+    hint: 'Inception Labs (Diffusion LLM Mercury-2.5)'
   },
   ollama: {
     name: 'Ollama (локально на вашем ПК)',

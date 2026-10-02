@@ -11,5 +11,15 @@
   "9": "cli.js",
   "10": "README.md",
   "11": "ai-panel.js",
-  "12": "ai-provider.js"
+  "12": "ai-provider.js",
+  "13": "ref_ai_panel_js_v_2_2_1",
+  "14": "ref_ai_provider_js_v_2_2_1",
+  "15": "ref_editor_js_v_2_2_1",
+  "16": "ref_history_panel_js_v_2_2_1",
+  "17": "ref_metrics_js_v_2_2_1",
+  "18": "ref_pages_js_v_2_2_1",
+  "19": "ref_parse_js_v_2_2_1",
+  "20": "ref_repo_js_v_2_2_1",
+  "21": "ref_settings_js_v_2_2_1",
+  "22": "ref_settings_modal_js_v_2_2_1"
 }

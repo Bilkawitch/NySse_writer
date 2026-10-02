@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NySse Writer — Локальный академический редактор</title>
   <meta name="description" content="Редактор текста с локальной проверкой синтаксических порогов, длины предложений, 3-грамм и оценкой страниц A4 без отправки данных на сервер.">
-  <link rel="stylesheet" href="styles.css?v=2.2.2">
+  <link rel="stylesheet" href="styles.css?v=2.2.3">
 </head>
 <body class="theme-dark">
 
@@ -651,6 +651,7 @@
             <label><strong>Провайдер API:</strong></label>
             <select id="set-ai-provider" class="select-sm input-text">
               <option value="openrouter">OpenRouter (рекомендуется для браузера — DeepSeek, Claude, Llama)</option>
+              <option value="inceptionlabs">Inception Labs (Mercury-2.5)</option>
               <option value="deepseek">DeepSeek API (официальный)</option>
               <option value="openai">OpenAI API (GPT-4o, GPT-4o-mini)</option>
               <option value="groq">Groq Cloud (сверхбыстрый инференс Llama 3)</option>
@@ -708,8 +709,8 @@
 
   <!-- Главный скрипт приложения (ES Module) с защитой от кэширования -->
   <script type="module">
-    import { initEditor } from './js/editor.js?v=2.2.2';
-    import { initSettingsModal } from './js/settings-modal.js?v=2.2.2';
+    import { initEditor } from './js/editor.js?v=2.2.3';
+    import { initSettingsModal } from './js/settings-modal.js?v=2.2.3';
 
     function bootstrapApp() {
       window.scrollTo(0, 0);

@@ -1,17 +1,17 @@
 # Graph Report - NySse_writer  (2026-10-03)
 
 ## Corpus Check
-- 16 files · ~20,008 words
+- 16 files · ~20,031 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: .bat 2, (none) 1, .exe 1)
 
 ## Summary
-- 213 nodes · 352 edges · 23 communities (12 shown, 11 thin omitted)
+- 223 nodes · 352 edges · 33 communities (12 shown, 21 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b2abcbee`
+- Built from commit: `1218448d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,6 +38,16 @@
 - ref_repo_js_v_2_2_1
 - ref_settings_js_v_2_2_1
 - ref_settings_modal_js_v_2_2_1
+- ref_ai_panel_js_v_2_2_2
+- ref_ai_provider_js_v_2_2_2
+- ref_editor_js_v_2_2_2
+- ref_history_panel_js_v_2_2_2
+- ref_metrics_js_v_2_2_2
+- ref_pages_js_v_2_2_2
+- ref_parse_js_v_2_2_2
+- ref_repo_js_v_2_2_2
+- ref_settings_js_v_2_2_2
+- ref_settings_modal_js_v_2_2_2
 
 ## God Nodes (most connected - your core abstractions)
 1. `GitRepository` - 21 edges
@@ -57,7 +67,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (23 total, 11 thin omitted)
+## Communities (33 total, 21 thin omitted)
 
 ### Community 0 - "settings.js"
 Cohesion: 0.12
@@ -105,12 +115,12 @@ Nodes (12): attachResultInteractions(), escapeHtml(), getCategoryLabel(), handle
 
 ### Community 12 - "ai-provider.js"
 Cohesion: 0.40
-Nodes (4): AI_PRESETS, parseAiJsonResponse(), runAiSemanticAudit(), ref_settings_js_v_2_2_2
+Nodes (4): AI_PRESETS, parseAiJsonResponse(), runAiSemanticAudit(), ref_settings_js_v_2_2_3
 
 ## Knowledge Gaps
 - **50 isolated node(s):** `http`, `fs`, `path`, `{ exec }`, `MIME_TYPES` (+45 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 79 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 89 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **21 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
