@@ -224,24 +224,34 @@ html, body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.78rem;
+  gap: 6px;
+  font-family: inherit;
+  font-size: 0.74rem;
   font-weight: 600;
-  border-radius: var(--radius-sm);
-  padding: 4px 10px;
+  letter-spacing: 0.02em;
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 0px;
   cursor: pointer;
   border: 1px solid transparent;
   transition: all 0.15s ease;
   white-space: nowrap;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .btn-sm {
-  padding: 3px 8px;
-  font-size: 0.74rem;
+  height: 28px;
+  padding: 0 8px;
+  font-size: 0.72rem;
+  gap: 6px;
 }
 
 .btn-xs {
-  padding: 2px 6px;
+  height: 22px;
+  padding: 0 6px;
   font-size: 0.68rem;
+  gap: 4px;
 }
 
 .btn-tactical {
@@ -262,24 +272,54 @@ html, body {
 
 .btn-tactical-accent:hover {
   background-color: #313528;
+  border-color: #313528;
 }
 
-.btn-icon {
+/* Кнопки с одной иконкой (28x28px) */
+.btn-icon,
+.btn-icon-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: 1px solid var(--border-tactical-dark);
   color: var(--text-dark);
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
+  border-radius: 0px;
   cursor: pointer;
-  font-size: 0.85rem;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  transition: all 0.15s ease;
 }
 
-.btn-icon:hover {
+.btn-icon:hover,
+.btn-icon-btn:hover {
   background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Векторные SVG иконки без фоновых коробок */
+.btn-svg {
+  width: 13px;
+  height: 13px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.btn-svg-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+}
+
+.btn-label {
+  display: inline-block;
+  line-height: 1;
 }
 
 /* ==========================================================================
@@ -1428,12 +1468,13 @@ body.sidebar-collapsed .sidebar-panel {
   .header-left {
     gap: 6px;
   }
-  .header-badges {
+  .btn-label {
     display: none;
   }
-  .btn-tactical .btn-icon + span,
-  .btn-tactical-accent .btn-icon + span {
-    display: none;
+  .btn-sm {
+    padding: 0;
+    width: 28px;
+    justify-content: center;
   }
   .sidebar-panel {
     position: absolute;
