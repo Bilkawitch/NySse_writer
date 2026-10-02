@@ -3,13 +3,13 @@
  * синхронизация скролла, попапы предложений, выезжающая панель, сохранение.
  */
 
-import { getSettings, saveSettings, resetToReviewDefaults, onSettingsChange, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.3';
-import { parseDocument } from './parse.js?v=2.2.3';
-import { computeAllMetrics } from './metrics.js?v=2.2.3';
-import { estimateA4Pages } from './pages.js?v=2.2.3';
-import { gitRepo } from './repo.js?v=2.2.3';
-import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js?v=2.2.3';
-import { initAiPanel, renderAiPanel, triggerAiAudit, setAuditTriggerHandler } from './ai-panel.js?v=2.2.3';
+import { getSettings, saveSettings, resetToReviewDefaults, onSettingsChange, exportSettingsJSON, importSettingsJSON } from './settings.js?v=2.2.4';
+import { parseDocument } from './parse.js?v=2.2.4';
+import { computeAllMetrics } from './metrics.js?v=2.2.4';
+import { estimateA4Pages } from './pages.js?v=2.2.4';
+import { gitRepo } from './repo.js?v=2.2.4';
+import { initHistoryPanel, toggleHistoryPanel } from './history-panel.js?v=2.2.4';
+import { initAiPanel, renderAiPanel, triggerAiAudit, setAuditTriggerHandler } from './ai-panel.js?v=2.2.4';
 
 // Селекторы элементов DOM
 let textareaEl = null;
@@ -669,7 +669,7 @@ function renderSidebarStats(parsedDoc, metrics, a4Pages) {
   renderMetricCard('card-long-words', m.longWordRatio);
   renderMetricCard('card-three-grams', m.threeGramRepetition);
 
-  // 4. Дополнительные метрики (SD и Зачины)
+  // 4. Дополнительные метрики (SD, Бёрстиность и Зачины)
   setText('val-std-dev', metrics.extras.stdDev.formatted);
   const stdDevBadge = document.getElementById('badge-std-dev');
   if (stdDevBadge) {
@@ -682,6 +682,30 @@ function renderSidebarStats(parsedDoc, metrics, a4Pages) {
     } else {
       stdDevBadge.className = 'metric-status-badge status-green';
       stdDevBadge.textContent = '✓ ритм';
+    }
+  }
+
+  // Бёрстиность (Burstiness — ZeroGPT / GPTZero)
+  if (metrics.extras.burstiness) {
+    setText('val-burstiness', metrics.extras.burstiness.formatted);
+    const burstBadge = document.getElementById('badge-burstiness');
+    if (burstBadge) {
+      if (metrics.isLowData) {
+        burstBadge.className = 'metric-status-badge status-low-data';
+        burstBadge.textContent = '...';
+      } else if (metrics.extras.burstiness.status === 'red') {
+        burstBadge.className = 'metric-status-badge status-red';
+        burstBadge.textContent = '! ИИ';
+        burstBadge.title = `Низкая бёрстиность (CV: ${metrics.extras.burstiness.cvPercent}%, средний скачок: ${metrics.extras.burstiness.meanDelta} сл.)`;
+      } else if (metrics.extras.burstiness.status === 'yellow') {
+        burstBadge.className = 'metric-status-badge status-yellow';
+        burstBadge.textContent = '▲ средне';
+        burstBadge.title = `Умеренная бёрстиность (CV: ${metrics.extras.burstiness.cvPercent}%, средний скачок: ${metrics.extras.burstiness.meanDelta} сл.)`;
+      } else {
+        burstBadge.className = 'metric-status-badge status-green';
+        burstBadge.textContent = '✓ взрыв';
+        burstBadge.title = `Высокая бёрстиность живого автора (CV: ${metrics.extras.burstiness.cvPercent}%, средний скачок: ${metrics.extras.burstiness.meanDelta} сл.)`;
+      }
     }
   }
 

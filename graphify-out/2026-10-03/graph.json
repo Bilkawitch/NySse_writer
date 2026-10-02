@@ -542,7 +542,7 @@
       "file_type": "code",
       "norm_label": "parseaijsonresponse()",
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L239"
+      "source_location": "L246"
     },
     {
       "id": "editor_js_ai_provider_runaisemanticaudit",
@@ -554,7 +554,7 @@
       "file_type": "code",
       "norm_label": "runaisemanticaudit()",
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L120"
+      "source_location": "L127"
     },
     {
       "id": "editor_js_ai_provider_testaiconnection",
@@ -566,7 +566,7 @@
       "file_type": "code",
       "norm_label": "testaiconnection()",
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L63"
+      "source_location": "L70"
     },
     {
       "id": "editor_js_editor_checksentenceatoffset",
@@ -2442,6 +2442,126 @@
       "type": "external"
     },
     {
+      "id": "ref_ai_panel_js_v_2_2_2",
+      "label": "ref_ai_panel_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 23,
+      "community_name": "ref_ai_panel_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_ai_panel_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_ai_provider_js_v_2_2_2",
+      "label": "ref_ai_provider_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 24,
+      "community_name": "ref_ai_provider_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_ai_provider_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_editor_js_v_2_2_2",
+      "label": "ref_editor_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 25,
+      "community_name": "ref_editor_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_editor_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_history_panel_js_v_2_2_2",
+      "label": "ref_history_panel_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 26,
+      "community_name": "ref_history_panel_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_history_panel_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_metrics_js_v_2_2_2",
+      "label": "ref_metrics_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 27,
+      "community_name": "ref_metrics_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_metrics_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_pages_js_v_2_2_2",
+      "label": "ref_pages_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 28,
+      "community_name": "ref_pages_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_pages_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_parse_js_v_2_2_2",
+      "label": "ref_parse_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 29,
+      "community_name": "ref_parse_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_parse_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_repo_js_v_2_2_2",
+      "label": "ref_repo_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 30,
+      "community_name": "ref_repo_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_repo_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_settings_js_v_2_2_2",
+      "label": "ref_settings_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 31,
+      "community_name": "ref_settings_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_settings_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "ref_settings_modal_js_v_2_2_2",
+      "label": "ref_settings_modal_js_v_2_2_2",
+      "_origin": "semantic",
+      "community": 32,
+      "community_name": "ref_settings_modal_js_v_2_2_2",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "ref_settings_modal_js_v_2_2_2",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "ref_child_process",
       "label": "ref_child_process",
       "_origin": "semantic",
@@ -2490,112 +2610,112 @@
       "type": "external"
     },
     {
-      "id": "ref_ai_provider_js_v_2_2_2",
-      "label": "ref_ai_provider_js_v_2_2_2",
+      "id": "ref_ai_provider_js_v_2_2_3",
+      "label": "ref_ai_provider_js_v_2_2_3",
       "community": 11,
       "community_name": "ai-panel.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_ai_provider_js_v_2_2_2",
+      "norm_label": "ref_ai_provider_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_editor_js_v_2_2_2",
-      "label": "ref_editor_js_v_2_2_2",
+      "id": "ref_editor_js_v_2_2_3",
+      "label": "ref_editor_js_v_2_2_3",
       "community": 11,
       "community_name": "ai-panel.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_editor_js_v_2_2_2",
+      "norm_label": "ref_editor_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_settings_modal_js_v_2_2_2",
-      "label": "ref_settings_modal_js_v_2_2_2",
+      "id": "ref_settings_modal_js_v_2_2_3",
+      "label": "ref_settings_modal_js_v_2_2_3",
       "community": 11,
       "community_name": "ai-panel.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_settings_modal_js_v_2_2_2",
+      "norm_label": "ref_settings_modal_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_settings_js_v_2_2_2",
-      "label": "ref_settings_js_v_2_2_2",
+      "id": "ref_settings_js_v_2_2_3",
+      "label": "ref_settings_js_v_2_2_3",
       "community": 12,
       "community_name": "ai-provider.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_settings_js_v_2_2_2",
+      "norm_label": "ref_settings_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_ai_panel_js_v_2_2_2",
-      "label": "ref_ai_panel_js_v_2_2_2",
+      "id": "ref_ai_panel_js_v_2_2_3",
+      "label": "ref_ai_panel_js_v_2_2_3",
       "community": 4,
       "community_name": "editor.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_ai_panel_js_v_2_2_2",
+      "norm_label": "ref_ai_panel_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_history_panel_js_v_2_2_2",
-      "label": "ref_history_panel_js_v_2_2_2",
+      "id": "ref_history_panel_js_v_2_2_3",
+      "label": "ref_history_panel_js_v_2_2_3",
       "community": 4,
       "community_name": "editor.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_history_panel_js_v_2_2_2",
+      "norm_label": "ref_history_panel_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_metrics_js_v_2_2_2",
-      "label": "ref_metrics_js_v_2_2_2",
+      "id": "ref_metrics_js_v_2_2_3",
+      "label": "ref_metrics_js_v_2_2_3",
       "community": 4,
       "community_name": "editor.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_metrics_js_v_2_2_2",
+      "norm_label": "ref_metrics_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_pages_js_v_2_2_2",
-      "label": "ref_pages_js_v_2_2_2",
+      "id": "ref_pages_js_v_2_2_3",
+      "label": "ref_pages_js_v_2_2_3",
       "community": 4,
       "community_name": "editor.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_pages_js_v_2_2_2",
+      "norm_label": "ref_pages_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_parse_js_v_2_2_2",
-      "label": "ref_parse_js_v_2_2_2",
+      "id": "ref_parse_js_v_2_2_3",
+      "label": "ref_parse_js_v_2_2_3",
       "community": 4,
       "community_name": "editor.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_parse_js_v_2_2_2",
+      "norm_label": "ref_parse_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "ref_repo_js_v_2_2_2",
-      "label": "ref_repo_js_v_2_2_2",
+      "id": "ref_repo_js_v_2_2_3",
+      "label": "ref_repo_js_v_2_2_3",
       "community": 4,
       "community_name": "editor.js",
       "external": true,
       "file_type": "concept",
-      "norm_label": "ref_repo_js_v_2_2_2",
+      "norm_label": "ref_repo_js_v_2_2_3",
       "source_file": "",
       "type": "external"
     }
@@ -2730,7 +2850,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L233",
+      "source_location": "L240",
       "weight": 1.0
     },
     {
@@ -4439,7 +4559,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "ref_settings_js_v_2_2_2",
+      "target": "ref_settings_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4451,7 +4571,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "ref_ai_provider_js_v_2_2_2",
+      "target": "ref_ai_provider_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4463,7 +4583,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "ref_settings_modal_js_v_2_2_2",
+      "target": "ref_settings_modal_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4475,7 +4595,7 @@
     },
     {
       "source": "editor_js_ai_panel",
-      "target": "ref_editor_js_v_2_2_2",
+      "target": "ref_editor_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4487,7 +4607,7 @@
     },
     {
       "source": "editor_js_ai_provider",
-      "target": "ref_settings_js_v_2_2_2",
+      "target": "ref_settings_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4499,7 +4619,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "ref_repo_js_v_2_2_2",
+      "target": "ref_repo_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4511,7 +4631,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "ref_history_panel_js_v_2_2_2",
+      "target": "ref_history_panel_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4523,7 +4643,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "ref_ai_panel_js_v_2_2_2",
+      "target": "ref_ai_panel_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4535,7 +4655,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "ref_settings_js_v_2_2_2",
+      "target": "ref_settings_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4547,7 +4667,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "ref_parse_js_v_2_2_2",
+      "target": "ref_parse_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4559,7 +4679,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "ref_metrics_js_v_2_2_2",
+      "target": "ref_metrics_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4571,7 +4691,7 @@
     },
     {
       "source": "editor_js_editor",
-      "target": "ref_pages_js_v_2_2_2",
+      "target": "ref_pages_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4655,7 +4775,7 @@
     },
     {
       "source": "editor_js_settings_modal",
-      "target": "ref_settings_js_v_2_2_2",
+      "target": "ref_settings_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4667,7 +4787,7 @@
     },
     {
       "source": "editor_js_settings_modal",
-      "target": "ref_editor_js_v_2_2_2",
+      "target": "ref_editor_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4679,7 +4799,7 @@
     },
     {
       "source": "editor_js_settings_modal",
-      "target": "ref_ai_provider_js_v_2_2_2",
+      "target": "ref_ai_provider_js_v_2_2_3",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5170,7 +5290,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L120",
+      "source_location": "L127",
       "weight": 1.0
     },
     {
@@ -5181,7 +5301,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L239",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -5192,7 +5312,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "editor/js/ai-provider.js",
-      "source_location": "L63",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -6654,5 +6774,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b2abcbeef1b7a2ab049838c782b719f484970c28"
+  "built_at_commit": "1218448dc1b066e50c4df415c3d7611658873e31"
 }

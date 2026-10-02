@@ -11,7 +11,7 @@
   "9": "cli.js",
   "10": "README.md",
   "11": "ai-panel.js",
-  "12": "ai-provider.js",
+  "12": "ref_settings_js_v_2_2_3",
   "13": "ref_ai_panel_js_v_2_2_1",
   "14": "ref_ai_provider_js_v_2_2_1",
   "15": "ref_editor_js_v_2_2_1",
@@ -31,5 +31,14 @@
   "29": "ref_parse_js_v_2_2_2",
   "30": "ref_repo_js_v_2_2_2",
   "31": "ref_settings_js_v_2_2_2",
-  "32": "ref_settings_modal_js_v_2_2_2"
+  "32": "ref_settings_modal_js_v_2_2_2",
+  "33": "ref_ai_panel_js_v_2_2_3",
+  "34": "ref_ai_provider_js_v_2_2_3",
+  "35": "ref_editor_js_v_2_2_3",
+  "36": "ref_history_panel_js_v_2_2_3",
+  "37": "ref_metrics_js_v_2_2_3",
+  "38": "ref_pages_js_v_2_2_3",
+  "39": "ref_parse_js_v_2_2_3",
+  "40": "ref_repo_js_v_2_2_3",
+  "41": "ref_settings_modal_js_v_2_2_3"
 }

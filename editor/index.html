@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NySse Writer — Локальный академический редактор</title>
   <meta name="description" content="Редактор текста с локальной проверкой синтаксических порогов, длины предложений, 3-грамм и оценкой страниц A4 без отправки данных на сервер.">
-  <link rel="stylesheet" href="styles.css?v=2.2.3">
+  <link rel="stylesheet" href="styles.css?v=2.2.4">
 </head>
 <body class="theme-dark">
 
@@ -381,12 +381,18 @@
 
         </div>
 
-        <!-- Дополнительные индикаторы (SD и Зачины) -->
+        <!-- Дополнительные индикаторы (SD, Бёрстиность, Зачины) -->
         <div class="secondary-metrics-row">
-          <div class="secondary-metric-item" title="Стандартное отклонение длины предложений.">
-            <span class="sec-label">Вариативность (SD):</span>
+          <div class="secondary-metric-item" title="Стандартное отклонение длины предложений">
+            <span class="sec-label">Вариация (SD):</span>
             <strong id="val-std-dev" class="sec-value">0.0 сл.</strong>
             <span id="badge-std-dev" class="metric-status-badge status-low-data">...</span>
+          </div>
+
+          <div class="secondary-metric-item" title="Бёрстиность (Burstiness): математическая неравномерность длины предложений (ZeroGPT / GPTZero). Норма живого автора: ≥ 50%, зона ИИ: &lt; 38%">
+            <span class="sec-label">Бёрстиность (CV):</span>
+            <strong id="val-burstiness" class="sec-value">0%</strong>
+            <span id="badge-burstiness" class="metric-status-badge status-low-data">...</span>
           </div>
 
           <div class="secondary-metric-item" title="Максимальная доля предложений с одинаковым зачином">
@@ -709,8 +715,8 @@
 
   <!-- Главный скрипт приложения (ES Module) с защитой от кэширования -->
   <script type="module">
-    import { initEditor } from './js/editor.js?v=2.2.3';
-    import { initSettingsModal } from './js/settings-modal.js?v=2.2.3';
+    import { initEditor } from './js/editor.js?v=2.2.4';
+    import { initSettingsModal } from './js/settings-modal.js?v=2.2.4';
 
     function bootstrapApp() {
       window.scrollTo(0, 0);

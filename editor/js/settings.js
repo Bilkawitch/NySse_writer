@@ -86,6 +86,14 @@ export const REVIEW_DEFAULTS = {
     description: 'Мера разнообразия ритма текста. Низкое значение указывает на монотонность («ровные» предложения)'
   },
 
+  burstiness: {
+    warningMin: 50.0, // % коэффициент вариации (CV)
+    aiRed: 38.0,      // % зона ИИ
+    name: 'Бёрстиность (Burstiness)',
+    unit: '%',
+    description: 'Коэффициент вариации длины предложений (CV = σ / μ). Ниже 38% — зона ИИ (ZeroGPT/GPTZero), выше 50% — норма человека'
+  },
+
   starterUniformity: {
     warningMax: 20.0,
     name: 'Однообразие зачинов',

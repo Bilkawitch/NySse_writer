@@ -1,17 +1,17 @@
 # Graph Report - NySse_writer  (2026-10-03)
 
 ## Corpus Check
-- 16 files · ~20,031 words
+- 16 files · ~20,854 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: .bat 2, (none) 1, .exe 1)
 
 ## Summary
-- 223 nodes · 352 edges · 33 communities (12 shown, 21 thin omitted)
+- 234 nodes · 353 edges · 42 communities (11 shown, 31 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1218448d`
+- Built from commit: `4f91c9d4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,7 @@
 - package.json
 - cli.js
 - ai-panel.js
-- ai-provider.js
+- ref_settings_js_v_2_2_3
 - ref_ai_panel_js_v_2_2_1
 - ref_ai_provider_js_v_2_2_1
 - ref_editor_js_v_2_2_1
@@ -48,6 +48,15 @@
 - ref_repo_js_v_2_2_2
 - ref_settings_js_v_2_2_2
 - ref_settings_modal_js_v_2_2_2
+- ref_ai_panel_js_v_2_2_3
+- ref_ai_provider_js_v_2_2_3
+- ref_editor_js_v_2_2_3
+- ref_history_panel_js_v_2_2_3
+- ref_metrics_js_v_2_2_3
+- ref_pages_js_v_2_2_3
+- ref_parse_js_v_2_2_3
+- ref_repo_js_v_2_2_3
+- ref_settings_modal_js_v_2_2_3
 
 ## God Nodes (most connected - your core abstractions)
 1. `GitRepository` - 21 edges
@@ -58,8 +67,8 @@
 6. `loadSettingsIntoForm()` - 8 edges
 7. `renderAiPanel()` - 7 edges
 8. `renderHistoryPanel()` - 7 edges
-9. `getSettings()` - 7 edges
-10. `initEditor()` - 6 edges
+9. `initEditor()` - 6 edges
+10. `recalculateAll()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -67,7 +76,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 21 thin omitted)
+## Communities (42 total, 31 thin omitted)
 
 ### Community 0 - "settings.js"
 Cohesion: 0.12
@@ -90,8 +99,8 @@ Cohesion: 0.15
 Nodes (29): checkSentenceAtOffset(), closePopup(), escapeHtml(), exportPlainTextFile(), fillPopupContent(), getDemoReviewText(), handleEditorClick(), handleEditorCursorMove() (+21 more)
 
 ### Community 5 - "metrics.js"
-Cohesion: 0.60
-Nodes (5): calculateSentenceStdDev(), calculateStarterUniformity(), calculateThreeGramRepetition(), computeAllMetrics(), evaluateStatus()
+Cohesion: 0.23
+Nodes (10): AI_PRESETS, parseAiJsonResponse(), runAiSemanticAudit(), calculateBurstiness(), calculateSentenceStdDev(), calculateStarterUniformity(), calculateThreeGramRepetition(), computeAllMetrics() (+2 more)
 
 ### Community 6 - "GitRepository"
 Cohesion: 0.22
@@ -113,20 +122,14 @@ Nodes (13): { exec }, fs, http, MIME_TYPES, openBrowser(), path, ROOT_DIR, start
 Cohesion: 0.24
 Nodes (12): attachResultInteractions(), escapeHtml(), getCategoryLabel(), handleTriggerAudit(), initAiPanel(), renderAiPanel(), renderAuditResultsHtml(), renderPanelContent() (+4 more)
 
-### Community 12 - "ai-provider.js"
-Cohesion: 0.40
-Nodes (4): AI_PRESETS, parseAiJsonResponse(), runAiSemanticAudit(), ref_settings_js_v_2_2_3
-
 ## Knowledge Gaps
 - **50 isolated node(s):** `http`, `fs`, `path`, `{ exec }`, `MIME_TYPES` (+45 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 89 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **21 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 99 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **31 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getSettings()` connect `settings.js` to `metrics.js`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `setupEventListeners()` (e.g. with `exportPlainTextFile()` and `handleEditorClick()`) actually correct?**
   _`setupEventListeners()` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `initSettingsModal()` (e.g. with `closeSettings()` and `openSettings()`) actually correct?**
@@ -139,3 +142,5 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
 - **Should `package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+- **Should `cli.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._

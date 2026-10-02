@@ -4,7 +4,7 @@
  * API-ключ сохраняется строго локально в настройках пользователя.
  */
 
-import { getSettings } from './settings.js?v=2.2.3';
+import { getSettings } from './settings.js?v=2.2.4';
 
 // Пресеты провайдеров
 export const AI_PRESETS = {
@@ -25,17 +25,17 @@ export const AI_PRESETS = {
     baseUrl: 'https://api.deepseek.com/v1',
     defaultModel: 'deepseek-chat',
     models: ['deepseek-chat', 'deepseek-reasoner'],
-    hint: 'Официальный прямой API DeepSeek'
+    hint: 'Официальный китайский сервер DeepSeek (требует баланс)'
   },
   openai: {
     name: 'OpenAI API',
     baseUrl: 'https://api.openai.com/v1',
     defaultModel: 'gpt-4o-mini',
-    models: ['gpt-4o-mini', 'gpt-4o', 'o3-mini'],
-    hint: 'Официальный API OpenAI'
+    models: ['gpt-4o-mini', 'gpt-4o'],
+    hint: 'Официальный OpenAI API'
   },
   groq: {
-    name: 'Groq Cloud (сверхбыстрый)',
+    name: 'Groq Cloud',
     baseUrl: 'https://api.groq.com/openai/v1',
     defaultModel: 'llama-3.3-70b-versatile',
     models: ['llama-3.3-70b-versatile', 'mixtral-8x7b-32768'],
@@ -130,36 +130,46 @@ export async function runAiSemanticAudit(rawText, metricsSummary, parsedDoc) {
     throw new Error('ИИ-провайдер не настроен. Перейдите в Настройки (⚙) -> вкладка "ИИ Провайдер" и укажите API-ключ.');
   }
 
-  const systemPrompt = `Ты — ведущий эксперт по научному академическому стилю и аналитик сигнатур детекторов ИИ (Turnitin, GPTZero v3.4, CopyLeaks).
-Твоя цель: найти в тексте научной статьи семантические, структурные и смысловые маркеры генеративного происхождения (которые невозможно задетектировать простыми регулярными выражениями) и предложить точные авторские формулировки для их устранения.
+  const systemPrompt = `Ты — ведущий эксперт по научному академическому стилю и аналитик математических сигнатур детекторов ИИ (ZeroGPT, GPTZero v3.4, CopyLeaks, Turnitin).
+Твоя цель: найти в тексте научной статьи семантические, структурные и математические маркеры генеративного происхождения и предложить точные авторские формулировки для их устранения.
 
-КЛЮЧЕВЫЕ КРИТЕРИИ АНАЛИЗА (7 МЕТОДОВ СНИЖЕНИЯ ОЦЕНКИ ИИ / BYPASS DETECTORS):
+МАТЕМАТИЧЕСКИЙ ФУНДАМЕНТ ДЕТЕКЦИИ ИИ:
+Детекторы ИИ анализируют текст не по «смыслу», а по двум математическим метрикам: перплексии (perplexity) и бёрстиности (burstiness).
+
+1. ПЕРПЛЕКСИЯ (Perplexity — мера статистической неожиданности/непредсказуемости следующего токена для языковой модели):
+   - Нулевая / низкая перплексия (главная сигнатура ИИ): текст вычищен до статистически идеальных академических штампов, предсказуемых цепочек токенов (top-1 вероятностей) и бесконфликтно гладких конструкций. Каждое следующее слово предсказывается трансформером со 100% вероятностью.
+   - Высокая перплексия (почерк живого исследователя): присутствуют органичные речевые шероховатости, авторская лексическая несогласованность, неоптимальный/нетривиальный порядок слов, инверсии, специфические терминологические связки и редкие авторские синонимы.
+   - ТВОЯ ЗАДАЧА: выявлять в тексте фразы с «зализанной» нулевой перплексией и предлагать варианты их огрубления и очеловечивания: ломать тривиальный порядок слов, заменять статистически заезженные академические коллокации на живую авторскую речь с высокой перплексией.
+
+2. БЁРСТИНОСТЬ (Burstiness — неравномерность и взрывной характер длины предложений и синтаксических конструкций):
+   - Нулевая / низкая бёрстиность (сигнатура ИИ): монотонный ритм, предложения выровнены по длине (15–25 слов подряд), предсказуемая структура (подлежащее + сказуемое + придаточное).
+   - Высокая бёрстиность (почерк живого человека): резкий взрывной ритм — короткие рубленые тезисы и акценты (3–6 слов) чередуются со сложными развернутыми периодами (35–45+ слов) с тире, оговорками и сменой темпа.
+   - ТВОЯ ЗАДАЧА: отслеживать монотонные серии предложений с низкой бёрстиностью и предлагать перестройку фрагментов с резким перепадом длины.
+
+КЛЮЧЕВЫЕ ПРАКТИЧЕСКИЕ МЕТОДЫ (7 СТРАТЕГИЙ СНИЖЕНИЯ ОЦЕНКИ ИИ):
 1. СТРУКТУРА И РИТМ АБЗАЦЕВ (Method 1 — Break the Paragraph-Length Pattern):
-   - ИИ пишет абзацы одинаковой предсказуемой длины: 4–6 предложений с шаблонным битом: [Тезис → Аргумент 1 → Аргумент 2 → Синтетический переход]. Детектор Turnitin считывает это как первичную сигнатуру.
-   - Живой автор ломает этот паттерн: чередует короткие абзацы по 2–3 предложения, вставляет одиночные предложения-акценты и разворачивает глубокие блоки на 8–10 предложений с детальным разбором кейса.
+   - ИИ пишет абзацы одинаковой предсказуемой длины: 4–6 предложений со стандартным битом [Тезис → Аргумент 1 → Аргумент 2 → Синтетический переход].
+   - Живой автор ломает паттерн: чередует короткие абзацы по 2–3 предложения, вставляет одиночные предложения-акценты и разворачивает глубокие блоки на 8–10 предложений с детальным разбором кейса.
 2. ВАРИАТИВНОСТЬ РИТМА ПРЕДЛОЖЕНИЙ / BURSTINESS (Method 2 — Sentence-Length Variance):
-   - ИИ держит монотонную среднюю длину 15–25 слов в каждом предложении.
-   - Человек создает взрывной ритм (burstiness): очень короткое рубленое предложение (1–6 слов), затем длинное сложноподчиненное с вводными оговорками и авторскими отступлениями (30–45 слов), затем среднее.
+   - Устраняй монотонные серии предложений средней длины 15–25 слов. Создавай контрастный взрывной ритм.
 3. ЗАМЕНА ШАБЛОННЫХ СВЯЗОК (Method 3 — Replace Formulaic Transitions):
-   - Устраняй классические ИИ-клише: "Moreover", "Furthermore", "In addition", "In conclusion", "It is important to note", "Таким образом", "В заключение стоит подчеркнуть", "Следует отметить", "Необходимо подчеркнуть", "Более того", "Кроме того".
-   - Заменяй их не на синонимы, а на смысловую отсылку к предшествующей мысли («Опираясь на упомянутый тезис о...») либо удаляй связку вовсе, если мысль логична сама по себе.
+   - Устраняй клише: "Moreover", "Furthermore", "In addition", "In conclusion", "It is important to note", "Таким образом", "В заключение стоит подчеркнуть", "Следует отметить", "Необходимо подчеркнуть", "Более того", "Кроме того".
+   - Заменяй их смысловой отсылкой («Опираясь на упомянутый тезис о...») либо удаляй вовсе, если мысль логична.
 4. АВТОРСКИЙ ГОЛОС И ПЕРВОЕ ЛИЦО (Method 4 — Add First-Person Voice Where Appropriate):
-   - ИИ панически избегает первого лица или пишет стерильно («В данной статье рассматривается»).
-   - Живой исследователь вставляет заземленный личный опыт («Первоначально мы предполагали X, однако при проверке...»).
+   - Заменяй безликую стерильность («В данной статье рассматривается») на живую позицию исследователя («Первоначально мы предполагали X, однако при проверке...»).
 5. ПРЕДМЕТНЫЕ ДЕТАЛИ ВМЕСТО АБСТРАКТНЫХ ГЕНЕРАЛИЗАЦИЙ (Method 5 — Ungoogleable Specifics):
-   - ИИ маскирует незнание абстракциями: «многие исследователи сходятся во мнении», «ряд ученых полагает», «many studies show», «some researchers argue».
-   - Заменяй их на конкретные фамилии, года, названия институтов, технологий или эмпирических выборок.
+   - ИИ маскирует незнание абстракциями («многие исследователи сходятся во мнении», «ряд ученых полагает», «many studies show»). Заменяй их на конкретные фамилии, года, названия институтов, технологий или эмпирических выборок.
 6. ВЫЧИТКА ВСЛУХ И СИНТАКСИЧЕСКАЯ ЕСТЕСТВЕННОСТЬ (Method 6 — Read Aloud & Awkward Syntax):
-   - Находи тяжелые, бумажные, неестественные для живой речи синтаксические конструкции, характерные для перевода с английского промпта или машинного синтеза.
-7. СТРУКТУРНОЕ ОЧЕЛОВЕЧИВАНИЕ (Method 7 — Structural Humanizer):
-   - Не просто заменяй отдельные слова, а перестраивай саму логическую конструкцию фразы для разрыва тривиальных вероятностных цепочек токенов (LLM perplexity).
+   - Находи тяжелые, бумажные, неестественные для живой речи синтаксические конструкции машинного синтеза.
+7. СТРУКТУРНОЕ ОЧЕЛОВЕЧИВАНИЕ (Method 7 — Structural Humanizer & Perplexity Boost):
+   - Перестраивай саму логическую конструкцию фразы для разрыва тривиальных вероятностных цепочек токенов (LLM perplexity).
 
 ФОРМАТ ОТВЕТА:
 Верни СТРОГО валидный JSON (без вступительных и заключительных фраз, без markdown-кавычек):
 {
   "overallAiRisk": "high" | "medium" | "low",
   "riskPercent": 82,
-  "summary": "Краткий вывод для автора: ключевые семантические уязвимости текста перед детекторами",
+  "summary": "Краткий вывод для автора: оценка перплексии, бёрстиности и ключевые уязвимости перед детекторами",
   "paragraphBeatNotes": [
     {
       "paragraphIndex": 1,
@@ -170,36 +180,46 @@ export async function runAiSemanticAudit(rawText, metricsSummary, parsedDoc) {
   ],
   "issues": [
     {
-      "category": "formulaic_transition" | "monotonous_rhythm" | "abstract_vagueness" | "awkward_phrasing" | "first_person_absence",
+      "category": "low_perplexity" | "low_burstiness" | "formulaic_transition" | "monotonous_rhythm" | "abstract_vagueness" | "awkward_phrasing" | "first_person_absence",
       "severity": "danger" | "warning",
       "originalSentence": "Точное предложение из текста статьи без искажений (чтобы можно было найти поиском в редакторе)",
-      "flaw": "Конкретная причина: маркер Turnitin, монотонный ритм, штамп или абстракция",
-      "suggestedRewrite": "Конкретный переписанный человеком вариант для мгновенной подстановки в текст",
-      "benefit": "Какую именно сигнатуру ИИ это устраняет"
+      "flaw": "Конкретная причина: нулевая перплексия / академический штамп, монотонная бёрстиность, абстракция или машинный синтаксис",
+      "suggestedRewrite": "Конкретный переписанный человеком вариант с высокой перплексией / взрывным ритмом для мгновенной подстановки в текст",
+      "benefit": "Какую именно математическую сигнатуру ИИ (перплексию или бёрстиность) это исправляет"
     }
   ]
 }`;
 
   const wordsCount = parsedDoc?.totalWordsCount || 0;
   const charsCount = parsedDoc?.charsWithSpaces || 0;
-  const avgLen = metricsSummary?.metrics?.avgSentenceLength?.value ?? '—';
+  const avgLen = metricsSummary?.metrics?.avgSentenceLength?.value ? metricsSummary.metrics.avgSentenceLength.value.toFixed(1) : '—';
   const avgHuman = metricsSummary?.metrics?.avgSentenceLength?.human ?? 23.2;
   const avgAi = metricsSummary?.metrics?.avgSentenceLength?.aiRed ?? 29.2;
-  const longRatio = metricsSummary?.metrics?.longSentenceRatio?.value ?? '—';
+  const longRatio = metricsSummary?.metrics?.longSentenceRatio?.value ? metricsSummary.metrics.longSentenceRatio.value.toFixed(1) : '0.0';
   const longAi = metricsSummary?.metrics?.longSentenceRatio?.aiRed ?? 17.0;
-  const stopRatio = metricsSummary?.metrics?.stopwordRatio?.value ?? '—';
+  const shortRatio = metricsSummary?.metrics?.shortSentenceRatio?.value ? metricsSummary.metrics.shortSentenceRatio.value.toFixed(1) : '0.0';
+  const shortAi = metricsSummary?.metrics?.shortSentenceRatio?.aiRed ?? 2.4;
+  const stopRatio = metricsSummary?.metrics?.stopwordRatio?.value ? metricsSummary.metrics.stopwordRatio.value.toFixed(1) : '0.0';
   const stopAi = metricsSummary?.metrics?.stopwordRatio?.aiRed ?? 33.0;
   const starterPercent = metricsSummary?.extras?.starterUniformity?.maxRatio ? metricsSummary.extras.starterUniformity.maxRatio.toFixed(1) : '0.0';
   const topWord = metricsSummary?.extras?.starterUniformity?.topStarter || '—';
   const stdDev = metricsSummary?.extras?.stdDev?.value ? metricsSummary.extras.stdDev.value.toFixed(1) : '0.0';
+  const burstinessCv = metricsSummary?.extras?.burstiness?.cvPercent ?? '0';
+  const burstinessDelta = metricsSummary?.extras?.burstiness?.meanDelta ?? '0.0';
+  const threeGramRatio = metricsSummary?.metrics?.threeGramRepetition?.value ? metricsSummary.metrics.threeGramRepetition.value.toFixed(1) : '0.0';
+  const threeGramAi = metricsSummary?.metrics?.threeGramRepetition?.aiRed ?? 1.4;
 
   const metricsContext = `ДАННЫЕ ОБЪЕКТИВНЫХ СКРИПТОВЫХ ИЗМЕРЕНИЙ ДАННОГО ТЕКСТА:
 - Слов: ${wordsCount}, Знаков: ${charsCount}
+- Бёрстиность (Burstiness CV): ${burstinessCv}% (Красная зона ИИ: <38%, Норма живого автора: ≥50%)
+- Средний скачок длины предложений (Mean Delta): ${burstinessDelta} сл.
+- Вариативность ритма (SD): ${stdDev} сл.
 - Средняя длина предложения: ${avgLen} (Норма: ${avgHuman}, ИИ: ${avgAi})
 - Доля длинных 41+: ${longRatio}% (ИИ: >=${longAi}%)
+- Доля коротких <=6: ${shortRatio}% (У ИИ дефицит: <=${shortAi}%)
 - Доля служебных слов: ${stopRatio}% (У ИИ дефицит: <=${stopAi}%)
 - Повтор зачинов: ${starterPercent}% (слово «${topWord}»)
-- Вариативность ритма (SD): ${stdDev} сл.`;
+- Повтор 3-грамм: ${threeGramRatio}% (У ИИ неестественно низкий: <=${threeGramAi}%)`;
 
   const userContent = `${metricsContext}\n\nТЕКСТ СТАТЬИ ДЛЯ АНАЛИЗА:\n"""\n${rawText}\n"""`;
 

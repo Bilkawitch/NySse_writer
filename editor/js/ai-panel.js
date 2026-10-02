@@ -8,10 +8,10 @@
  * 4. Управление и проверка подключения к кастомному ИИ-провайдеру
  */
 
-import { getSettings } from './settings.js?v=2.2.3';
-import { runAiSemanticAudit, AI_PRESETS } from './ai-provider.js?v=2.2.3';
-import { openSettings } from './settings-modal.js?v=2.2.3';
-import { showToast } from './editor.js?v=2.2.3';
+import { getSettings } from './settings.js?v=2.2.4';
+import { runAiSemanticAudit, AI_PRESETS } from './ai-provider.js?v=2.2.4';
+import { openSettings } from './settings-modal.js?v=2.2.4';
+import { showToast } from './editor.js?v=2.2.4';
 
 let panelEl = null;
 let currentAuditResult = null;
@@ -258,6 +258,8 @@ function renderAuditResultsHtml(res) {
 
 function getCategoryLabel(cat) {
   switch (cat) {
+    case 'low_perplexity': return 'НУЛЕВАЯ ПЕРПЛЕКСИЯ / ШТАМП';
+    case 'low_burstiness': return 'НИЗКАЯ БЁРСТИНОСТЬ / МОНОТОННОСТЬ';
     case 'formulaic_transition': return 'ШАБЛОННАЯ СВЯЗКА (Method 3)';
     case 'monotonous_rhythm': return 'МОНОТОННЫЙ РИТМ (Method 2)';
     case 'abstract_vagueness': return 'АБСТРАКЦИЯ (Method 5)';

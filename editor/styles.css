@@ -1344,11 +1344,11 @@ body.sidebar-collapsed .sidebar-panel {
   background-color: var(--status-red);
 }
 
-/* Дополнительные индикаторы (SD, Зачины) */
+/* Дополнительные индикаторы (SD, Бёрстиность, Зачины) */
 .secondary-metrics-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
   margin-top: 3px;
 }
 
@@ -1356,21 +1356,36 @@ body.sidebar-collapsed .sidebar-panel {
   background-color: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-sm);
-  padding: 6px 8px;
+  padding: 5px 6px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+  overflow: hidden;
 }
 
 .sec-label {
-  font-size: 0.64rem;
+  font-size: 0.60rem;
   color: var(--text-light-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sec-value {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 800;
   color: var(--text-light);
+  line-height: 1.1;
+}
+
+.secondary-metric-item .metric-status-badge {
+  font-size: 0.62rem;
+  width: auto;
+  min-width: 16px;
+  padding: 0 4px;
+  height: 16px;
+  align-self: flex-start;
+  margin-top: 2px;
 }
 
 /* Глобальные дефициты */

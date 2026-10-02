@@ -8,7 +8,7 @@
  * - «Мало данных» — пока слов < 100 или предложений < 5 (доли на малом объеме врут)
  */
 
-import { getSettings } from './settings.js';
+import { getSettings } from './settings.js?v=2.2.4';
 
 /**
  * Определение статуса метрики (green / yellow / red / low_data)
@@ -132,6 +132,70 @@ export function calculateSentenceStdDev(sentences, avgLength) {
     return acc + diff * diff;
   }, 0);
   return Math.sqrt(sumSquares / sentences.length);
+}
+
+/**
+ * Расчет математической бёрстиности (Burstiness) предложений
+ * Ключевой математический ориентир детекторов ZeroGPT, GPTZero, CopyLeaks
+ * 
+ * Метрики:
+ * 1. Коэффициент вариации длины предложений: CV = stdDev / avgSentenceLength (в %)
+ * 2. Нормализованный индекс Гоха-Барабаши (Goh-Barabási): B = (σ - μ) / (σ + μ) in [-1, +1]
+ * 3. Локальный скачок между соседними предложениями (Mean Delta): средний перепад длины
+ * 
+ * Границы:
+ * - ИИ: CV < 38% (нулевая/низкая бёрстиность, монотонные предложения), Mean Delta < 6 сл.
+ * - Человек: CV >= 50% (высокая взрывная бёрстиность), Mean Delta >= 8-12 сл.
+ */
+export function calculateBurstiness(sentences, avgSentenceLength, stdDev) {
+  if (!sentences || sentences.length < 2 || avgSentenceLength <= 0) {
+    return {
+      cv: 0,
+      cvPercent: 0,
+      gohB: 0,
+      meanDelta: 0,
+      status: 'low_data',
+      formatted: '0%',
+      isWarning: false
+    };
+  }
+
+  // 1. Коэффициент вариации (CV)
+  const cv = stdDev / avgSentenceLength;
+  const cvPercent = Math.round(cv * 100);
+
+  // 2. Индекс Гоха-Барабаши
+  const gohB = (stdDev + avgSentenceLength > 0)
+    ? (stdDev - avgSentenceLength) / (stdDev + avgSentenceLength)
+    : -1;
+
+  // 3. Средний локальный скачок между соседними предложениями
+  let totalDelta = 0;
+  for (let i = 0; i < sentences.length - 1; i++) {
+    totalDelta += Math.abs(sentences[i + 1].wordCount - sentences[i].wordCount);
+  }
+  const meanDelta = Math.round((totalDelta / (sentences.length - 1)) * 10) / 10;
+
+  // 4. Оценка статуса для детектора
+  let status = 'green';
+  let isWarning = false;
+  if (cvPercent < 38) {
+    status = 'red';
+    isWarning = true;
+  } else if (cvPercent < 50) {
+    status = 'yellow';
+    isWarning = true;
+  }
+
+  return {
+    cv,
+    cvPercent,
+    gohB: Math.round(gohB * 100) / 100,
+    meanDelta,
+    status,
+    formatted: `${cvPercent}%`,
+    isWarning
+  };
 }
 
 /**
@@ -275,7 +339,10 @@ export function computeAllMetrics(parsedDoc, settings = getSettings()) {
   const stdDevWarningMin = settings.stdDevSentenceLength?.warningMin || 8.0;
   const stdDevIsWarning = !isLowData && stdDevVal < stdDevWarningMin;
 
-  // 9. Однообразие зачинов
+  // 9. Математическая бёрстиность (Burstiness - ZeroGPT / GPTZero)
+  const burstinessResult = calculateBurstiness(sentences, avgSentenceLengthVal, stdDevVal);
+
+  // 10. Однообразие зачинов
   const starterResult = calculateStarterUniformity(sentences);
   const starterWarningMax = settings.starterUniformity?.warningMax || 20.0;
   const starterIsWarning = !isLowData && starterResult.maxRatio > starterWarningMax;
@@ -313,6 +380,21 @@ export function computeAllMetrics(parsedDoc, settings = getSettings()) {
         severity: 'warning',
         title: 'Слишком «ровные» предложения',
         text: `Стандартное отклонение длины — ${stdDevVal.toFixed(1)} слов (ниже вашего порога ${stdDevWarningMin}). Предложения одинаковы по размеру.`
+      });
+    }
+    if (burstinessResult.status === 'red') {
+      globalDeficits.push({
+        type: 'low_burstiness',
+        severity: 'danger',
+        title: 'Низкая бёрстиность (Burstiness) — сигнатура ZeroGPT / GPTZero',
+        text: `Коэффициент вариации длины предложений — всего ${burstinessResult.cvPercent}% (красная зона ИИ: <38%, норма живого автора: ≥50%, средний скачок: ${burstinessResult.meanDelta} сл.). Монотонно выверенный синтаксис сразу распознается детекторами. Разбавьте текст короткими рублено-акцентными фразами (3–6 слов) и сложными развернутыми периодами (35–45 слов).`
+      });
+    } else if (burstinessResult.status === 'yellow') {
+      globalDeficits.push({
+        type: 'moderate_burstiness',
+        severity: 'warning',
+        title: 'Умеренная бёрстиность (Burstiness)',
+        text: `Вариативность ритма ${burstinessResult.cvPercent}% (рекомендуется ≥50%, средний скачок длины: ${burstinessResult.meanDelta} сл.). Желательно усилить перепад объемов предложений для надежного прохождения чекеров.`
       });
     }
     if (starterIsWarning) {
@@ -482,6 +564,11 @@ export function computeAllMetrics(parsedDoc, settings = getSettings()) {
         value: stdDevVal,
         formatted: `${stdDevVal.toFixed(1)} сл.`,
         isWarning: stdDevIsWarning
+      },
+      burstiness: {
+        ...burstinessResult,
+        formatted: `${burstinessResult.cvPercent}%`,
+        isWarning: !isLowData && burstinessResult.isWarning
       },
       starterUniformity: {
         ...starterResult,
