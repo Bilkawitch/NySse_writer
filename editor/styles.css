@@ -312,8 +312,7 @@ html, body {
   align-items: center;
   gap: 6px;
   transition: all 0.15s ease;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  border-radius: 0px;
 }
 
 .tab-item:hover {
@@ -551,7 +550,7 @@ html, body {
 /* Подсветка зеркального слоя */
 .mirror-mark {
   color: transparent !important;
-  border-radius: 2px;
+  border-radius: 0px;
   padding: 1px 0;
 }
 
@@ -766,7 +765,7 @@ body.sidebar-collapsed .sidebar-panel {
   font-weight: 800;
   width: 18px;
   height: 18px;
-  border-radius: 50%;
+  border-radius: 0px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -849,7 +848,7 @@ body.sidebar-collapsed .sidebar-panel {
   flex: 1;
   height: 5px;
   background-color: #292c22;
-  border-radius: 1px;
+  border-radius: 0px;
 }
 
 .metric-segments .seg.active-green {
@@ -980,7 +979,7 @@ body.sidebar-collapsed .sidebar-panel {
   font-size: 0.66rem;
   font-weight: 700;
   padding: 3px 0;
-  border-radius: 2px;
+  border-radius: 0px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -1044,7 +1043,7 @@ body.sidebar-collapsed .sidebar-panel {
   font-weight: 800;
   background-color: #24271f;
   padding: 1px 5px;
-  border-radius: 2px;
+  border-radius: 0px;
   color: var(--text-light);
 }
 
@@ -1073,7 +1072,7 @@ body.sidebar-collapsed .sidebar-panel {
   font-size: 0.68rem;
   font-weight: 700;
   padding: 1px 6px;
-  border-radius: 999px;
+  border-radius: 0px;
 }
 
 /* ==========================================================================
@@ -1083,9 +1082,9 @@ body.sidebar-collapsed .sidebar-panel {
   position: absolute;
   z-index: 50;
   width: 320px;
-  background-color: #20221b;
-  border: 1px solid #3c4031;
-  border-radius: var(--radius-sm);
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-sidebar);
+  border-radius: 0px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   padding: 12px;
   opacity: 0;
@@ -1201,9 +1200,9 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .key-code {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: rgba(31, 33, 26, 0.08);
   padding: 1px 4px;
-  border-radius: 2px;
+  border-radius: 0px;
   font-family: monospace;
 }
 
@@ -1220,15 +1219,15 @@ body.sidebar-collapsed .sidebar-panel {
 }
 
 .key-cap {
-  background-color: #21231c;
-  color: #dcdfc7;
+  background-color: var(--bg-sidebar);
+  color: var(--text-light);
   font-family: -apple-system, BlinkMacSystemFont, monospace;
   font-size: 0.72rem;
   font-weight: 800;
   padding: 2px 6px;
-  border-radius: 2px;
+  border-radius: 0px;
   line-height: 1.1;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .key-label {
@@ -1270,8 +1269,8 @@ body.sidebar-collapsed .sidebar-panel {
   width: 100%;
   max-width: 680px;
   max-height: 85vh;
-  background-color: #20221b;
-  border: 1px solid #3c4031;
+  background-color: var(--bg-sidebar);
+  border: 1px solid var(--border-sidebar);
   border-radius: var(--radius-sm);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   display: flex;
@@ -1388,13 +1387,13 @@ body.sidebar-collapsed .sidebar-panel {
   bottom: 50px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background-color: #21231c;
-  color: #dcdfc7;
-  border: 1px solid #414534;
+  background-color: var(--bg-sidebar);
+  color: var(--text-light);
+  border: 1px solid var(--border-sidebar);
   font-size: 0.78rem;
   font-weight: 700;
   padding: 6px 16px;
-  border-radius: 999px;
+  border-radius: 0px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   opacity: 0;
   pointer-events: none;
@@ -1405,4 +1404,56 @@ body.sidebar-collapsed .sidebar-panel {
 #app-toast.visible {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* ==========================================================================
+   11. Доступность (A11y) и Адаптивность (Responsive)
+   ========================================================================== */
+
+/* Поддержка режима сниженного движения */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Адаптивные контролы на экранах планшетов и мобильных устройств */
+@media (max-width: 900px) {
+  .brand-subtitle {
+    display: none;
+  }
+  .header-left {
+    gap: 6px;
+  }
+  .header-badges {
+    display: none;
+  }
+  .btn-tactical .btn-icon + span,
+  .btn-tactical-accent .btn-icon + span {
+    display: none;
+  }
+  .sidebar-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: -8px 0 25px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Расширенная зона нажатия на сенсорных устройствах (WCAG Touch Targets) */
+@media (pointer: coarse) {
+  .btn-icon, .btn-sm {
+    min-height: 40px;
+    min-width: 40px;
+  }
+  .tab-item {
+    padding: 8px 18px;
+  }
+  .issue-filter-tab {
+    padding: 6px 0;
+  }
 }

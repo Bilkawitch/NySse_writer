@@ -228,8 +228,12 @@ function setupEventListeners() {
   const tacticalTabs = document.querySelectorAll('.tactical-tabs .tab-item');
   tacticalTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      tacticalTabs.forEach(t => t.classList.remove('active'));
+      tacticalTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
       tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
       const view = tab.getAttribute('data-view');
       if (view === 'analysis') {
         document.body.classList.remove('sidebar-collapsed');

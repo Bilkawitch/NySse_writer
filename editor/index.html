@@ -21,48 +21,48 @@
       </div>
       <div class="header-badges">
         <span class="badge-offline" title="Все вычисления производятся исключительно в вашем браузере">100% офлайн</span>
-        <span id="save-status" class="status-badge saved">Сохранено</span>
+        <span id="save-status" class="status-badge saved" role="status" aria-live="polite">Сохранено</span>
       </div>
     </div>
 
     <div class="header-center">
-      <div class="editor-font-toggle" title="Шрифт редактора">
-        <button class="font-btn active" data-font="serif" title="Times New Roman (академический)">Serif</button>
-        <button class="font-btn" data-font="sans" title="Inter / Sans-serif (современный)">Sans</button>
-        <button class="font-btn" data-font="mono" title="Моноширинный">Mono</button>
+      <div class="editor-font-toggle" role="group" aria-label="Выбор шрифта редактора">
+        <button class="font-btn active" data-font="serif" aria-label="Шрифт Times New Roman" title="Times New Roman (академический)">Serif</button>
+        <button class="font-btn" data-font="sans" aria-label="Шрифт без засечек" title="Inter / Sans-serif (современный)">Sans</button>
+        <button class="font-btn" data-font="mono" aria-label="Моноширинный шрифт" title="Моноширинный">Mono</button>
       </div>
     </div>
 
     <div class="header-right">
-      <button id="btn-load-demo" class="btn btn-tactical btn-sm" title="Загрузить пример текста из рецензии">
+      <button id="btn-load-demo" class="btn btn-tactical btn-sm" aria-label="Загрузить пример текста из рецензии" title="Загрузить пример текста из рецензии">
         <span class="btn-icon">■</span> Демо
       </button>
-      <button id="btn-new-doc" class="btn btn-tactical btn-sm" title="Очистить и создать новый документ">
+      <button id="btn-new-doc" class="btn btn-tactical btn-sm" aria-label="Очистить и создать новый документ" title="Очистить и создать новый документ">
         <span class="btn-icon">+</span> Новый
       </button>
-      <button id="btn-open-file" class="btn btn-tactical btn-sm" title="Открыть текстовый файл .txt">
+      <button id="btn-open-file" class="btn btn-tactical btn-sm" aria-label="Открыть текстовый файл" title="Открыть текстовый файл .txt">
         <span class="btn-icon">📂</span> Открыть
       </button>
-      <input type="file" id="file-upload-input" accept=".txt,.text,.md" style="display:none;">
+      <input type="file" id="file-upload-input" accept=".txt,.text,.md" style="display:none;" aria-hidden="true">
 
-      <button id="btn-save-txt" class="btn btn-tactical-accent btn-sm" title="Сохранить как чистый .txt файл без подсветки">
+      <button id="btn-save-txt" class="btn btn-tactical-accent btn-sm" aria-label="Сохранить как чистый .txt файл" title="Сохранить как чистый .txt файл без подсветки">
         <span class="btn-icon">💾</span> Сохранить .txt
       </button>
-      <button id="btn-copy-text" class="btn btn-tactical btn-sm" title="Копировать чистый текст в буфер">
+      <button id="btn-copy-text" class="btn btn-tactical btn-sm" aria-label="Копировать чистый текст в буфер обмена" title="Копировать чистый текст в буфер">
         <span class="btn-icon">📋</span>
       </button>
 
-      <div class="header-divider"></div>
+      <div class="header-divider" aria-hidden="true"></div>
 
-      <button id="btn-theme-toggle" class="btn btn-icon" title="Сменить тему оформления">
-        <span id="theme-icon">🌙</span>
+      <button id="btn-theme-toggle" class="btn btn-icon" aria-label="Сменить тему оформления" title="Сменить тему оформления">
+        <span id="theme-icon" aria-hidden="true">🌙</span>
       </button>
 
-      <button id="btn-open-settings" class="btn btn-icon" title="Настройки порогов и словарей">
+      <button id="btn-open-settings" class="btn btn-icon" aria-label="Настройки порогов и словарей" title="Настройки порогов и словарей">
         ⚙
       </button>
 
-      <button id="btn-toggle-sidebar" class="btn btn-icon" title="Свернуть / развернуть правую панель">
+      <button id="btn-toggle-sidebar" class="btn btn-icon" aria-label="Свернуть или развернуть правую панель аудита" title="Свернуть / развернуть правую панель">
         ◨
       </button>
     </div>
@@ -70,18 +70,18 @@
 
   <!-- Вторая полоса: тактические вкладки и линейка с треугольниками -->
   <div class="sub-header-bar">
-    <div class="tactical-tabs">
-      <button class="tab-item active" data-view="document">
-        <span class="tab-indicator">■</span> DOCUMENT
+    <div class="tactical-tabs" role="tablist" aria-label="Режимы работы редактора">
+      <button class="tab-item active" role="tab" id="tab-document" aria-selected="true" aria-controls="editor-viewport" data-view="document">
+        <span class="tab-indicator" aria-hidden="true">■</span> DOCUMENT
       </button>
-      <button class="tab-item" data-view="analysis">
-        <span class="tab-indicator">■</span> ANALYSIS
+      <button class="tab-item" role="tab" id="tab-analysis" aria-selected="false" aria-controls="sidebar-panel" data-view="analysis">
+        <span class="tab-indicator" aria-hidden="true">■</span> ANALYSIS
       </button>
-      <button class="tab-item" data-view="history">
-        <span class="tab-indicator">■</span> HISTORY
+      <button class="tab-item" role="tab" id="tab-history" aria-selected="false" data-view="history">
+        <span class="tab-indicator" aria-hidden="true">■</span> HISTORY
       </button>
     </div>
-    <div class="tactical-ruler-line">
+    <div class="tactical-ruler-line" aria-hidden="true">
       <div class="ruler-ticks"></div>
     </div>
   </div>
@@ -90,7 +90,7 @@
   <div class="app-layout">
     
     <!-- Центральная область редактирования -->
-    <main class="editor-viewport" id="editor-viewport">
+    <main class="editor-viewport" id="editor-viewport" role="tabpanel" aria-labelledby="tab-document">
       
       <!-- Фоновая тактическая графика: водяной знак и технические дуги -->
       <div class="tactical-bg-layer" aria-hidden="true">
@@ -134,6 +134,7 @@
             id="editor-textarea"
             class="editor-textarea"
             spellcheck="true"
+            aria-label="Основной текст черновика научной статьи"
             placeholder="Вставьте или начните писать текст вашей научной статьи или работы..."
             autocomplete="off"
             autocorrect="off"
@@ -144,13 +145,13 @@
           <div id="sentence-popup" class="sentence-popup" role="tooltip">
             <div class="popup-header">
               <span id="popup-title" class="popup-title">Предложение</span>
-              <button id="popup-close-btn" class="popup-close-btn" title="Закрыть">✕</button>
+              <button id="popup-close-btn" class="popup-close-btn" aria-label="Закрыть окно сведений" title="Закрыть">✕</button>
             </div>
             <ul id="popup-facts-list" class="popup-facts-list">
               <!-- Факты заполняются из js/editor.js -->
             </ul>
             <div class="popup-footer">
-              <button id="popup-copy-btn" class="btn btn-xs btn-tactical">Копировать</button>
+              <button id="popup-copy-btn" class="btn btn-xs btn-tactical" aria-label="Копировать предложение в буфер">Копировать</button>
               <span class="popup-hint">Только факты • без оценок «тона»</span>
             </div>
           </div>
@@ -160,7 +161,7 @@
     </main>
 
     <!-- Выезжающая правая панель аудита в тактическом стиле NieR -->
-    <aside class="sidebar-panel" id="sidebar-panel">
+    <aside class="sidebar-panel" id="sidebar-panel" role="region" aria-label="Панель аудита текста">
       
       <!-- Секция 1: Верхние счетчики объема и страницы A4 -->
       <section class="sidebar-section section-volume">
