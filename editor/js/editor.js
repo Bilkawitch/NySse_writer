@@ -246,6 +246,134 @@ function setupEventListeners() {
     });
   }
 
+  // Экспорт полного архива сессии в формате .ny (все проекты, ветки, коммиты, текст)
+  const btnExportNy = document.getElementById('btn-export-ny');
+  if (btnExportNy) {
+    btnExportNy.addEventListener('click', async () => {
+      // Автокоммит актуального состояния перед выгрузкой
+      gitRepo.commit(textareaEl.value);
+
+      const bundle = {
+        format: 'nysse-archive',
+        version: 1,
+        appName: 'NySse Writer',
+        exportedAt: new Date().toISOString(),
+        repository: gitRepo.state,
+        settings: getSettings(),
+        activeDocumentText: textareaEl.value
+      };
+
+      const jsonStr = JSON.stringify(bundle, null, 2);
+      const dateSlug = new Date().toISOString().slice(0, 10);
+      const defaultName = `nysse_session_${dateSlug}.ny`;
+
+      // 1. Попытка использовать File System Access API (выбор папки и имени)
+      if (window.showSaveFilePicker) {
+        try {
+          const handle = await window.showSaveFilePicker({
+            suggestedName: defaultName,
+            types: [{
+              description: 'Архив сессии NySse (*.ny)',
+              accept: { 'application/json': ['.ny'] }
+            }]
+          });
+          const writable = await handle.createWritable();
+          await writable.write(jsonStr);
+          await writable.close();
+          showToast('Архив сессии (.ny) успешно сохранен в выбранную папку');
+          return;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+          console.warn('showSaveFilePicker fallback:', err);
+        }
+      }
+
+      // 2. Fallback: стандартное скачивание браузером
+      const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = defaultName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Архив сессии (.ny) сохранён в загрузки');
+    });
+  }
+
+  // Импорт полного архива сессии из формата .ny
+  const btnImportNy = document.getElementById('btn-import-ny');
+  const nyFileInput = document.getElementById('ny-file-upload-input');
+
+  const processNyImport = (rawText) => {
+    try {
+      const data = JSON.parse(rawText);
+      const repoData = data.repository || (data.projects ? data : null);
+      if (!repoData || !repoData.projects) {
+        alert('Ошибка: Файл не содержит корректных данных сессии или репозитория NySse.');
+        return;
+      }
+
+      if (confirm('Импортировать архив сессии (.ny)? Все текущие проекты, ветки и история будут заменены версиями из архива.')) {
+        gitRepo.restoreArchive(repoData);
+        if (data.settings) {
+          saveSettings(data.settings);
+        }
+        const head = gitRepo.getHeadCommit();
+        textareaEl.value = head ? head.content : (data.activeDocumentText || '');
+        recalculateAll(true);
+        closePopup();
+        showToast('Архив сессии .ny успешно импортирован!');
+      }
+    } catch (err) {
+      console.error('Ошибка импорта .ny:', err);
+      alert('Не удалось прочитать файл архива: ' + err.message);
+    }
+  };
+
+  if (btnImportNy) {
+    btnImportNy.addEventListener('click', async () => {
+      // 1. Попытка использовать File System Access API
+      if (window.showOpenFilePicker) {
+        try {
+          const [handle] = await window.showOpenFilePicker({
+            types: [{
+              description: 'Архив сессии NySse (*.ny)',
+              accept: { 'application/json': ['.ny', '.json'] }
+            }],
+            multiple: false
+          });
+          const file = await handle.getFile();
+          const content = await file.text();
+          processNyImport(content);
+          return;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+          console.warn('showOpenFilePicker fallback:', err);
+        }
+      }
+
+      // 2. Fallback: клик по скрытому input type="file"
+      if (nyFileInput) {
+        nyFileInput.click();
+      }
+    });
+  }
+
+  if (nyFileInput) {
+    nyFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        processNyImport(event.target.result);
+        nyFileInput.value = '';
+      };
+      reader.readAsText(file, 'UTF-8');
+    });
+  }
+
   const btnDemo = document.getElementById('btn-load-demo');
   if (btnDemo) {
     btnDemo.addEventListener('click', () => {

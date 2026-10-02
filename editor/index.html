@@ -61,6 +61,26 @@
 
       <div class="header-divider" aria-hidden="true"></div>
 
+      <!-- Экспорт и импорт полного архива сессии .ny -->
+      <button id="btn-export-ny" class="btn btn-tactical btn-sm" aria-label="Экспортировать архив всей сессии (.ny)" title="Сохранить архив проектов, веток и настроек (.ny) на диск">
+        <svg class="btn-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M2.5 11v3h11v-3"/>
+          <path d="M8 2v7.5M5 6.5l3 3 3-3"/>
+        </svg>
+        <span class="btn-label">Экспорт .ny</span>
+      </button>
+
+      <button id="btn-import-ny" class="btn btn-tactical btn-sm" aria-label="Импортировать архив всей сессии (.ny)" title="Загрузить архив проектов, веток и настроек (.ny) с диска">
+        <svg class="btn-svg" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <path d="M2.5 11v3h11v-3"/>
+          <path d="M8 9.5V2M5 5l3-3 3 3"/>
+        </svg>
+        <span class="btn-label">Импорт .ny</span>
+      </button>
+      <input type="file" id="ny-file-upload-input" accept=".ny,.json" style="display:none;" aria-hidden="true">
+
+      <div class="header-divider" aria-hidden="true"></div>
+
       <button id="btn-theme-toggle" class="btn-icon-btn" aria-label="Сменить тему оформления" title="Сменить тему оформления">
         <span id="theme-icon" class="btn-svg-container" aria-hidden="true"></span>
       </button>

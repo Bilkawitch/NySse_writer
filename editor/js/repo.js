@@ -62,6 +62,15 @@ class GitRepository {
     this.notify();
   }
 
+  // Восстановление состояния из внешнего архива (.ny)
+  restoreArchive(archiveState) {
+    if (!archiveState || !archiveState.projects) {
+      throw new Error('Некорректная структура репозитория в архиве');
+    }
+    this.state = archiveState;
+    this.save();
+  }
+
   // Подписка на изменения
   subscribe(callback) {
     this.subscribers.add(callback);
