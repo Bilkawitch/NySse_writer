@@ -58,5 +58,11 @@
     "seen": 1790967548.0107634,
     "ast_hash": "320efc3109b780e820d3150a6bd286b5",
     "semantic_hash": ""
+  },
+  "DESIGN.md": {
+    "mtime": 1790967641.0163271,
+    "seen": 1790967671.985575,
+    "ast_hash": "55447385f7a22cfbc4461f54745b0c67",
+    "semantic_hash": ""
   }
 }

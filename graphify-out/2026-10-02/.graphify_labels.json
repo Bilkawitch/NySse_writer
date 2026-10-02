@@ -1,12 +1,9 @@
 {
   "0": "parse.js",
-  "1": "settings-modal.js",
-  "2": "settings.js",
+  "1": "settings.js",
+  "2": "Design System: NySse Writer",
   "3": "Product",
   "4": "editor.js",
   "5": "metrics.js",
-  "6": "setupEventListeners",
-  "7": "escapeHtml",
-  "8": "pages.js",
-  "9": "gatherAndSaveSettings"
+  "8": "pages.js"
 }
